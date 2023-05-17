@@ -9,33 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c347f2b7-2851-47a6-a009-062fd8b82a4b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/maven_wrapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/beans/ActivityBean.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ActivityBeanList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ActivitiesServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/activities/Activities.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/activities/ActivityDetail.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/activities/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/res/img/activity1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/res/img/activity2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/res/img/activity3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="c347f2b7-2851-47a6-a009-062fd8b82a4b" name="Changes" comment="progetto di partenza">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/classes/web/esame/gruppo35/HelloServlet.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/web/esame/gruppo35/HelloServlet.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="Activities" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
