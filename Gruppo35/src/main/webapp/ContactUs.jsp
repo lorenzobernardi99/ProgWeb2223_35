@@ -1,15 +1,10 @@
 <%@ page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file="header.jsp"%>
 <!DOCTYPE html>
     <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Contatti</title>
-        </head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <body>
-        <!--TODO:
-                - mancano header e footer
-        -->
         <div>
             <h1>
                I nostri contatti
@@ -74,5 +69,6 @@
             }
         }
     </script>
+        <%@include file="footer.jsp"%>
 
 </html>

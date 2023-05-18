@@ -6,10 +6,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="web.esame.gruppo35.beans.ActivityBean" %>
+<%@ include file="../header.jsp"%>
 <html lang="it">
-<head>
     <meta charset="UTF-8">
-    <title>Attività dell'Associazione</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -66,26 +65,23 @@
             text-decoration: underline;
         }
     </style>
-</head>
-<body>
-<header>
-    <h1>Attività dell'Associazione</h1>
-</header>
-<section>
-    <article>
-        <jsp:useBean id="activityBeanList" class="web.esame.gruppo35.helperClasses.ActivityBeanList" scope="application"/>
-        <% for (ActivityBean ab : activityBeanList) { %>
-        <div>
-            <a href='Activities?id=<%=ab.getId()%>'>
-                <img src="<%=ab.getImagePath()%>" alt="<%=ab.getName()%>">
-            </a>
-            <br>
-            <h2>
-                <a href='Activities?id=<%=ab.getId()%>'><%=ab.getName()%></a>
-            </h2>
-        </div>
-        <% } %>
-    </article>
-</section>
-</body>
+    <body>
+        <section>
+            <article>
+                <jsp:useBean id="activityBeanList" class="web.esame.gruppo35.helperClasses.ActivityBeanList" scope="application"/>
+                <% for (ActivityBean ab : activityBeanList) { %>
+                <div>
+                    <a href='Activities?id=<%=ab.getId()%>'>
+                        <img src="<%=ab.getImagePath()%>" alt="<%=ab.getName()%>">
+                    </a>
+                    <br>
+                    <h2>
+                        <a href='Activities?id=<%=ab.getId()%>'><%=ab.getName()%></a>
+                    </h2>
+                </div>
+                <% } %>
+            </article>
+        </section>
+    </body>
+    <%@ include file="../footer.jsp"%>
 </html>
