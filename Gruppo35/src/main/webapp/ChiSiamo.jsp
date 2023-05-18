@@ -1,6 +1,6 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="footer.html"%>
+<%@ include file="header.html"%>
 <head>
     <link rel="stylesheet" href="CSSsheets/ChiSiamoStyle.css">
     <title>Chi Siamo</title>

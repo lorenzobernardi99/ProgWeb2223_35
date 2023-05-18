@@ -45,4 +45,12 @@
         <url-pattern>/Activities</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>WhoWeAre</servlet-name>
+        <servlet-class>web.esame.gruppo35.WhoWeAre</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WhoWeAre</servlet-name>
+        <url-pattern>/WhoWeAre</url-pattern>
+    </servlet-mapping>
 </web-app>
