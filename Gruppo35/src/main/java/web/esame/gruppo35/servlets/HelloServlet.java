@@ -1,4 +1,4 @@
-package web.esame.gruppo35;
+package web.esame.gruppo35.servlets;
 
 import java.io.*;
 import javax.servlet.http.*;
