@@ -9,36 +9,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="Merge parziale">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/footer.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/style/footStyle.css" afterDir="false" />
+    <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="parte da non loggato v1.0">
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HomePageServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/WhoWeAre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/WhoWeAreServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HelloServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/CSSsheets/ChiSiamoStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/CSSsheets/footStyle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/CSSsheets/headStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/headStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/CSSsheets/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ChiSiamo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ChiSiamo.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ContactUs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ContactUs.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Docs/tum4world.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/res/docs/tum4world.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/EmailSent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/EmailSent.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Images/imgTum.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/res/img/imgTum.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Images/tum4world.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/res/img/tum4world.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Immagini/imgTum.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/activities/Activities.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/activities/Activities.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/activities/ActivityDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/activities/ActivityDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/activities/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/activity.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/footStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/footStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/headStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/headStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -185,7 +185,8 @@
       <updated>1683542979707</updated>
       <workItem from="1683542980851" duration="930000" />
       <workItem from="1683544423764" duration="2506000" />
-      <workItem from="1684404389906" duration="1599000" />
+      <workItem from="1684404389906" duration="3403000" />
+      <workItem from="1684419560191" duration="7969000" />
     </task>
     <task id="LOCAL-00001" summary="progetto di partenza">
       <created>1683543741417</created>
@@ -215,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684404086553</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge finale">
+      <created>1684406255483</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684406255483</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +243,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="progetto di partenza" />
     <MESSAGE value="Merge parziale" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge parziale" />
+    <MESSAGE value="Merge finale" />
+    <MESSAGE value="parte da non loggato v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="parte da non loggato v1.0" />
   </component>
 </project>

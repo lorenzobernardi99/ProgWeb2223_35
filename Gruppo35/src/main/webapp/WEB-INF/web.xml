@@ -35,7 +35,6 @@
         <servlet-name>EmailSent</servlet-name>
         <url-pattern>/EmailSent</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>Activities</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.ActivitiesServlet</servlet-class>
@@ -44,7 +43,6 @@
         <servlet-name>Activities</servlet-name>
         <url-pattern>/Activities</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>WhoWeAre</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.WhoWeAreServlet</servlet-class>
@@ -52,5 +50,13 @@
     <servlet-mapping>
         <servlet-name>WhoWeAre</servlet-name>
         <url-pattern>/WhoWeAre</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.HomePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/Homepage</url-pattern>
     </servlet-mapping>
 </web-app>

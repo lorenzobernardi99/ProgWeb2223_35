@@ -1,27 +1,25 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-<!DOCTYPE html>
-<html>
-    <link rel="stylesheet" href="style/ChiSiamoStyle.css">
-    <body>
-        <script>
-            function fc(x){
-                const element=x;
+<link rel="stylesheet" href="style/ChiSiamoStyle.css">
+<body>
+    <script>
+        function fc(x){
+            const element=x;
 
-                switch(element.id){
-                    case 'li0': document.getElementById("argomento").innerText="Descrizione"; break;
-                    case 'li1':document.getElementById("argomento").innerText="fondazione";break;
-                    case 'li2':document.getElementById("argomento").innerText="Storia";break;
-                    case 'li3': document.getElementById("argomento").innerText="Sedi"; break;
-                    case 'li4':document.getElementById("argomento").innerText="Riconoscimenti"; break;
-                    case 'li5':document.getElementById("argomento").innerText="Investimenti";
-                }
-                document.getElementsByClassName("rettangolo focus")[0].className="rettangolo";
-                element.className="rettangolo focus";
+            switch(element.id){
+                case 'li0': document.getElementById("argomento").innerText="Descrizione"; break;
+                case 'li1':document.getElementById("argomento").innerText="fondazione";break;
+                case 'li2':document.getElementById("argomento").innerText="Storia";break;
+                case 'li3': document.getElementById("argomento").innerText="Sedi"; break;
+                case 'li4':document.getElementById("argomento").innerText="Riconoscimenti"; break;
+                case 'li5':document.getElementById("argomento").innerText="Investimenti";
             }
+            document.getElementsByClassName("rettangolo focus")[0].className="rettangolo";
+            element.className="rettangolo focus";
+        }
 
-        </script>
+    </script>
+    <div id="container">
         <div id="titoli">
             <ul>
                 <li><span class="rettangolo focus" id="li0" onmouseover="fc(this)">&#128311 Descrizione </span></li>
@@ -32,10 +30,8 @@
                 <li><span class="rettangolo" id="li5" onmouseover="fc(this)">&#128311 Investimenti</span></li>
             </ul>
         </div>
-
         <div id="argomento">
             Descrizione
         </div>
-    </body>
-    <%@ include file="footer.jsp"%>
-</html>
+    </div>
+<%@ include file="footer.jsp"%>

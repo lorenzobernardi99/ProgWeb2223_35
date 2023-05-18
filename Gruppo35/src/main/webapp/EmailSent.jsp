@@ -1,14 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-<!DOCTYPE html>
-<html>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <body>
+<body>
     <div>
       <p>
         <%=application.getAttribute("sendingConfirmed")%>
       </p>
     </div>
-  </body>
-  <%@include file="footer.jsp"%>
-</html>
+<%@include file="footer.jsp"%>

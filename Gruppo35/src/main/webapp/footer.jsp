@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="style/footStyle.css">
-    <meta charset="UTF-8">
-</head>
-<body>
-<div>
-
-</div>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+        <footer>
+            <div class="footer-content">
+                <p class="address">
+                    <%=application.getAttribute("organizationName") %><br>
+                    <%=application.getAttribute("road") %>, <%= application.getAttribute("postalCode") %><br>
+                    <%=application.getAttribute("city") %>, <%= application.getAttribute("country") %>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

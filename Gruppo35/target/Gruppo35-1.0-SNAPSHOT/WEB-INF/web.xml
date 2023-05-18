@@ -3,4 +3,60 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <listener>
+        <listener-class>web.esame.gruppo35.helperClasses.ServletContextInitializer</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>home.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>ContactUs</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.ContactUsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ValidateContactForm</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.ValidateContactFormServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmailSent</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.EmailSentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ContactUs</servlet-name>
+        <url-pattern>/ContactUs</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ValidateContactForm</servlet-name>
+        <url-pattern>/ValidateContactForm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmailSent</servlet-name>
+        <url-pattern>/EmailSent</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Activities</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.ActivitiesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Activities</servlet-name>
+        <url-pattern>/Activities</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>WhoWeAre</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.WhoWeAreServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WhoWeAre</servlet-name>
+        <url-pattern>/WhoWeAre</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.HomePageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomePage</servlet-name>
+        <url-pattern>/Homepage</url-pattern>
+    </servlet-mapping>
 </web-app>
