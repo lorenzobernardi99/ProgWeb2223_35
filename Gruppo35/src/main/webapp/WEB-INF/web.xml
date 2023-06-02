@@ -77,4 +77,12 @@
         <servlet-name>HomePage</servlet-name>
         <url-pattern>/Homepage</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SignIn</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SignInServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SignIn</servlet-name>
+        <url-pattern>/SignIn</url-pattern>
+    </servlet-mapping>
 </web-app>
