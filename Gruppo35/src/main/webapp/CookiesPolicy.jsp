@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<% String URL=String.valueOf(request.getRequestURL());%>
+<% String URL=String.valueOf(request.getAttribute("URL"));%>
 <div id="banner">
     <p class="text" onfocus="funzione()">
         Questo sito fa utilizzo di cookie di navigazione per migliorare la fruibilità da parte del navigatore.

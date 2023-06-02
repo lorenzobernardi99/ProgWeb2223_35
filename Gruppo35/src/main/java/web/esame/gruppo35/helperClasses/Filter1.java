@@ -5,7 +5,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import java.io.IOException;
 import java.text.Normalizer;
 import java.util.regex.Matcher;
@@ -13,7 +12,6 @@ import java.util.regex.Pattern;
 
 @WebFilter(filterName = "Filter1")
 public class Filter1 implements Filter{
-    int counter=0;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
@@ -24,6 +22,7 @@ public class Filter1 implements Filter{
         HttpServletResponse response = (HttpServletResponse) resp;
         String CookieUser="false";
         Cookie [] cookies=request.getCookies();
+        HttpSession sessione=request.getSession(false);
         String FormAccept= request.getParameter("FormAccept");
         String URL= request.getRequestURI();
 
@@ -36,13 +35,12 @@ public class Filter1 implements Filter{
             }
         }
 
-        HttpSession sessione=request.getSession(false);
 
         if(sessione==null){
             sessione=request.getSession(true);
         }
 
-        if(sessione.isNew()){
+        if(sessione.isNew()){//Verifica che il browser accetti i cookies
             Cookie test=new Cookie("Test","val");
             test.setMaxAge(4);
             response.addCookie(test);
@@ -76,8 +74,8 @@ public class Filter1 implements Filter{
                         }
                     }
                 }else{
-                    request.setAttribute("Links","true");
-                    request.getRequestDispatcher("CookiesPolicy.jsp").include(request,response);
+                    request.setAttribute("Links","Requested");
+                    request.setAttribute("URL",URL);
                 }
             }
             chain.doFilter(req,resp);
