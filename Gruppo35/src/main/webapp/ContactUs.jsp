@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <%@ page import="java.util.List" %>
-<body>
     <div>
         <h1>
            I nostri contatti

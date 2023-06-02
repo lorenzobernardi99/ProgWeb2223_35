@@ -10,23 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="parte da non loggato v1.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HomePageServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/beans/UserBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ValidateLoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SQL/dbUtility.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SQL/export.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ChiSiamo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ChiSiamo.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ContactUs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ContactUs.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/EmailSent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/EmailSent.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/activities/Activities.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/activities/Activities.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/activities/ActivityDetail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/activities/ActivityDetail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/home.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/footStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/footStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/headStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/headStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,12 +34,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
