@@ -1,0 +1,38 @@
+
+#banner{
+    width:500px;
+    padding:30px;
+    height:800px;
+    background-color:#252527;
+    position: fixed;
+    bottom:0;
+    right:0;
+}
+.text{
+    color:white;
+    font-size:15px;
+    margin:10px;
+}
+.but{
+    padding: 10px 25px 10px 25px;
+    color:white;
+    margin:15px;
+    font-weight: 700;
+    font-size: 14px;
+    border: 2px solid white;
+}
+.accept{
+    background-color:white;
+    color:black;
+}
+.refuse{
+    background-color:#252527;
+}
+.opacityChange{
+    width:max-content;
+    height: max-content;
+    opacity: 0.5;
+    color: black;
+}
+
+
