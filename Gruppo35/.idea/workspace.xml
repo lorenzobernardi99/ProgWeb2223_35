@@ -9,26 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="parte da non loggato v1.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/Filter1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/CookiesPolicy.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Text/InformazioniPolicy" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/style/CookiesPolicy.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/ProgWeb2223_35.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/ProgWeb2223_35.iml" afterDir="false" />
+    <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="Gestione filtri e sessioni">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ActivitiesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ActivitiesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ContactUsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ContactUsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HomePageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HomePageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/WhoWeAreServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/WhoWeAreServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/ChiSiamo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ChiSiamo.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/activities/Activities.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/activities/Activities.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Text/InformazioniPolicy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/CookiesPolicy.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/CookiesPolicy.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Develop" />
+        <entry key="$PROJECT_DIR$/.." value="CookiesAndSession" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -228,7 +215,7 @@
       <workItem from="1685619383651" duration="597000" />
       <workItem from="1685628560282" duration="7122000" />
       <workItem from="1685638078054" duration="12759000" />
-      <workItem from="1685698739164" duration="11371000" />
+      <workItem from="1685698739164" duration="14566000" />
     </task>
     <task id="LOCAL-00001" summary="progetto di partenza">
       <created>1683543741417</created>
@@ -265,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684406255483</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Gestione filtri e sessioni">
+      <created>1685716892861</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685716892861</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +298,7 @@
     <MESSAGE value="Merge parziale" />
     <MESSAGE value="Merge finale" />
     <MESSAGE value="parte da non loggato v1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="parte da non loggato v1.0" />
+    <MESSAGE value="Gestione filtri e sessioni" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestione filtri e sessioni" />
   </component>
 </project>

@@ -2,7 +2,7 @@
 #banner{
     width:500px;
     padding:30px;
-    height:800px;
+    height:170px;
     background-color:#252527;
     position: fixed;
     bottom:0;
@@ -27,12 +27,6 @@
 }
 .refuse{
     background-color:#252527;
-}
-.opacityChange{
-    width:max-content;
-    height: max-content;
-    opacity: 0.5;
-    color: black;
 }
 
 

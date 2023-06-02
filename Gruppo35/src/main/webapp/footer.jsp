@@ -16,7 +16,6 @@
                 }
             </script>
             <div class="footer-content">
-                <%=session.getId()%>
                 <p class="address">
                     <%=application.getAttribute("organizationName") %><br>
                     <%=application.getAttribute("road") %>, <%= application.getAttribute("postalCode") %><br>
