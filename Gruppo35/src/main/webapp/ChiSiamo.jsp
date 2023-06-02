@@ -5,7 +5,6 @@
     <script>
         function fc(x){
             const element=x;
-
             switch(element.id){
                 case 'li0': document.getElementById("argomento").innerText="Descrizione"; break;
                 case 'li1':document.getElementById("argomento").innerText="fondazione";break;

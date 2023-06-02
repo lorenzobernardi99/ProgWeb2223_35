@@ -42,9 +42,7 @@ public class ActivitiesServlet extends HttpServlet {
         } else { //either null or activityID > numberOfActivities
             dispatcher = request.getRequestDispatcher("/activities/Activities.jsp");
         }
-
-        dispatcher.forward(request, response);
-
+        dispatcher.include(request, response);
     }
 
     public void destroy() {

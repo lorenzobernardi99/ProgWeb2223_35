@@ -18,13 +18,18 @@
       <change afterPath="$PROJECT_DIR$/../SQL/dbUtility.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../SQL/export.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="Gestione filtri e sessioni">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/ContactUs.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ContactUs.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Text/InformazioniPolicy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/footer.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/ChiSiamoStyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/style/CookiesPolicy.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/style/CookiesPolicy.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,15 +40,26 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
+        <option value="CSS File" />
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="CookiesAndSession" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JspContextManager">
+    <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/header.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/EmailSent.jsp" />
+    <jsp-to-context jsp-file="file://$PROJECT_DIR$/src/main/webapp/footer.jsp" context-file="file://$PROJECT_DIR$/src/main/webapp/ContactUs.jsp" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -69,7 +85,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/emiliano/Scrivania/ProgrammazioneWeb/ProgettoEsame&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/IdeaProjects/ProgWeb2223_35/Gruppo35&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -77,8 +94,14 @@
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.27816093&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;derby&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -89,7 +112,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.58 (Ubuntu)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.58 (Ubuntu)" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="Tomcat 9.0.58 (Ubuntu)" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.79" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
       <deployment>
         <artifact name="Gruppo35:war exploded">
           <settings>
@@ -189,6 +213,27 @@
       <workItem from="1683544423764" duration="2506000" />
       <workItem from="1684404389906" duration="3403000" />
       <workItem from="1684419560191" duration="7969000" />
+      <workItem from="1684939567613" duration="361000" />
+      <workItem from="1684944083744" duration="5000" />
+      <workItem from="1684944102792" duration="5000" />
+      <workItem from="1684953385024" duration="1818000" />
+      <workItem from="1685002678949" duration="1136000" />
+      <workItem from="1685033685675" duration="841000" />
+      <workItem from="1685091076051" duration="2940000" />
+      <workItem from="1685099289198" duration="1332000" />
+      <workItem from="1685176776692" duration="4892000" />
+      <workItem from="1685194391383" duration="3199000" />
+      <workItem from="1685276653328" duration="19837000" />
+      <workItem from="1685357934477" duration="967000" />
+      <workItem from="1685434476905" duration="12637000" />
+      <workItem from="1685452270647" duration="18264000" />
+      <workItem from="1685527880073" duration="20560000" />
+      <workItem from="1685558878612" duration="684000" />
+      <workItem from="1685602215362" duration="12552000" />
+      <workItem from="1685619383651" duration="597000" />
+      <workItem from="1685628560282" duration="7122000" />
+      <workItem from="1685638078054" duration="12759000" />
+      <workItem from="1685698739164" duration="14566000" />
     </task>
     <task id="LOCAL-00001" summary="progetto di partenza">
       <created>1683543741417</created>
@@ -225,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684406255483</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Gestione filtri e sessioni">
+      <created>1685716892861</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685716892861</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +288,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="Try" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -247,6 +316,7 @@
     <MESSAGE value="Merge parziale" />
     <MESSAGE value="Merge finale" />
     <MESSAGE value="parte da non loggato v1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="parte da non loggato v1.0" />
+    <MESSAGE value="Gestione filtri e sessioni" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gestione filtri e sessioni" />
   </component>
 </project>

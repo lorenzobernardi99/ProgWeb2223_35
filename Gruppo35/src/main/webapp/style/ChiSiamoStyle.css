@@ -1,6 +1,10 @@
 *{
     box-sizing:border-box;
 }
+#banner{
+    width:560px;
+    height:230px;
+}
 .rettangolo{
     cursor:pointer;
     padding: 5px;

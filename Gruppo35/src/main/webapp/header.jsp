@@ -25,3 +25,21 @@
                 </div>
             </nav>
         </header>
+            <%
+        HttpSession sessione=request.getSession(false);
+      String req=(String) request.getAttribute("URLRewrite");
+        if(req=="True"){%>
+        <script>
+            var elements=document.getElementsByClassName("nav-link");
+            var n=elements.length;
+            for(let i=0; i<n;i++){
+                var hrefP=elements.item(i).getAttribute("href");
+                var newHref=hrefP+";jsessionid=<%=sessione.getId()%>";
+                elements.item(i).setAttribute("href",newHref);
+            }
+            elements=document.getElementsByClassName("logo-link");
+            var hrefP=elements.item(0).getAttribute("href");
+            var newHref=hrefP+";jsessionid=<%=sessione.getId()%>";
+            elements.item(0).setAttribute("href",newHref);
+        </script>
+<%}%>
