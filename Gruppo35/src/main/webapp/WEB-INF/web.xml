@@ -48,6 +48,10 @@
         <servlet-name>ValidateLogin</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.ValidateLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignIn</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SignInServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
@@ -68,6 +72,10 @@
     <servlet-mapping>
         <servlet-name>ValidateLogin</servlet-name>
         <url-pattern>/validateLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignIn</servlet-name>
+        <url-pattern>/SignIn</url-pattern>
     </servlet-mapping>
 
     <servlet>

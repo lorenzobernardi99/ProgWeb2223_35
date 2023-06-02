@@ -21,7 +21,7 @@ public class ContactUsServlet extends HttpServlet {
             request.setAttribute("message", "");
         }
         RequestDispatcher rd=request.getRequestDispatcher("ContactUs.jsp");
-        rd.forward(request, response);
+        rd.include(request, response);
     }
 
     @Override
