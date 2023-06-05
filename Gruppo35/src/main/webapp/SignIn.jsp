@@ -6,7 +6,7 @@
 <div id="signInContainer">
   <h1>Registrazione</h1>
   <i id="errorText"></i>
-  <form id="signInForm" method="post" action="SignIn" onsubmit="return validateData()">
+  <form id="signInForm" action="SignIn" method="post" onsubmit="return validateData()">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" placeholder="Mario">
 
@@ -32,7 +32,7 @@
     </div>
 
     <label for="role">Ruolo:</label>
-    <select id="role" name="role">
+    <select id="role" name="role" onchange="checkRole(this)">
       <option value="seleziona" selected>Seleziona un ruolo</option>
       <option value="simpatizzante">Simpatizzante</option>
       <option value="aderente">Aderente</option>
@@ -75,7 +75,7 @@
       <b style="cursor: pointer; text-decoration: underline">Termini e Privacy</b>
     </p>
 
-    <input type="submit" value="Registrati">
+    <input type="submit" id="submitButton" value="Registrati">
     <input type="reset" value="Reset">
   </form>
 </div>

@@ -44,8 +44,6 @@ function validateData() {
     booleanArray[6] = checkUsername(username);
     booleanArray[7] = checkPassword(password, confirmPassword);
 
-    console.log(booleanArray[2]);
-
     if (booleanArray.every((value) => value)) {
         error = false;
         return true;
@@ -136,7 +134,8 @@ function checkPhone(input) {
 
 function checkRole(input) {
     let role = input.value;
-    if(role == null || role === "seleziona") {
+    console.log(role);
+    if(role == null || role === "seleziona" || isEmpty(role)) {
         input.classList.add("error");
         return false;
     }else {
@@ -250,9 +249,53 @@ document.querySelectorAll('.toggle-password').forEach(function(element) {
     });
 });
 
+function checkInput(inputName, input) {
+    switch (inputName) {
+        case 'name': {
+            isInputNotEmpty(input);
+            break;
+        }
+        case 'surname': {
+            isInputNotEmpty(input);
+            break;
+        }
+        case 'birth': {
+            checkAge(input);
+            break;
+        }
+        case 'email': {
+            checkEmail(input);
+            break;
+        }
+        case 'phone': {
+            checkPhone(input);
+            break;
+        }
+        case 'role': {
+            checkRole(input);
+            break;
+        }
+        case 'username': {
+            checkUsername(input);
+            break;
+        }
+        case 'password': {
+            checkPassword(input, document.getElementById("confirmPassword"));
+            break;
+        }
+        case 'confirmPassword': {
+            checkPassword(document.getElementById("password"), input);
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 document.querySelectorAll('input').forEach(function(element) {
     element.addEventListener('focusout', function() {
-        validateData();
+        let inputName = this.name; // Ottieni il nome dell'input corrente
+        checkInput(inputName, element); // Chiama la funzione di check relativa all'input
     });
 });
 
