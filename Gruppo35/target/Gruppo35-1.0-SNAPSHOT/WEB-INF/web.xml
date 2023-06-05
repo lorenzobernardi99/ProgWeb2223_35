@@ -15,14 +15,20 @@
         <url-pattern>/WhoWeAre</url-pattern>
         <url-pattern>/Activities</url-pattern>
         <url-pattern>/ContactUs</url-pattern>
+        <url-pattern>/Login</url-pattern>
+        <url-pattern>/SignIn</url-pattern>
     </filter-mapping>
 
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>1</session-timeout>
     </session-config>
 
     <listener>
         <listener-class>web.esame.gruppo35.helperClasses.ServletContextInitializer</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>web.esame.gruppo35.helperClasses.SessionListener</listener-class>
     </listener>
 
     <welcome-file-list>
@@ -52,6 +58,10 @@
         <servlet-name>SignIn</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.SignInServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.LogoutServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
@@ -76,6 +86,10 @@
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
         <url-pattern>/SignIn</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
 
     <servlet>

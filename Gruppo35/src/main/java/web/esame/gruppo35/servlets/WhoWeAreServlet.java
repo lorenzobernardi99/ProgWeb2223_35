@@ -20,6 +20,6 @@ public class WhoWeAreServlet extends HttpServlet{
 
     protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher= request.getRequestDispatcher("ChiSiamo.jsp");
-        dispatcher.include(request, response);
+        dispatcher.forward(request, response);
     }
 }

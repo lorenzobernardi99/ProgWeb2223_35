@@ -20,8 +20,19 @@
                     <a href="ContactUs" class="nav-link">Contatti</a>
                 </div>
                 <div class="user-links">
-                    <a href="SignIn" class="nav-link">Sign in</a>
-                    <a href="Login" class="nav-link">Login</a>
+                    <% String username = (String) session.getAttribute("username");
+                        String signin = "";
+                        String login = "";
+                        String logout = "";
+                        if (username == null) {
+                            signin = "<a href='SignIn' class='nav-link'>Sign in</a>";
+                            login = "<a href='Login' class='nav-link'>Login</a>";
+                        }
+                        else
+                            logout = "<a href='Logout' class='nav-link'>Logout</a>";%>
+                    <%= signin%>
+                    <%= login%>
+                    <%= logout%>
                 </div>
             </nav>
         </header>

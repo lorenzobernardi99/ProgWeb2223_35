@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class SignInServlet extends HttpServlet {
     @Override
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/SignIn.jsp").forward(request, response);
     }
 

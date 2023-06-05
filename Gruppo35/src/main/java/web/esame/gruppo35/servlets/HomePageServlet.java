@@ -24,6 +24,6 @@ public class HomePageServlet extends HttpServlet {
 
     protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher= request.getRequestDispatcher("home.jsp");
-        dispatcher.include(request, response);
+        dispatcher.forward(request, response);
     }
 }
