@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <footer>
-            <% String links = (String) request.getAttribute("Links");
-                if(links=="Requested"){%>
+            <% String links= (String) request.getAttribute("Links");
+            if(links=="Requested"){%>
             <script>
                 let elements = document.getElementsByClassName("ActivitiesLink");
                 let i;
