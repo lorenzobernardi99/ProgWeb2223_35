@@ -1,9 +1,9 @@
 package web.esame.gruppo35.helperClasses;
 
 public enum UserRole {
-    ADMIN("Amministratore"),
-    MEMBER("Membro"),
-    SUPPORTER("Simpatizzante");
+    AMMINISTRATORE("Amministratore"),
+    ADERENTE("Aderente"),
+    SIMPATIZZANTE("Simpatizzante");
 
     private final String displayName;
 

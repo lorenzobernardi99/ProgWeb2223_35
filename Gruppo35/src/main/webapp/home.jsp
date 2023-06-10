@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
-<body>
   <div class="top-image">
     <div class="top-text">
       <h1><%=application.getAttribute("organizationName") %> Association</h1>

@@ -60,7 +60,7 @@ public class Filter1 implements Filter{
                     if (FormAccept.equals("true")) {
                         //Accetti i cookie
                         Cookie User = new Cookie("User", "Accepted");
-                        User.setMaxAge(10);
+                        User.setMaxAge(1800);
                         response.addCookie(User);
                     } else if (FormAccept.equals("false")) {
                         //Non accetti i cookie

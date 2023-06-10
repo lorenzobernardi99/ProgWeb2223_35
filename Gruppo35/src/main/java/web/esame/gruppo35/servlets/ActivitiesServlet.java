@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
+
 //@WebServlet(name = "activitiesServlet", value = "/activities-servlet")
 public class ActivitiesServlet extends HttpServlet {
     private int numberOfActivities;
@@ -26,6 +28,14 @@ public class ActivitiesServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // Counter for page views
+        Map<String, Integer> views = (Map<String, Integer>) servletContext.getAttribute("views");
+        int newTotal = views.get("total") + 1;
+        int newActivities = views.get("activities") + 1;
+        views.replace("total", newTotal);
+        views.replace("activities", newActivities);
+        servletContext.setAttribute("views", views);
+
         response.setContentType("text/html");
 
         // check if there is a parameter for activity details

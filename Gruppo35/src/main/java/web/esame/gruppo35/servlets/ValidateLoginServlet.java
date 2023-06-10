@@ -4,7 +4,6 @@ import web.esame.gruppo35.beans.UserBean;
 import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
 import web.esame.gruppo35.helperClasses.UserRole;
 
-import javax.security.enterprise.credential.Password;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -13,10 +12,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.Objects;
 
 @WebServlet(name = "ValidateLoginServlet", value = "/ValidateLogin")
 public class ValidateLoginServlet extends HttpServlet {
@@ -65,10 +60,10 @@ public class ValidateLoginServlet extends HttpServlet {
             session.setAttribute("username", username);
             switch (retrievedUser.getRole()) {
                 // TODO: da modificare con le diverse pagine dei diversi profili
-                case ADMIN -> response.sendRedirect("Homepage");
-                case MEMBER -> response.sendRedirect("ContactUs");
-                case SUPPORTER -> response.sendRedirect("SignIn");
-            };
+                case AMMINISTRATORE -> response.sendRedirect("Homepage");
+                case ADERENTE -> response.sendRedirect("ContactUs");
+                case SIMPATIZZANTE -> response.sendRedirect("SignIn");
+            }
         }
     }
 

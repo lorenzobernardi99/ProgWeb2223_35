@@ -62,6 +62,26 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.AdminDashboardServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetUsers</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.GetUsersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetViews</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.GetViewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetViews</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.ResetViewsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetDonations</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.GetDonationsServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
@@ -90,6 +110,26 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/Admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetUsers</servlet-name>
+        <url-pattern>/GetUsers</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetViews</servlet-name>
+        <url-pattern>/GetViews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetViews</servlet-name>
+        <url-pattern>/ResetViews</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetDonations</servlet-name>
+        <url-pattern>/GetDonations</url-pattern>
     </servlet-mapping>
 
     <servlet>

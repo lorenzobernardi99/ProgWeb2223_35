@@ -5,9 +5,7 @@ import web.esame.gruppo35.beans.ActivityBean;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class ServletContextInitializer implements ServletContextListener {
     String[] activity1 = {
@@ -55,6 +53,9 @@ public class ServletContextInitializer implements ServletContextListener {
     String reason2 = "Informazioni";
     String reason3 = "Altro";
     String[] reasons = {reason1, reason2, reason3};
+    Map<String, Integer> views = new LinkedHashMap<>();
+
+
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
@@ -68,9 +69,16 @@ public class ServletContextInitializer implements ServletContextListener {
         activityBeanList.add(activityBeans[0]);
         activityBeanList.add(activityBeans[1]);
         activityBeanList.add(activityBeans[2]);
-        context.setAttribute("activityBeanList", activityBeanList);
-
         List<String> reasonList = new LinkedList<>(Arrays.asList(reasons));
+        views.put("total", 0);
+        views.put("homepage", 0);
+        views.put("whoWeAre", 0);
+        views.put("activities", 0);
+        views.put("contactUs", 0);
+        views.put("signIn", 0);
+        views.put("login", 0);
+
+        context.setAttribute("activityBeanList", activityBeanList);
         context.setAttribute("reasons", reasonList);
         context.setAttribute("country", country);
         context.setAttribute("organizationName", organizationName);
@@ -81,6 +89,7 @@ public class ServletContextInitializer implements ServletContextListener {
         context.setAttribute("addressCoordinates", addressCoordinates);
         context.setAttribute("telephone", telephone);
         context.setAttribute("sendingConfirmed", sendingConfirmed);
+        context.setAttribute("views", views);
 
     }
 }
