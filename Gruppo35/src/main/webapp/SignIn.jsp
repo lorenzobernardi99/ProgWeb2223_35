@@ -1,12 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/style/signInStyle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <body>
 <div id="signInContainer">
   <h1>Registrazione</h1>
-  <i id="errorText"></i>
-  <form id="signInForm" method="post" action="SignIn" onsubmit="return validateData()">
+  <i id="errorText" class="error-message">
+    <%= (request.getAttribute("errorMessage") == null) ? "" : request.getAttribute("errorMessage") %>
+  </i>
+  <form id="signInForm" action="SignInValidation" method="post" onsubmit="return validateData()">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" placeholder="Mario">
 
@@ -27,19 +28,19 @@
 
     <label for="phone">Numero di telefono:</label>
     <div class="phone-input-container">
-      <input type="tel" id="prefix" oninput="formatPrefix(this)" value="+39">
+      <input type="tel" id="prefix" name="prefix" oninput="formatPrefix(this)" value="+39">
       <input type="tel" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="222-333-4444">
     </div>
 
     <label for="role">Ruolo:</label>
-    <select id="role" name="role">
+    <select id="role" name="role" onchange="checkRole(this)">
       <option value="seleziona" selected>Seleziona un ruolo</option>
       <option value="simpatizzante">Simpatizzante</option>
       <option value="aderente">Aderente</option>
     </select>
 
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" placeholder="es: mariorossi0" autocomplete="new-username">
+    <input type="text" id="username" name="username" placeholder="es: mariorossi0" autocomplete="new-username" oninput="checkUsername(this)">
 
     <label for="password">Password:</label>
     <div class="password-input">
@@ -61,7 +62,7 @@
 
     <label for="confirmPassword">Conferma password:</label>
     <div class="password-input">
-      <input type="password" id="confirmPassword" maxlength="8" autocomplete="new-password">
+      <input type="password" id="confirmPassword" name="confirmPassword" maxlength="8" autocomplete="new-password">
       <span id="togglePassword2" data-target="confirmPassword" class="toggle-password fas fa-eye"></span>
     </div>
 
@@ -75,7 +76,7 @@
       <b style="cursor: pointer; text-decoration: underline">Termini e Privacy</b>
     </p>
 
-    <input type="submit" value="Registrati">
+    <input type="submit" id="submitButton" value="Registrati">
     <input type="reset" value="Reset">
   </form>
 </div>
