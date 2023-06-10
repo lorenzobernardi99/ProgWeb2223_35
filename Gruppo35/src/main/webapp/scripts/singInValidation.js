@@ -146,8 +146,49 @@ function checkRole(input) {
 }
 
 // to be replaced with AJAX/AJAJ validation
-function checkUsername(input) {
-    return isInputNotEmpty(input)
+
+function processStatus(response) {
+    let ok = 200;
+    if (response.status === ok) {
+        return Promise.resolve(response);
+    } else {
+        return Promise.reject(response.status);
+    }
+}
+
+async function checkUsername(input) {
+    const username = input.value;
+
+    if (isInputNotEmpty(input)) {
+        try {
+            const response = await fetch("SignInValidation", {
+                method: "POST",
+                body: JSON.stringify({ username }),
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Request-Type": "usernameValidation",
+                },
+            });
+
+            const processedResponse = await processStatus(response);
+
+            if (processedResponse.redirected) {
+                // Handle the redirect to the error page
+                // Show an error message to the user or perform other actions
+                return false;
+            }
+
+            const result = await processedResponse.json();
+            const { exists } = result;
+
+            input.classList.toggle("error", exists);
+            return !exists;
+
+        } catch (error) {
+            // Handle network errors or other exceptions
+            console.error("An error occurred:", error);
+        }
+    }
 }
 
 function checkPassword(password, confirmPassword) {

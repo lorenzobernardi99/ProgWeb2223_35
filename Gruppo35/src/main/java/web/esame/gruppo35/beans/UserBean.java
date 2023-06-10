@@ -1,11 +1,10 @@
 package web.esame.gruppo35.beans;
 
 import web.esame.gruppo35.helperClasses.UserRole;
-
+import java.io.Serializable;
 import java.util.Date;
 
-public class UserBean {
-    private int id;
+public class UserBean implements Serializable {
     private String name;
     private String surname;
     private Date birthDate;
@@ -15,19 +14,17 @@ public class UserBean {
     private String username;
     private String password;
 
-    public UserBean(int id, String name, String surname, Date birthDate, String emailAddress, UserRole role, String username, String password) {
-        this.id = id;
+    public UserBean(){};
+
+    public UserBean(String name, String surname, Date birthDate, String emailAddress, String telephoneNumber, UserRole role, String username, String password) {
         this.name = name;
         this.surname = surname;
         this.birthDate = birthDate;
         this.emailAddress = emailAddress;
+        this.telephoneNumber = telephoneNumber;
         this.role = role;
         this.username = username;
         this.password = password;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {
@@ -44,6 +41,10 @@ public class UserBean {
 
     public String getEmailAddress() {
         return emailAddress;
+    }
+
+    public String getTelephoneNumber() {
+        return telephoneNumber;
     }
 
     public UserRole getRole() {
@@ -72,6 +73,10 @@ public class UserBean {
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
+    }
+
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
     }
 
     public void setRole(UserRole role) {

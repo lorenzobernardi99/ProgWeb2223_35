@@ -51,6 +51,7 @@ public class ServletContextInitializer implements ServletContextListener {
     String addressCoordinates = "46.06691501129916, 11.150292307115517";
     String telephone = "0461281567";
     String sendingConfirmed = "Grazie per averci contattato! Abbiamo ricevuto il tuo messaggio e ti risponderemo al più presto.";
+    String registrationDone = "Grazie per esserti registrato! Abbiamo ricevuto i tuoi dati correttamente e ora potrai accedere al portale con le tue credenziali.";
     String reason1 = "Donazione";
     String reason2 = "Informazioni";
     String reason3 = "Altro";
@@ -81,6 +82,7 @@ public class ServletContextInitializer implements ServletContextListener {
         context.setAttribute("addressCoordinates", addressCoordinates);
         context.setAttribute("telephone", telephone);
         context.setAttribute("sendingConfirmed", sendingConfirmed);
+        context.setAttribute("registrationDone", registrationDone);
 
     }
 }

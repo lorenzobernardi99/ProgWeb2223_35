@@ -6,7 +6,7 @@
 <div id="signInContainer">
   <h1>Registrazione</h1>
   <i id="errorText"></i>
-  <form id="signInForm" action="SignIn" method="post" onsubmit="return validateData()">
+  <form id="signInForm" action="SignInValidation" method="post" onsubmit="return validateData()">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" placeholder="Mario">
 
@@ -27,7 +27,7 @@
 
     <label for="phone">Numero di telefono:</label>
     <div class="phone-input-container">
-      <input type="tel" id="prefix" oninput="formatPrefix(this)" value="+39">
+      <input type="tel" id="prefix" name="prefix" oninput="formatPrefix(this)" value="+39">
       <input type="tel" id="phone" name="phone" oninput="formatPhoneNumber(this)" placeholder="222-333-4444">
     </div>
 
@@ -39,7 +39,7 @@
     </select>
 
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" placeholder="es: mariorossi0" autocomplete="new-username">
+    <input type="text" id="username" name="username" placeholder="es: mariorossi0" autocomplete="new-username" oninput="checkUsername(this)">
 
     <label for="password">Password:</label>
     <div class="password-input">
@@ -61,7 +61,7 @@
 
     <label for="confirmPassword">Conferma password:</label>
     <div class="password-input">
-      <input type="password" id="confirmPassword" maxlength="8" autocomplete="new-password">
+      <input type="password" id="confirmPassword" name="confirmPassword" maxlength="8" autocomplete="new-password">
       <span id="togglePassword2" data-target="confirmPassword" class="toggle-password fas fa-eye"></span>
     </div>
 
