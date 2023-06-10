@@ -1,11 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/style/signInStyle.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <body>
 <div id="signInContainer">
   <h1>Registrazione</h1>
-  <i id="errorText"></i>
+  <i id="errorText" class="error-message">
+    <%= (request.getAttribute("errorMessage") == null) ? "" : request.getAttribute("errorMessage") %>
+  </i>
   <form id="signInForm" action="SignInValidation" method="post" onsubmit="return validateData()">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" placeholder="Mario">

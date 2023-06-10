@@ -12,7 +12,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
-import java.util.spi.AbstractResourceBundleProvider;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -36,13 +35,10 @@ public class SignInValidationServlet extends HttpServlet {
     }
 
     protected boolean checkUsername(String username) throws SQLException {
-
-
         String query = "SELECT USERNAME FROM USERS WHERE USERNAME = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, username);
         ResultSet result = statement.executeQuery();
-
         return result.next();
     }
 
@@ -81,11 +77,11 @@ public class SignInValidationServlet extends HttpServlet {
 
                 } catch (IOException ex) {
                     System.out.println(ex);
-                    response.sendRedirect("error.html");
+                    response.sendRedirect("error.jsp");
                 }
         } catch (SQLException | NullPointerException ex) {
             System.out.println(ex);
-            response.sendRedirect("error.html");
+            response.sendRedirect("error.jsp");
         }
     }
 
@@ -113,9 +109,7 @@ public class SignInValidationServlet extends HttpServlet {
                 LocalDate birthDate = LocalDate.parse(_birth);
                 LocalDate currentDate = LocalDate.now();
                 Period age = Period.between(birthDate, currentDate);
-
                 int years = age.getYears();
-
                 return years >= 18;
             };
             // check email lambda function
@@ -135,7 +129,6 @@ public class SignInValidationServlet extends HttpServlet {
             };
             // check role lambda function
             Predicate<String> checkRole = (_role) -> _role.equalsIgnoreCase("simpatizzante") || _role.equalsIgnoreCase("aderente");
-
             // check password lambda function
             BiPredicate<String, String> checkPassword = (_password, _confirmPassword) -> {
                 String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[jelm])(?=.*[$!?\\w]).{8}$";
@@ -156,13 +149,11 @@ public class SignInValidationServlet extends HttpServlet {
 
             boolean isValid = true;
             for (boolean value : booleanArray) {
-                System.out.println(value);
                 if (!value) {
                     isValid = false;
                     break;
                 }
             }
-            System.out.println(isValid);
 
             if (isValid) {
                 try {
@@ -185,26 +176,29 @@ public class SignInValidationServlet extends HttpServlet {
 
                     int rowsInserted = statement.executeUpdate();
                     if (rowsInserted > 0) {
+                        System.out.println("Insertion completed: " + rowsInserted + " rows affected");
                         response.sendRedirect("/RegistrationDone.jsp");
                     } else {
                         System.out.println("Errore di inserimento dati nel database");
-                        response.sendRedirect("error.html");
+                        response.sendRedirect("error.jsp");
                     }
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
+                } catch (SQLException ex) {
+                    System.out.println(ex);
                 }
             } else {
-                System.out.println("Parametri non validi");
-                response.sendRedirect("error.html");
+                if (!booleanArray[6]){
+                        request.setAttribute("errorMessage", "35: Username '" + username + "' già in uso!");
+                        request.getRequestDispatcher("/SignIn").forward(request, response);
+                }else {
+                    System.out.println("Parametri non validi");
+                    response.sendRedirect("error.jsp");
+                }
             }
-        } catch (NullPointerException ex) {
+        } catch (NullPointerException | ServletException | SQLException ex) {
             System.out.println(ex);
-            response.sendRedirect("error.html");
-        } catch (SQLException ex) {
-            System.out.println(ex);
+            response.sendRedirect("error.jsp");
         }
     }
-
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -214,8 +208,6 @@ public class SignInValidationServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestType = request.getHeader("X-Request-Type");
-
-        System.out.println("POST!!!!");
 
         if ("usernameValidation".equals(requestType)) {
             // handle asynchronous request for username validation coming from javascript

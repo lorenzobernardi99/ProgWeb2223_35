@@ -175,6 +175,7 @@ async function checkUsername(input) {
             if (processedResponse.redirected) {
                 // Handle the redirect to the error page
                 // Show an error message to the user or perform other actions
+                console.log("Redirect error")
                 return false;
             }
 
@@ -182,13 +183,18 @@ async function checkUsername(input) {
             const { exists } = result;
 
             input.classList.toggle("error", exists);
-            return !exists;
+            //return !exists;
+            // return always true to allow the user to submit even if username already exists
+            // so the check only performs empty check and indicates if the username is already taken
+            return true;
 
         } catch (error) {
             // Handle network errors or other exceptions
             console.error("An error occurred:", error);
         }
     }
+    input.classList.toggle("error", true);
+    return false;
 }
 
 function checkPassword(password, confirmPassword) {
@@ -337,7 +343,7 @@ document.querySelectorAll('input').forEach(function(element) {
     element.addEventListener('focusout', function() {
         let inputName = this.name; // Ottieni il nome dell'input corrente
         checkInput(inputName, element); // Chiama la funzione di check relativa all'input
-    });
+    })
 });
 
 document.getElementById("generatePassword").addEventListener('click', function() {
