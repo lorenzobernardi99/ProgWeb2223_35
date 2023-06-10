@@ -58,6 +58,7 @@ public class ValidateLoginServlet extends HttpServlet {
             rd.forward(request, response);
         } else {
             session.setAttribute("username", username);
+            session.setAttribute("role", retrievedUser.getRole());
             switch (retrievedUser.getRole()) {
                 // TODO: da modificare con le diverse pagine dei diversi profili
                 case AMMINISTRATORE -> response.sendRedirect("Homepage");

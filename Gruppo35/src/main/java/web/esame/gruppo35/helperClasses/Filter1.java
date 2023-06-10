@@ -80,10 +80,6 @@ public class Filter1 implements Filter{
             }
             chain.doFilter(req,resp);
         }
-
-
-
-
     }
 
     @Override
