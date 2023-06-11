@@ -1,32 +1,45 @@
 
 #banner{
-    width:500px;
-    padding:30px;
-    height:170px;
+    width:25vw;
+    padding:1vw;
+    height:13vw;
     background-color:#252527;
     position: fixed;
     bottom:0;
     right:0;
+    z-index: 1;
 }
 .text{
     color:white;
-    font-size:15px;
-    margin:10px;
+    font-size:1vw;
+    margin:0.5vw;
+}
+.policy-form{
+    display: flex;
 }
 .but{
-    padding: 10px 25px 10px 25px;
+    width: 50%;
+    padding: 0.5vw 0.7vw 0.5vw 0.7vw;
     color:white;
-    margin:15px;
+    margin:0.6vw;
     font-weight: 700;
-    font-size: 14px;
-    border: 2px solid white;
+    font-size: 1vw;
+    border: 0.2vw solid white;
+    cursor: pointer;
+    transition-duration: 250ms;
+}
+.but:hover{
+    color: white;
+    background-color: #00589c;
 }
 .accept{
     background-color:white;
     color:black;
+    float: left;
 }
 .refuse{
     background-color:#252527;
+    float: right;
 }
 
 

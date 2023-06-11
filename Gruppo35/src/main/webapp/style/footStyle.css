@@ -1,15 +1,16 @@
 footer {
-    background-color: #f2f2f2;
-    padding: 20px;
+    margin-top: auto;
+    background-color: #b3e6fc;
+    padding: 2vw;
     text-align: center;
 }
 
 .footer-content {
-    max-width: 800px;
+    max-width: 80vw;
     margin: 0 auto;
 }
 
 .address {
-    font-size: 14px;
+    font-size: 1.5vw;
     color: #666;
 }

@@ -34,7 +34,7 @@ public class HomePageServlet extends HttpServlet {
         views.replace("homepage", newHomepage);
         context.setAttribute("views", views);
 
-        RequestDispatcher dispatcher= request.getRequestDispatcher("home.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("homepage.jsp");
         dispatcher.forward(request, response);
     }
 }

@@ -1,0 +1,70 @@
+.content-container{
+    position: relative;
+    width: 100%;
+    height: min-content;
+    background: url(/res/img/Tum4World.jpg);
+    background-size: cover;
+}
+
+#caption{
+    font-size: 1vw;
+    padding: 1vw;
+}
+
+#caption a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.content-opacity{
+    background-color: #FFFFFF80;
+}
+
+.logo{
+    width: 50%;
+    height: min-content;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.logo img{
+    width: 100%;
+    height: inherit;
+}
+
+.description{
+    width: 85%;
+    height: min-content;
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 1.5vw;
+    padding: 5%;
+}
+
+.download-brochure-container{
+    width: 100%;
+    height: min-content;
+    position: relative;
+    color: white;
+    background-color: #0077be;
+    text-align: center;
+    font-size: 1.5vw;
+    padding-top: 1%;
+    padding-bottom: 3%;
+}
+
+#downloadButton{
+    color: #0077be;
+    background-color: white;
+    border: 0.2vw white solid;
+    padding: 1%;
+    font-size: 1.5vw;
+    cursor: pointer;
+    transition-duration: 250ms;
+}
+
+#downloadButton:hover{
+    color: white;
+    background-color: #00589c;
+}
