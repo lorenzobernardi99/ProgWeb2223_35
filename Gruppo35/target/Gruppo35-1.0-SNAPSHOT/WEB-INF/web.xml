@@ -168,4 +168,30 @@
         <servlet-name>HomePage</servlet-name>
         <url-pattern>/Homepage</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Simpatizzante</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.Simpatizzante</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Simpatizzante</servlet-name>
+        <url-pattern>/Simpatizzante</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetData</servlet-name>
+        <servlet-class>web.esame.gruppo35.helperClasses.GetDataSimpatizzante</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetData</servlet-name>
+        <url-pattern>/GetData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteAccount</servlet-name>
+        <servlet-class>web.esame.gruppo35.helperClasses.deleteAccount</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteAccount</servlet-name>
+        <url-pattern>/deleteAccount</url-pattern>
+    </servlet-mapping>
 </web-app>

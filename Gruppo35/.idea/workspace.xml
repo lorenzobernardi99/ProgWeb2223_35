@@ -10,17 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="Fix CSS">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/GetDataSimpatizzante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/deleteAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/Simpatizzante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/simpatizzante.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/simpatizzante.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/style/simpatizzanteStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/Filter1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/Filter1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ActivitiesServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ActivitiesServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ContactUsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ContactUsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HomePageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/HomePageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/WhoWeAreServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/WhoWeAreServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/CookiesPolicy.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/CookiesPolicy.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ValidateLoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ValidateLoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,25 +32,33 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Jsp File" />
-        <option value="CSS File" />
         <option value="Jsp File" />
         <option value="Class" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Login" />
-      </map>
-    </option>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$/.." value="CookiesAndSession" />
+        <entry key="$PROJECT_DIR$/.." value="Esempio" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="2ee858f1-cc4d-4253-9070-59bedefc31a0" />
+        <option name="url" value="https://github.com/lorenzobernardi99/ProgWeb2223_35.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/ServletContextInitializer.java" root0="FORCE_HIGHLIGHTING" />
@@ -83,13 +91,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/IdeaProjects/ProgWeb2223_35/Gruppo35&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matte/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.27816093&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
@@ -232,6 +241,9 @@
       <workItem from="1685628560282" duration="7122000" />
       <workItem from="1685638078054" duration="12759000" />
       <workItem from="1685698739164" duration="14566000" />
+      <workItem from="1686410055401" duration="93000" />
+      <workItem from="1686413714145" duration="13139000" />
+      <workItem from="1686469086281" duration="7588000" />
     </task>
     <task id="LOCAL-00001" summary="progetto di partenza">
       <created>1683543741417</created>
@@ -297,7 +309,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Try" />
+                        <option value="CookiesAndSession" />
                       </list>
                     </value>
                   </entry>

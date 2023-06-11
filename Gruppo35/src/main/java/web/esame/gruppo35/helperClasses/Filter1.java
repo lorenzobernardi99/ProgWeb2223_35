@@ -6,9 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.Normalizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebFilter(filterName = "Filter1")
 public class Filter1 implements Filter{
@@ -60,7 +57,7 @@ public class Filter1 implements Filter{
                     if (FormAccept.equals("true")) {
                         //Accetti i cookie
                         Cookie User = new Cookie("User", "Accepted");
-                        User.setMaxAge(1800);
+                        User.setMaxAge(30*60);
                         response.addCookie(User);
                     } else if (FormAccept.equals("false")) {
                         //Non accetti i cookie
