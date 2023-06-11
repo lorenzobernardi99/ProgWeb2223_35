@@ -66,12 +66,6 @@
       <span id="togglePassword2" data-target="confirmPassword" class="toggle-password fas fa-eye"></span>
     </div>
 
-    <label for="rememberMe">
-      <input type="checkbox" id="rememberMe" name="rememberMe" checked>
-      Remember me
-    </label>
-
-
     <p>Creando un account accetti i nostri
       <b style="cursor: pointer; text-decoration: underline">Termini e Privacy</b>
     </p>

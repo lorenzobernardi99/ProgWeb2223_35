@@ -19,15 +19,16 @@ public class ValidateLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+
         if (session.getAttribute("username")!=null) {
             //già autenticato
             RequestDispatcher rd=request.getRequestDispatcher("Login");
             rd.forward(request, response);
         }
 
-        Connection connection = null;
-        Statement stmt = null;
-        ResultSet result = null;
+        Connection connection;
+        Statement stmt;
+        ResultSet result;
         UserBean retrievedUser = new UserBean();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
