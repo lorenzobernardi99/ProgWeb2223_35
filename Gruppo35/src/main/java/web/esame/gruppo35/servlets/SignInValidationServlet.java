@@ -150,12 +150,18 @@ public class SignInValidationServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            // redirect to SignIn
+            response.sendRedirect("SignIn");
+        } catch (NullPointerException | IOException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         String requestType = request.getHeader("X-Request-Type");
 
@@ -168,7 +174,7 @@ public class SignInValidationServlet extends HttpServlet {
                 // handle sign in submitted form through validation, registration and redirect
                 processRequest(request, response);
             }
-        } catch (ClassNotFoundException | NullPointerException | SQLException | IOException | IllegalArgumentException e) {
+        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException | IOException | IllegalArgumentException e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp");
         }

@@ -1,23 +1,40 @@
 package web.esame.gruppo35.servlets;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "LogoutServlet", value = "/LogoutServlet")
 public class LogoutServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // effettua il log out invalidando la sessione
-        HttpSession session = request.getSession();
+
+    HttpSession session = null;
+
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        // log out through session invalidating
+        session = request.getSession();
         session.invalidate();
-        RequestDispatcher rd = request.getRequestDispatcher("Homepage");
-        rd.forward(request, response);
+        response.sendRedirect("Homepage");
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (NullPointerException | IOException | ServletException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (NullPointerException | IOException | ServletException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
     }
 }

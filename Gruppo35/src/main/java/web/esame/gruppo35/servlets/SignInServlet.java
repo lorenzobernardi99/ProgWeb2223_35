@@ -1,5 +1,6 @@
 package web.esame.gruppo35.servlets;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,8 +11,7 @@ import java.util.Map;
 
 public class SignInServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext context = getServletContext();
         // Counter for page views
         Map<String, Integer> views = (Map<String, Integer>) context.getAttribute("views");
@@ -22,11 +22,16 @@ public class SignInServlet extends HttpServlet {
         context.setAttribute("views", views);
 
         // simply provide the jsp page
-        request.getRequestDispatcher("/SignIn.jsp").forward(request, response);
+        request.getRequestDispatcher("signIn.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws ServletException, IOException {
+        processData(request,response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+        processData(request,response);
     }
 }

@@ -4,53 +4,53 @@ import web.esame.gruppo35.beans.UserBean;
 import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
 import web.esame.gruppo35.helperClasses.UserRole;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-@WebServlet(name = "ValidateLoginServlet", value = "/ValidateLogin")
 public class ValidateLoginServlet extends HttpServlet {
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
+    Connection connection = null;
+    HttpSession session = null;
 
-        if (session.getAttribute("username")!=null) {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
+
+        if (session.getAttribute("role")!=null) {
             //già autenticato
             RequestDispatcher rd=request.getRequestDispatcher("Login");
             rd.forward(request, response);
         }
 
-        Connection connection;
-        Statement stmt;
+        PreparedStatement stmt;
         ResultSet result;
         UserBean retrievedUser = new UserBean();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        try {
-            connection = DatabaseSessionManager.getConnection(session);
-            String query = "SELECT * FROM USERS WHERE username = '" + username + "' AND password = '" + password +"'";
-            stmt = connection.createStatement();
-            result = stmt.executeQuery(query);
-            if (result.next()) {
-                retrievedUser.setName(result.getString("name"));
-                retrievedUser.setSurname(result.getString("surname"));
-                retrievedUser.setBirthDate(result.getDate("birth_date"));
-                retrievedUser.setEmailAddress(result.getString("email_address"));
-                retrievedUser.setTelephoneNumber(result.getString("telephone_number"));
-                retrievedUser.setRole(UserRole.values()[result.getInt("role")]);
-                retrievedUser.setUsername(result.getString("username"));
-                retrievedUser.setPassword(result.getString("password"));
-            }
-        } catch (ClassNotFoundException | NullPointerException | SQLException e) {
-            e.printStackTrace();
-            //response.sendRedirect("Error.html");
+        connection = DatabaseSessionManager.getConnection(session);
+        String query = "SELECT * FROM USERS WHERE username = ? AND password = ?";
+        stmt = connection.prepareStatement(query);
+        stmt.setString(1, username);
+        stmt.setString(2, password);
+
+        result = stmt.executeQuery();
+        if (result.next()) {
+            retrievedUser.setName(result.getString("name"));
+            retrievedUser.setSurname(result.getString("surname"));
+            retrievedUser.setBirthDate(result.getDate("birth_date"));
+            retrievedUser.setEmailAddress(result.getString("email_address"));
+            retrievedUser.setTelephoneNumber(result.getString("telephone_number"));
+            retrievedUser.setRole(UserRole.values()[result.getInt("role")]);
+            retrievedUser.setUsername(result.getString("username"));
+            retrievedUser.setPassword(result.getString("password"));
         }
 
         if (retrievedUser.getRole() == null){
@@ -62,7 +62,7 @@ public class ValidateLoginServlet extends HttpServlet {
             session.setAttribute("role", retrievedUser.getRole());
             switch (retrievedUser.getRole()) {
                 // TODO: da modificare con le diverse pagine dei diversi profili
-                case AMMINISTRATORE -> response.sendRedirect("Homepage");
+                case AMMINISTRATORE -> response.sendRedirect("Admin");
                 case ADERENTE -> response.sendRedirect("ContactUs");
                 case SIMPATIZZANTE -> response.sendRedirect("SignIn");
             }
@@ -71,7 +71,24 @@ public class ValidateLoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // redirect to Login
-        response.sendRedirect("Login");
+        try {
+            // redirect to Login
+            response.sendRedirect("Login");
+        } catch (NullPointerException | IOException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            session = request.getSession();
+            connection = DatabaseSessionManager.getConnection(session);
+            processData(request,response);
+        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException | IOException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
     }
 }
