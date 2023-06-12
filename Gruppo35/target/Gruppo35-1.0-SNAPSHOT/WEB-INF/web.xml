@@ -28,7 +28,6 @@
         <url-pattern>/ContactUs</url-pattern>
         <url-pattern>/Login</url-pattern>
         <url-pattern>/SignIn</url-pattern>
-        <url-pattern>/Admin</url-pattern>
     </filter-mapping>
 
     <session-config>
@@ -185,21 +184,30 @@
         <url-pattern>/Homepage</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Simpatizzante</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.Simpatizzante</servlet-class>
+        <servlet-name>Sympathizer</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SympathizerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Simpatizzante</servlet-name>
-        <url-pattern>/Simpatizzante</url-pattern>
+        <servlet-name>Sympathizer</servlet-name>
+        <url-pattern>/Sympathizer</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>GetData</servlet-name>
-        <servlet-class>web.esame.gruppo35.helperClasses.GetDataSimpatizzante</servlet-class>
+        <servlet-name>GetUserData</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.GetUserDataServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>GetData</servlet-name>
-        <url-pattern>/GetData</url-pattern>
+        <servlet-name>GetUserData</servlet-name>
+        <url-pattern>/GetUserData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserActivitiesSubscription</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.UserActivitiesSubscriptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserActivitiesSubscription</servlet-name>
+        <url-pattern>/UserActivitiesSubscription</url-pattern>
     </servlet-mapping>
 
     <servlet>

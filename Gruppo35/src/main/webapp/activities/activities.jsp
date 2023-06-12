@@ -16,7 +16,7 @@
         %>
         <div class="ActivitiesLink">
             <a href="Activities<%=linkParam%><%=ab.getId()%>">
-                <img src="<%=ab.getImagePath()%>" alt="<%=ab.getName()%>">
+                <img src="<%=application.getAttribute("activitiesImagePath")%><%=ab.getImagePath()%>" alt="<%=ab.getName()%>">
             </a>
             <br>
             <h2>

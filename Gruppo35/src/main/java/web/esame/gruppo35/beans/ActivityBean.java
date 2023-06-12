@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class ActivityBean implements Serializable {
 
+    private static int serial=0;
     private int id;
     private String name;
     private String description;
@@ -13,6 +14,7 @@ public class ActivityBean implements Serializable {
     public ActivityBean(){}
 
     public ActivityBean(String name, String description, String imagePath) {
+        this.id = ++ActivityBean.serial;
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
