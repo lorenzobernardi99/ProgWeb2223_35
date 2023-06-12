@@ -10,14 +10,12 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-.textLogo{
-    font-size: 30px !important;
-}
 .img{
-    max-width:10%;
-    border:1px solid red;
-    margin-right: 2%;
+    max-width:25%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 header {
     background-color: #0077be;
     color: white;
@@ -27,31 +25,63 @@ header {
 
 nav {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin: 0;
 }
 
-.logo-link {
+#menu{
     display: flex;
-    flex-grow: 1;
-    align-items: center;
-    align-content: center;
 }
 
 .nav-links {
-    flex-grow: 4;
-    align-items: center;
+    width: 45vw;
+    float: left;
 }
 
 .user-links {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
+    width: 45vw;
+    float: left;
 }
 
-.nav-link, .logo-link, .user-links {
-    margin: 0 10px;
+.nav-links, .nav-link, .user-links, #loggedUser {
+    padding: 0.5vw;
+}
+
+.nav-link{
+    background-color: white;
+    text-decoration: none;
+    color: #0077be;
+    border: 1px white solid;
+    transition-duration: 250ms;
+    cursor: pointer;
+}
+.nav-link:hover{
+    background-color: #0077be;
     text-decoration: none;
     color: white;
+}
+
+#loggedUser{
+    background-color: #0077be;
+    color: white;
+    border: none;
+}
+
+#motivations{
+    margin-top: 20px;
+    width: 100%;
+    background-color: #00589c;
+    color: white;
+    font-size: 2vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#phrase{
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
 }

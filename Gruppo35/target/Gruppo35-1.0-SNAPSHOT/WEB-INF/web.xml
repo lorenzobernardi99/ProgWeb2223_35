@@ -55,10 +55,6 @@
         <servlet-class>web.esame.gruppo35.servlets.ValidateContactFormServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>EmailSent</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.EmailSentServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.LoginServlet</servlet-class>
     </servlet>
@@ -98,6 +94,10 @@
         <servlet-name>GetDonations</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.GetDonationsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetMotivations</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.GetMotivationsServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
@@ -108,16 +108,12 @@
         <url-pattern>/ValidateContactForm</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>EmailSent</servlet-name>
-        <url-pattern>/EmailSent</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ValidateLogin</servlet-name>
-        <url-pattern>/validateLogin</url-pattern>
+        <url-pattern>/ValidateLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SignIn</servlet-name>
@@ -150,6 +146,10 @@
     <servlet-mapping>
         <servlet-name>GetDonations</servlet-name>
         <url-pattern>/GetDonations</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetMotivations</servlet-name>
+        <url-pattern>/GetMotivations</url-pattern>
     </servlet-mapping>
 
     <servlet>

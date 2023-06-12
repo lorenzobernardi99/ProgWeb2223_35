@@ -12,8 +12,6 @@
                 for(i = 0; i<elements.length; i++){
                     elements.item(i).removeAttribute("href");
                 }
-                elements=document.getElementsByClassName("logo-link");
-                elements.item(0).removeAttribute("href");
             </script>
             <%request.getRequestDispatcher("/CookiesPolicy.jsp").include(request,response);}%>
             <div class="footer-content">

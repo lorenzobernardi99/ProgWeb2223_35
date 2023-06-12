@@ -55,6 +55,7 @@ public class ServletContextInitializer implements ServletContextListener {
     String reason3 = "Altro";
     String[] reasons = {reason1, reason2, reason3};
     Map<String, Integer> views = new LinkedHashMap<>();
+    List<String> motivations = new LinkedList<>();
     String activities_description = "L'Associazione Tum4World è un'organizzazione dedicata alla riduzione della fame nel mondo." +
             "Attraverso una serie di attività, l'associazione si impegna a combattere l'insicurezza alimentare e a garantire che ogni individuo abbia accesso a cibo nutriente e sufficiente." +
             "Lavoriamo per sensibilizzare l'opinione pubblica, implementare progetti di sviluppo alimentare e fornire assistenza in situazioni di emergenza." +
@@ -95,6 +96,11 @@ public class ServletContextInitializer implements ServletContextListener {
         views.put("contactUs", 0);
         views.put("signIn", 0);
         views.put("login", 0);
+        motivations.add("\"Il segreto del successo è nel volerlo abbastanza forte.\" - Albert Einstein");
+        motivations.add("\"Ogni giorno è un'opportunità per essere una versione migliore di te stesso.\"");
+        motivations.add("\"Non importa quante volte cadi, ma quante volte ti rialzi.\"");
+        motivations.add("\"Le sfide sono ciò che rendono la vita interessante; superarle è ciò che la rende significativa.\" - Joshua J. Marine");
+        motivations.add("\"Il successo non è la chiave della felicità. La felicità è la chiave del successo. Se ami ciò che fai, avrai successo.\" - Albert Schweitzer");
 
         context.setAttribute("activityBeanList", activityBeanList);
         context.setAttribute("reasons", reasonList);
@@ -116,5 +122,6 @@ public class ServletContextInitializer implements ServletContextListener {
         context.setAttribute("locations", locations);
         context.setAttribute("accolades", accolades);
         context.setAttribute("investments", investments);
+        context.setAttribute("motivations", motivations);
     }
 }
