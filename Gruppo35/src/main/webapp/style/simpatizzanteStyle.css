@@ -61,3 +61,27 @@ td{
     padding: 15px 32px;
     display: inline-block;
 }
+#activities img, #activities p, #activities span{
+    height: 10vh;
+    width: 33%;
+    object-fit: cover;
+    margin: auto;
+}
+#activities{
+    text-align: center;
+    overflow: hidden;
+}
+#activities div {
+    margin-top: auto;
+    border: 1px solid #000000;
+    background-color: #005b96;
+    color: white;
+    display: flex;
+}
+.activity{
+    transition-duration: 250ms;
+}
+.activity:hover{
+    cursor: pointer;
+    opacity: 0.75;
+}

@@ -10,30 +10,20 @@
 <section>
     <article>
         <jsp:useBean id="activityBeanList" class="web.esame.gruppo35.helperClasses.ActivityBeanList" scope="application"/>
-        <% for (ActivityBean ab : activityBeanList) {
-            if(req=="True"){
+        <%
+            String linkParam = (urlRewrite) ? ";jsessionid=" + sessione.getId() + "?id=" : "?id=";
+            for (ActivityBean ab : activityBeanList) {
         %>
         <div class="ActivitiesLink">
-            <a href='Activities;jsessionid=<%=sessione.getId()%>?id=<%=ab.getId()%>'>
+            <a href="Activities<%=linkParam%><%=ab.getId()%>">
                 <img src="<%=ab.getImagePath()%>" alt="<%=ab.getName()%>">
             </a>
             <br>
             <h2>
-                <a href='Activities;jsessionid=<%=sessione.getId()%>?id=<%=ab.getId()%>'><%=ab.getName()%></a>
+                <a href="Activities<%=linkParam%><%=ab.getId()%>"</a>
             </h2>
         </div>
-        <%}else{%>
-        <div class="ActivitiesLink">
-            <a href='Activities?id=<%=ab.getId()%>'>
-                <img src="<%=ab.getImagePath()%>" alt="<%=ab.getName()%>">
-            </a>
-            <br>
-            <h2>
-                <a href='Activities?id=<%=ab.getId()%>'><%=ab.getName()%></a>
-            </h2>
-        </div>
-           <%}
-        }%>
+        <%}%>
     </article>
 </section>
 <div id="credits">

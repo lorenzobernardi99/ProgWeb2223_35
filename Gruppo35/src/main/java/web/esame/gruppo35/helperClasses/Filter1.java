@@ -20,8 +20,8 @@ public class Filter1 implements Filter{
         String CookieUser="false";
         Cookie [] cookies=request.getCookies();
         HttpSession sessione=request.getSession(false);
-        String FormAccept= request.getParameter("FormAccept");
-        String URL= request.getRequestURI();
+        String FormAccept = request.getParameter("FormAccept");
+        String URL = request.getRequestURI();
 
         if(cookies!=null){
             for(Cookie c:cookies){
@@ -48,7 +48,7 @@ public class Filter1 implements Filter{
             response.sendRedirect(URL);
         }else if(cookies==null || URL.contains("jsession")){
             //Non Utilizzi i cookie
-            request.setAttribute("URLRewrite","True");
+            request.setAttribute("URLRewrite",true);
             URL=URL+";jsessionid="+sessione.getId();
             request.getRequestDispatcher(URL).forward(request,response);
         }else{
@@ -66,13 +66,13 @@ public class Filter1 implements Filter{
                             if (name.equals("User") || name.equals("JSESSIONID")) {
                                 c.setMaxAge(0);
                                 response.addCookie(c);
-                                request.setAttribute("URLRewrite", "True");
+                                request.setAttribute("URLRewrite", true);
                             }
                         }
                     }
                 }else{
-                    request.setAttribute("Links","Requested");
-                    request.setAttribute("URL",URL);
+                    request.setAttribute("URL", URL);
+                    request.setAttribute("showBanner", true);
                 }
             }
             chain.doFilter(req,resp);

@@ -1,19 +1,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <footer>
-            <% String links= (String) request.getAttribute("Links");
-            if(links=="Requested"){%>
+            <% boolean showBanner = request.getAttribute("showBanner") != null;%>
             <script>
-                let elements = document.getElementsByClassName("ActivitiesLink");
-                let i;
-                for(i = 0; i<elements.length; i++){
-                    elements.item(i).removeAttribute("href");
+                // Seleziona tutti gli elementi <a> con attributo href
+                const links = document.querySelectorAll('a[href]');
+
+                // Disabilita gli attributi href dei link
+                function disableLinkHrefs() {
+                    links.forEach(link => {
+                        link.dataset.href = link.getAttribute('href'); // Salva l'attributo href nei dati personalizzati
+                        link.removeAttribute('href'); // Rimuove l'attributo href
+                    });
                 }
-                elements = document.getElementsByClassName("nav-link");
-                for(i = 0; i<elements.length; i++){
-                    elements.item(i).removeAttribute("href");
+
+                // Riabilita gli attributi href dei link
+                function enableLinkHrefs() {
+                    links.forEach(link => {
+                        const href = link.dataset.href; // Recupera l'attributo href dai dati personalizzati
+                        link.setAttribute('href', href); // Ripristina l'attributo href
+                        link.removeAttribute('data-href'); // Rimuove il dato personalizzato
+                    });
                 }
+                <%= showBanner ? "disableLinkHrefs();" : "" %>
             </script>
-            <%request.getRequestDispatcher("/CookiesPolicy.jsp").include(request,response);}%>
+            <% if(showBanner) request.getRequestDispatcher("/CookiesPolicy.jsp").include(request,response);%>
             <div class="footer-content">
                 <p class="address">
                     <%=application.getAttribute("organizationName") %><br>

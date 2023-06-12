@@ -1,4 +1,5 @@
 <%@ page import="web.esame.gruppo35.helperClasses.UserRole" %>
+<%@ page import="java.util.Objects" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="it">
@@ -12,6 +13,9 @@
         <title><%=application.getAttribute("organizationName") %></title>
     </head>
     <body>
+        <% HttpSession sessione = request.getSession(false);
+        boolean urlRewrite = request.getAttribute("URLRewrite") != null;
+        String newHref = (urlRewrite) ? ";jsessionid=" + sessione.getId() : ""; %>
         <header>
             <nav>
                 <a href="Homepage">
@@ -19,10 +23,10 @@
                 </a>
                 <div id="menu">
                     <div class="nav-links">
-                        <a href="Homepage" class="nav-link">Home Page</a>
-                        <a href="WhoWeAre" class="nav-link">Chi siamo</a>
-                        <a href="Activities" class="nav-link">Attività</a>
-                        <a href="ContactUs" class="nav-link">Contatti</a>
+                        <a href="Homepage<%=newHref%>" class="nav-link">Home Page</a>
+                        <a href="WhoWeAre<%=newHref%>" class="nav-link">Chi siamo</a>
+                        <a href="Activities<%=newHref%>" class="nav-link">Attività</a>
+                        <a href="ContactUs<%=newHref%>" class="nav-link">Contatti</a>
                     </div>
                     <div class="user-links">
                         <% String username = (String) session.getAttribute("username");
@@ -33,25 +37,25 @@
                             String usernameBox = "";
                             String logout = "";
                             if (username == null) {
-                                signin = "<a href='SignIn' class='nav-link'>Sign in</a>";
-                                login = "<a href='Login' class='nav-link'>Login</a>";
+                                signin = "<a href='SignIn" + newHref + "' class='nav-link'>Sign in</a>";
+                                login = "<a href='Login" + newHref + "' class='nav-link'>Login</a>";
                             }
                             else{
                                 switch (role) {
                                     case AMMINISTRATORE:
-                                        dashboard = "<a href='Admin' class='nav-link'>Dashboard</a>";
+                                        dashboard = "<a href='Admin" + newHref + "' class='nav-link'>Dashboard</a>";
                                         break;
                                     case ADERENTE:
-                                        dashboard = "<a href='ContactUs' class='nav-link'>Dashboard</a>";
+                                        dashboard = "<a href='ContactUs" + newHref + "' class='nav-link'>Dashboard</a>";
                                         break;
                                     case SIMPATIZZANTE:
-                                        dashboard = "<a href='SignIn' class='nav-link'>Dashboard</a>";
+                                        dashboard = "<a href='SignIn" + newHref + "' class='nav-link'>Dashboard</a>";
                                         break;
                                     default:
                                         throw new IllegalArgumentException();
                                 }
                                 usernameBox = "<a id='loggedUser'>" + username + "</a>";
-                                logout = "<a href='Logout' class='nav-link'>Logout</a>";
+                                logout = "<a href='Logout" + newHref + "' class='nav-link'>Logout</a>";
 
                             }%>
                         <%= signin%>
