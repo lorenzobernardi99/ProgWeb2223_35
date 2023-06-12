@@ -80,17 +80,11 @@ function checkAge(birth) {
     let selectedDate = new Date(birth.value);
     let currentDate = new Date();
 
-    console.log(selectedDate);
-    console.log(currentDate);
-
     if(!isInputNotEmpty(birth))
         return false;
 
     // Calculate age difference in years
     let ageDiff = currentDate.getFullYear() - selectedDate.getFullYear();
-
-    console.log(ageDiff);
-    console.log("-------------------------------------------------------");
 
     // Check if the selected date makes the person underage
     if (ageDiff < 18) {
@@ -134,7 +128,6 @@ function checkPhone(input) {
 
 function checkRole(input) {
     let role = input.value;
-    console.log(role);
     if(role == null || role === "seleziona" || isEmpty(role)) {
         input.classList.add("error");
         return false;

@@ -3,36 +3,33 @@ package web.esame.gruppo35.beans;
 import java.io.Serializable;
 
 public class ActivityBean implements Serializable {
-    private static int serial=0;
-    private final String id;
+
+    private int id;
     private String name;
     private String description;
     private String imagePath;
+    private boolean subscribed;
 
-    public ActivityBean(){this.id = String.valueOf((++ActivityBean.serial));};
+    public ActivityBean(){}
 
-    public ActivityBean(int id, String name, String description, String imagePath) {
-        this.id = String.valueOf((++ActivityBean.serial));
+    public ActivityBean(String name, String description, String imagePath) {
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setId(int id) {
+        this.id = id;
     }
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setSubscribed(boolean subscribed) {
+        this.subscribed = subscribed;
     }
-    public void setDescription(String description) {
-        this.description = description;
+    public boolean isSubscribed() {
+        return subscribed;
     }
-    public String getId() {
+    public int getId() {
         return id;
     }
-
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
     public String getDescription() {
         return description;
     }

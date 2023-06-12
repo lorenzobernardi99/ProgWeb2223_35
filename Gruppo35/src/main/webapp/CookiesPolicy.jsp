@@ -1,14 +1,8 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <link rel="stylesheet" href="style/CookiesPolicy.css">
-</head>
-<body>
-
+<link rel="stylesheet" href="style/CookiesPolicy.css">
 <% String URL=String.valueOf(request.getAttribute("URL"));%>
 <div id="banner">
-    <p class="text" onfocus="funzione()">
+    <p class="text">
         Questo sito fa utilizzo di cookie di navigazione per migliorare la fruibilità da parte del navigatore.
         Puoi liberamente rifiutare o revocare il tuo consenso in qualsiasi momento,
         personalizzando le tue preferenze. Cliccando sul pulsante "Acconsento ai cookies"
@@ -17,9 +11,7 @@
         privacy.
     </p>
     <form>
-        <button type="submit" name="FormAccept" value="false" formaction='<%= URL %>' class="but refuse"> Rifiuto</button>
-        <button type="submit" name="FormAccept" value="true" formaction='<%= URL %>' class="but accept"> Acconsento ai cookies</button>
+        <button type="submit" formaction="<%= URL %>" name="FormAccept" value="false" class="but refuse" onclick="document.body.classList.remove('disabled')"> Rifiuto </button>
+        <button type="submit" formaction="<%= URL %>" name="FormAccept" value="true" class="but accept" onclick="document.body.classList.remove('disabled')"> Acconsento ai cookies </button>
     </form>
 </div>
-</body>
-</html>

@@ -39,6 +39,7 @@ public class ValidateLoginServlet extends HttpServlet {
             stmt = connection.createStatement();
             result = stmt.executeQuery(query);
             if (result.next()) {
+                retrievedUser.setId(result.getInt("id"));
                 retrievedUser.setName(result.getString("name"));
                 retrievedUser.setSurname(result.getString("surname"));
                 retrievedUser.setBirthDate(result.getDate("birth_date"));
@@ -60,6 +61,7 @@ public class ValidateLoginServlet extends HttpServlet {
         } else {
             session.setAttribute("username", username);
             session.setAttribute("role", retrievedUser.getRole());
+            session.setAttribute("USER_ID", retrievedUser.getId());
             switch (retrievedUser.getRole()) {
                 // TODO: da modificare con le diverse pagine dei diversi profili
                 case AMMINISTRATORE -> response.sendRedirect("Homepage");

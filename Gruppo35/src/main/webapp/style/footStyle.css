@@ -13,3 +13,9 @@ footer {
     font-size: 14px;
     color: #666;
 }
+
+body.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+}

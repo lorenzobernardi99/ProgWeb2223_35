@@ -5,6 +5,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class UserBean implements Serializable {
+
+    private int id;
     private String name;
     private String surname;
     private Date birthDate;
@@ -25,6 +27,10 @@ public class UserBean implements Serializable {
         this.role = role;
         this.username = username;
         this.password = password;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -57,6 +63,10 @@ public class UserBean implements Serializable {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setName(String name) {

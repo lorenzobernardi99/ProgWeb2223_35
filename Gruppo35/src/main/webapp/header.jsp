@@ -1,3 +1,4 @@
+<%@ page import="java.util.Objects" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="it">
@@ -8,17 +9,20 @@
         <title><%=application.getAttribute("organizationName") %></title>
     </head>
     <body>
+        <% HttpSession sessione = request.getSession(false);
+        boolean urlRewrite = request.getAttribute("URLRewrite") != null;
+        String newHref = (urlRewrite) ? ";jsessionid=" + sessione.getId() : ""; %>
         <header>
             <nav>
-                <a href="Homepage" class="logo-link">
+                <a href="Homepage<%=newHref%>" class="logo-link">
                     <img src="res/img/tum4world.jpg" class="img" alt="Tum4Word_Icon">
                     <span class="textLogo"><b><%=application.getAttribute("organizationName") %></b></span>
                 </a>
                 <div class="nav-links">
-                    <a href="Homepage" class="nav-link">Home Page</a>
-                    <a href="WhoWeAre" class="nav-link">Chi siamo</a>
-                    <a href="Activities" class="nav-link">Attività</a>
-                    <a href="ContactUs" class="nav-link">Contatti</a>
+                    <a href="Homepage<%=newHref%>" class="nav-link">Home Page</a>
+                    <a href="WhoWeAre<%=newHref%>" class="nav-link">Chi siamo</a>
+                    <a href="Activities<%=newHref%>" class="nav-link">Attività</a>
+                    <a href="ContactUs<%=newHref%>" class="nav-link">Contatti</a>
                 </div>
                 <div class="user-links">
                     <% String username = (String) session.getAttribute("username");
@@ -26,32 +30,14 @@
                         String login = "";
                         String logout = "";
                         if (username == null) {
-                            signin = "<a href='SignIn' class='nav-link'>Sign in</a>";
-                            login = "<a href='Login' class='nav-link'>Login</a>";
+                            signin = "<a href='SignIn" + newHref + "' class='nav-link'>Sign in</a>";
+                            login = "<a href='Login" + newHref + "' class='nav-link'>Login</a>";
                         }
                         else
-                            logout = "<a href='Logout' class='nav-link'>Logout</a>";%>
+                            logout = "<a href='Logout" + newHref + "' class='nav-link'>Logout</a>";%>
                     <%= signin%>
                     <%= login%>
                     <%= logout%>
                 </div>
             </nav>
         </header>
-            <%
-        HttpSession sessione=request.getSession(false);
-      String req=(String) request.getAttribute("URLRewrite");
-        if(req=="True"){%>
-        <script>
-            var elements=document.getElementsByClassName("nav-link");
-            var n=elements.length;
-            for(let i=0; i<n;i++){
-                var hrefP=elements.item(i).getAttribute("href");
-                var newHref=hrefP+";jsessionid=<%=sessione.getId()%>";
-                elements.item(i).setAttribute("href",newHref);
-            }
-            elements=document.getElementsByClassName("logo-link");
-            var hrefP=elements.item(0).getAttribute("href");
-            var newHref=hrefP+";jsessionid=<%=sessione.getId()%>";
-            elements.item(0).setAttribute("href",newHref);
-        </script>
-<%}%>
