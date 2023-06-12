@@ -1,3 +1,4 @@
+<%@ page import="web.esame.gruppo35.helperClasses.UserRole" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="it">
@@ -25,8 +26,10 @@
                     </div>
                     <div class="user-links">
                         <% String username = (String) session.getAttribute("username");
+                            UserRole role = (UserRole) session.getAttribute("role");
                             String signin = "";
                             String login = "";
+                            String dashboard= "";
                             String usernameBox = "";
                             String logout = "";
                             if (username == null) {
@@ -34,12 +37,27 @@
                                 login = "<a href='Login' class='nav-link'>Login</a>";
                             }
                             else{
+                                switch (role) {
+                                    case AMMINISTRATORE:
+                                        dashboard = "<a href='Admin' class='nav-link'>Dashboard</a>";
+                                        break;
+                                    case ADERENTE:
+                                        dashboard = "<a href='ContactUs' class='nav-link'>Dashboard</a>";
+                                        break;
+                                    case SIMPATIZZANTE:
+                                        dashboard = "<a href='SignIn' class='nav-link'>Dashboard</a>";
+                                        break;
+                                    default:
+                                        throw new IllegalArgumentException();
+                                }
                                 usernameBox = "<a id='loggedUser'>" + username + "</a>";
                                 logout = "<a href='Logout' class='nav-link'>Logout</a>";
+
                             }%>
                         <%= signin%>
                         <%= login%>
                         <%= usernameBox%>
+                        <%= dashboard%>
                         <%= logout%>
                     </div>
                 </div>

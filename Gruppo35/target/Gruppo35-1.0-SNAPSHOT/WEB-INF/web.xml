@@ -28,6 +28,7 @@
         <url-pattern>/ContactUs</url-pattern>
         <url-pattern>/Login</url-pattern>
         <url-pattern>/SignIn</url-pattern>
+        <url-pattern>/Admin</url-pattern>
     </filter-mapping>
 
     <session-config>
@@ -97,6 +98,10 @@
         <servlet-name>GetMotivations</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.GetMotivationsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SetDonations</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SetDonationServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
@@ -149,6 +154,10 @@
     <servlet-mapping>
         <servlet-name>GetMotivations</servlet-name>
         <url-pattern>/GetMotivations</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SetDonations</servlet-name>
+        <url-pattern>/SetDonations</url-pattern>
     </servlet-mapping>
 
     <servlet>
