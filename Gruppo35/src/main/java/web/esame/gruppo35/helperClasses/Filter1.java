@@ -46,11 +46,19 @@ public class Filter1 implements Filter{
         if(URL.equals("/")){
             URL=URL+"Homepage";
             response.sendRedirect(URL);
-        }else if(cookies==null || URL.contains("jsession")){
+        }else if(cookies==null || URL.contains("jsessionid")){
             //Non Utilizzi i cookie
             request.setAttribute("URLRewrite",true);
             URL=URL+";jsessionid="+sessione.getId();
             request.getRequestDispatcher(URL).forward(request,response);
+            for (Cookie c : cookies) {
+                String name = c.getName();
+                if (name.equals("User") || name.equals("JSESSIONID")) {
+                    c.setMaxAge(0);
+                    response.addCookie(c);
+                    request.setAttribute("URLRewrite", true);
+                }
+            }
         }else{
             if(CookieUser.equals("false")) {
                 if (FormAccept != null) {
