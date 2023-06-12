@@ -15,7 +15,7 @@ public class ServletContextInitializer implements ServletContextListener {
                     "supportando progetti di aiuto a bambini e famiglie in difficoltà economica." +
                     "Attraverso iniziative come eventi di beneficenza, campagne di crowdfunding e partnership con altre organizzazioni," +
                     "l'associazione lavora per garantire a ogni bambino la possibilità di crescere in modo sano e sereno.",
-            "res/img/activity1.jpg"
+            "res/img/child.jpg"
     };
     String[] activity2 = {
             "Attività 2",
@@ -26,7 +26,7 @@ public class ServletContextInitializer implements ServletContextListener {
                     "che si trovano in situazioni di isolamento o di difficoltà." +
                     "L'obiettivo è quello di garantire una maggiore qualità di vita agli anziani" +
                     "e di promuovere una società più solidale e inclusiva.",
-            "res/img/activity2.jpg"
+            "res/img/old.jpg"
     };
     String[] activity3 = {
             "Attività 3",
@@ -37,7 +37,7 @@ public class ServletContextInitializer implements ServletContextListener {
                     "progetti di educazione ambientale e supporto a comunità locali," +
                     "l'associazione lavora per promuovere uno sviluppo sostenibile" +
                     "e un uso consapevole delle risorse del nostro pianeta.",
-            "res/img/activity3.jpg"
+            "res/img/environment.jpg"
     };
 
     String organizationName = "Tum4World";
@@ -55,6 +55,10 @@ public class ServletContextInitializer implements ServletContextListener {
     String reason3 = "Altro";
     String[] reasons = {reason1, reason2, reason3};
     Map<String, Integer> views = new LinkedHashMap<>();
+    String activities_description = "L'Associazione Tum4World è un'organizzazione dedicata alla riduzione della fame nel mondo." +
+            "Attraverso una serie di attività, l'associazione si impegna a combattere l'insicurezza alimentare e a garantire che ogni individuo abbia accesso a cibo nutriente e sufficiente." +
+            "Lavoriamo per sensibilizzare l'opinione pubblica, implementare progetti di sviluppo alimentare e fornire assistenza in situazioni di emergenza." +
+            "La nostra missione è contribuire a creare un mondo in cui nessuno debba soffrire la fame.";
     String descrption = "L'Associazione Tum4World è un'organizzazione internazionale dedicata alla riduzione e all'eliminazione della fame nel mondo." +
             "Fondata nel 2023, l'associazione si impegna a combattere l'insicurezza alimentare e a garantire che ogni individuo abbia accesso a cibo nutriente e sufficiente.";
     String foundation = "L'Associazione Tum4World è stata fondata nel 2023 da un gruppo di volontari motivati dalla volontà di combattere la fame nel mondo." +
@@ -105,12 +109,12 @@ public class ServletContextInitializer implements ServletContextListener {
         context.setAttribute("sendingConfirmed", sendingConfirmed);
         context.setAttribute("registrationDone", registrationDone);
         context.setAttribute("views", views);
+        context.setAttribute("activities_description", activities_description);
         context.setAttribute("description", descrption);
         context.setAttribute("foundation", foundation);
         context.setAttribute("history", history);
         context.setAttribute("locations", locations);
         context.setAttribute("accolades", accolades);
         context.setAttribute("investments", investments);
-
     }
 }

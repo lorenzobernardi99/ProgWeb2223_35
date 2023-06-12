@@ -1,0 +1,64 @@
+#activities-description{
+    width: auto;
+    height: min-content;
+    display: block;
+    position: relative;
+    background-color: #b3e6fc;
+}
+
+#activities-description p{
+    width: 70vw;
+    height: min-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    font-size: 1.75vh;
+}
+
+section{
+    display: flex;
+}
+
+article{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ActivitiesLink{
+    float: left;
+    text-align: center;
+    overflow: hidden;
+    background-color: #0077be;
+    border: 0.25vw white solid;
+    margin: 5vh 0.25vw;
+    transition-duration: 250ms;
+    color: white;
+}
+
+.ActivitiesLink:hover{
+    opacity: 0.5;
+}
+
+.ActivitiesLink img{
+    width: 25vw;
+    height: 25vw;
+    margin: 2vw;
+    object-fit: cover;
+}
+
+.ActivitiesLink a{
+    text-decoration: none;
+    color: inherit;
+}
+
+#caption{
+    font-size: 1vw;
+    padding: 1vw;
+}
+
+#caption a{
+    text-decoration: none;
+    color: inherit;
+}

@@ -7,6 +7,7 @@ body, html {
     flex-direction: column;
     color: #252527;
     background-color: #005b96;
+    font-family: Arial, sans-serif;
 }
 
 .textLogo{
