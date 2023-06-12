@@ -30,6 +30,7 @@ public class ContactUsServlet extends HttpServlet {
         if (message == null){
             request.setAttribute("message", "");
         }
+
         RequestDispatcher rd=request.getRequestDispatcher("ContactUs.jsp");
         rd.forward(request, response);
     }

@@ -11,22 +11,21 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
 
 public class ValidateContactFormServlet extends HttpServlet {
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // retrieve form parameter
-        String name = request.getParameter("name");
-        String surname = request.getParameter("surname");
+        String name_surname = request.getParameter("name-surname");
         String sender = request.getParameter("email");
         String subject = request.getParameter("reason");
         String details = request.getParameter("details");
 
         // compose email
-        String messageText = composeEmail(name, surname, subject, details);
+        String messageText = composeEmail(name_surname, subject, details);
         if(validateEmail(sender)){
 
             // mock configuration
@@ -48,20 +47,12 @@ public class ValidateContactFormServlet extends HttpServlet {
                 emailMessage.setText(messageText);
 
                 // simulation of message sending
-                response.getWriter().println("Simulazione di invio email al gestore del sito.");
-
-                // debug
-                // System.out.println("Receiver:\n" + "tum4world@nessunonoluogonoesiste.com");
-                // System.out.println("Subject:\n" + subject);
-                // System.out.println("Message:\n" + messageText);
-
-                RequestDispatcher rd = request.getRequestDispatcher("EmailSent");
-                rd.forward(request, response);
+                response.getWriter().println(emailMessage);
+                
+                response.sendRedirect("emailSent.jsp");
 
             } catch (MessagingException e) {
-                request.setAttribute("message", "Un'errore imprevisto non ha permesso l'invio dell' e-mail");
-                RequestDispatcher rd = request.getRequestDispatcher("ContactUs");
-                rd.forward(request, response);
+                response.sendRedirect("error.jsp");
             }
         }
         else {
@@ -77,10 +68,9 @@ public class ValidateContactFormServlet extends HttpServlet {
         return pattern.matcher(email).matches();
     }
 
-    private String composeEmail(String name, String surname, String subject, String details){
+    private String composeEmail(String name_surname, String subject, String details){
         StringBuilder emailText = new StringBuilder();
-        emailText.append("Buongiorno,\n").append("Sono ").append(name)
-                .append(" ").append(surname).append(".\n")
+        emailText.append("Buongiorno,\n").append("Sono ").append(name_surname).append(".\n")
                 .append("Sono interessato nella vostra associazione, soprattutto in ").append(subject).append(".\n");
         if (!details.equals("")){
             emailText.append(details);
@@ -92,5 +82,10 @@ public class ValidateContactFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // redirect to ContactUs
         response.sendRedirect("ContactUs");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processData(request,response);
     }
 }
