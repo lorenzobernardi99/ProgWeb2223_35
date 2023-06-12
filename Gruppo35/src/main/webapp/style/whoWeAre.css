@@ -1,0 +1,94 @@
+#container{
+    display:flex;
+    background-color: #005b96;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+
+table {
+    float: left;
+    width: 45vw;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+td {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 20vw;
+    text-align: center;
+    position: relative;
+    transition-duration: 250ms;
+    cursor: pointer;
+}
+td::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 0;
+    opacity: 0.7;
+    transition: opacity 250ms;
+}
+
+td:hover::after {
+    opacity: 0.9;
+}
+
+td span {
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2vw;
+    z-index: 1;
+}
+
+#description-td{
+    background-image: url("/res/img/description.jpg");
+}
+#foundation-td{
+    background-image: url("/res/img/foundation.jpg");
+}
+#history-td{
+    background-image: url("/res/img/history.jpg");
+}
+#locations-td{
+    background-image: url("/res/img/locations.jpg");
+}
+#accolades-td{
+    background-image: url("/res/img/accolades.jpg");
+}
+#investments-td{
+    background-image: url("/res/img/investments.jpg");
+}
+
+#information-box{
+    width: 50vw;
+    height: inherit;
+    float: left;
+}
+
+#information{
+    width: 40vw;
+    height: inherit;
+    font-size: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+#caption{
+    font-size: 1vw;
+    padding: 1vw;
+}
+
+#caption a{
+    text-decoration: none;
+    color: inherit;
+}

@@ -55,8 +55,21 @@ public class ServletContextInitializer implements ServletContextListener {
     String reason3 = "Altro";
     String[] reasons = {reason1, reason2, reason3};
     Map<String, Integer> views = new LinkedHashMap<>();
-
-
+    String descrption = "L'Associazione Tum4World è un'organizzazione internazionale dedicata alla riduzione e all'eliminazione della fame nel mondo." +
+            "Fondata nel 2023, l'associazione si impegna a combattere l'insicurezza alimentare e a garantire che ogni individuo abbia accesso a cibo nutriente e sufficiente.";
+    String foundation = "L'Associazione Tum4World è stata fondata nel 2023 da un gruppo di volontari motivati dalla volontà di combattere la fame nel mondo." +
+            "La fondazione è nata con l'obiettivo di creare un impatto duraturo attraverso programmi di sostegno alimentare e iniziative di sensibilizzazione.";
+    String history = "Nel corso degli anni, l'Associazione Tum4World ha ampliato la propria portata e l'efficacia delle sue azioni." +
+            "Attraverso partnership strategiche, ha implementato progetti di agricoltura sostenibile, educazione alimentare e accesso all'acqua potabile." +
+            "La storia dell'associazione è segnata da successi significativi nella lotta contro la fame e l'insicurezza alimentare.";
+    String locations = "L'Associazione Tum4World ha stabilito sedi operative in diverse parti del mondo, garantendo una presenza globale per affrontare i problemi legati alla fame." +
+            "Queste sedi strategiche fungono da hub per coordinare le attività sul campo, collaborare con partner locali e implementare soluzioni su larga scala.";
+    String accolades = "L'impegno e l'efficacia dell'Associazione Tum4World nella lotta contro la fame sono stati riconosciuti a livello internazionale." +
+            "L'associazione ha ricevuto numerosi premi e riconoscimenti per i suoi sforzi nel migliorare la sicurezza alimentare e la qualità della vita delle persone." +
+            "Questi riconoscimenti rappresentano un incoraggiamento per continuare nella missione di eliminare la fame nel mondo.";
+    String investments = "L'Associazione Tum4World si basa su donazioni e investimenti per sostenere le sue iniziative." +
+            "Attraverso partnership con organizzazioni, enti governativi e donatori privati, l'associazione riesce a finanziare progetti di largo impatto." +
+            "Gli investimenti sono diretti verso la creazione di infrastrutture sostenibili, la formazione delle comunità locali e il supporto a lungo termine per garantire la sicurezza alimentare.";
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
@@ -92,6 +105,12 @@ public class ServletContextInitializer implements ServletContextListener {
         context.setAttribute("sendingConfirmed", sendingConfirmed);
         context.setAttribute("registrationDone", registrationDone);
         context.setAttribute("views", views);
+        context.setAttribute("description", descrption);
+        context.setAttribute("foundation", foundation);
+        context.setAttribute("history", history);
+        context.setAttribute("locations", locations);
+        context.setAttribute("accolades", accolades);
+        context.setAttribute("investments", investments);
 
     }
 }

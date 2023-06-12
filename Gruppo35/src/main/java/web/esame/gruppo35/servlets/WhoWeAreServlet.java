@@ -10,16 +10,6 @@ import javax.servlet.annotation.*;
 //@WebServlet(name = "WhoWeAre", value = "/WhoWeAre")
 
 public class WhoWeAreServlet extends HttpServlet{
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        processData(request,response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processData(request,response);
-    }
-
     protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ServletContext context = getServletContext();
         // Counter for page views
@@ -30,7 +20,17 @@ public class WhoWeAreServlet extends HttpServlet{
         views.replace("whoWeAre", newWhoWeAre);
         context.setAttribute("views", views);
 
-        RequestDispatcher dispatcher= request.getRequestDispatcher("ChiSiamo.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("whoWeAre.jsp");
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        processData(request,response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processData(request,response);
     }
 }
