@@ -22,18 +22,14 @@ function retrieveUsers(filter){
                   let my_JSON_array = response;
 
                   // Finding table to fill in
-                  let table = document.getElementById(filter);
+                  let table = document.getElementById("users");
 
                   // Removing old table if existing and hiding it
                   while (table.childNodes.length) {
                         table.removeChild(table.childNodes[0]);
                   }
-                  table.style.border = "0px solid";
 
                   if (my_JSON_array.length > 0) {
-
-                        // Showing table
-                        table.style.border = "1px solid";
 
                         // Creating table header
                         let thead = table.createTHead();
@@ -41,7 +37,6 @@ function retrieveUsers(filter){
                         let header = ["Nome", "Cognome", "Data di nascita", "E-mail", "Numero di telefono", "Ruolo", "Username", "Password",];
                         for (let key of header) {
                               let th = document.createElement("th");
-                              th.style.border = "1px solid";
                               let text = document.createTextNode(key);
                               th.appendChild(text);
                               row.appendChild(th);
@@ -53,7 +48,6 @@ function retrieveUsers(filter){
                               let current_JSON_object  = JSON.parse(my_JSON_array[i]);
                               for (let key in current_JSON_object) {
                                     let cell = row.insertCell();
-                                    cell.style.border = "1px solid";
                                     let text = document.createTextNode(current_JSON_object[key]);
                                     cell.appendChild(text);
                               }
@@ -64,7 +58,6 @@ function retrieveUsers(filter){
                         // Displaying error if the list is empty
                         let row = table.insertRow();
                         let cell = row.insertCell();
-                        cell.style.border = "1px solid";
                         let text = document.createTextNode("Nessun utente trovato");
                         cell.appendChild(text);
                   }
@@ -136,6 +129,7 @@ function viewsPerPage(){
                             data: data
                       }]
                 });
+                showViewsElements();
           })
           .catch(error => document.getElementById("total").innerHTML = "Error " + error);
       }
@@ -183,13 +177,16 @@ function donationReceived(){
                               data.push([Months[key], current_JSON_object[key]]);
                         }
                   }
+
+                  let year = new Date().getFullYear();
+
                   // Column chart
                   const chart = Highcharts.chart('donationChart', {
                         chart: {
                               type: 'line'
                         },
                         title: {
-                              text: 'Donazioni al mese'
+                              text: year
                         },
                         xAxis: {
                               type: 'category',
@@ -207,6 +204,15 @@ function donationReceived(){
                               data: data
                         }]
                   });
+                document.getElementById("donationChart").style.display = 'unset';
           })
           .catch(error => document.getElementById("total").innerHTML = "Error " + error);
+}
+
+function showViewsElements() {
+      var elements = document.querySelectorAll('.reset');
+      for (var i = 0; i < elements.length; i++) {
+            elements[i].style.display = 'unset';
+      }
+      document.getElementById("chart").style.display = 'unset';
 }

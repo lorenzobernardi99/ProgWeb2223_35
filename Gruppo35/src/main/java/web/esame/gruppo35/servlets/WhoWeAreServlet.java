@@ -25,12 +25,22 @@ public class WhoWeAreServlet extends HttpServlet{
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        processData(request,response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | IOException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processData(request,response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | IOException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
     }
 }

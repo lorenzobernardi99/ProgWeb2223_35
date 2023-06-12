@@ -54,7 +54,7 @@ public class ValidateLoginServlet extends HttpServlet {
         }
 
         if (retrievedUser.getRole() == null){
-            request.setAttribute("message", "Username e/o password errati");
+            request.setAttribute("message", "35:Username e/o password errati");
             RequestDispatcher rd=request.getRequestDispatcher("Login");
             rd.forward(request, response);
         } else {

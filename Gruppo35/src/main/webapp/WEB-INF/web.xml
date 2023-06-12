@@ -28,7 +28,6 @@
         <url-pattern>/ContactUs</url-pattern>
         <url-pattern>/Login</url-pattern>
         <url-pattern>/SignIn</url-pattern>
-        <url-pattern>/Admin</url-pattern>
     </filter-mapping>
 
     <session-config>

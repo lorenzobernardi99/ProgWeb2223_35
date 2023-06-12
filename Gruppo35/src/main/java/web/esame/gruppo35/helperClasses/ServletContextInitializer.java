@@ -96,11 +96,11 @@ public class ServletContextInitializer implements ServletContextListener {
         views.put("contactUs", 0);
         views.put("signIn", 0);
         views.put("login", 0);
-        motivations.add("\"Il segreto del successo è nel volerlo abbastanza forte.\" - Albert Einstein");
+        motivations.add("\"Il segreto del successo è nel volerlo abbastanza forte.\"");
         motivations.add("\"Ogni giorno è un'opportunità per essere una versione migliore di te stesso.\"");
         motivations.add("\"Non importa quante volte cadi, ma quante volte ti rialzi.\"");
-        motivations.add("\"Le sfide sono ciò che rendono la vita interessante; superarle è ciò che la rende significativa.\" - Joshua J. Marine");
-        motivations.add("\"Il successo non è la chiave della felicità. La felicità è la chiave del successo. Se ami ciò che fai, avrai successo.\" - Albert Schweitzer");
+        motivations.add("\"Le sfide sono ciò che rendono la vita interessante; superarle è ciò che la rende significativa.\"");
+        motivations.add("\"Il successo non è la chiave della felicità. La felicità è la chiave del successo. Se ami ciò che fai, avrai successo.\"");
 
         context.setAttribute("activityBeanList", activityBeanList);
         context.setAttribute("reasons", reasonList);

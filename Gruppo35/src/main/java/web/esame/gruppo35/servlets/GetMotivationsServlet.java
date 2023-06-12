@@ -22,28 +22,33 @@ public class GetMotivationsServlet extends HttpServlet {
         // Preparing and sending json response
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
-        try (PrintWriter out = response.getWriter()) {
-            JsonArray array = new JsonArray();
-            for(String motivation : motivations) {
-                Gson gson = new Gson();
-                array.add(gson.toJson(motivation));
-            }
-            out.println(array);
-            out.flush();
+
+        PrintWriter out = response.getWriter();
+        JsonArray array = new JsonArray();
+        for(String motivation : motivations) {
+            Gson gson = new Gson();
+            array.add(gson.toJson(motivation));
         }
-        catch (IOException ex) {
-            System.out.println(ex);
+        out.println(array);
+        out.flush();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            retrieveMotivations(request,response);
+        } catch (NullPointerException | IOException e) {
+            e.printStackTrace();
             response.sendRedirect("error.jsp");
         }
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        retrieveMotivations(request,response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        retrieveMotivations(request,response);
-    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            retrieveMotivations(request,response);
+        } catch (NullPointerException | IOException e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }    }
 }
