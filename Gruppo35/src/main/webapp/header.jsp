@@ -14,7 +14,7 @@
     <body>
         <header>
             <nav>
-                <a href="Homepage">
+                <a href="Homepage" class="ImgHomePage">
                     <img src="res/img/logo-no-background.png" class="img" alt="Tum4Word_Icon">
                 </a>
                 <div id="menu">
@@ -78,7 +78,7 @@
                 var newHref=hrefP+";jsessionid=<%=sessione.getId()%>";
                 elements.item(i).setAttribute("href",newHref);
             }
-            elements=document.getElementsByClassName("logo-link");
+            elements=document.getElementsByClassName("ImgHomePage");
             var hrefP=elements.item(0).getAttribute("href");
             var newHref=hrefP+";jsessionid=<%=sessione.getId()%>";
             elements.item(0).setAttribute("href",newHref);

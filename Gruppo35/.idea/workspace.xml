@@ -10,18 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06e03c27-5815-4b6a-841e-0c723dd5173c" name="Changes" comment="Fix CSS">
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/GetDataSimpatizzante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/deleteAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/Simpatizzante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/scripts/simpatizzante.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/simpatizzante.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/style/simpatizzanteStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/Filter1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/helperClasses/Filter1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ValidateLoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/esame/gruppo35/servlets/ValidateLoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Gruppo35-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +34,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="Esempio" />
+        <entry key="$PROJECT_DIR$/.." value="FinalChange" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
