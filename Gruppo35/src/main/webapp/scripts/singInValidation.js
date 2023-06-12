@@ -355,5 +355,6 @@ document.getElementById("generatePassword").addEventListener('click', function()
 
 function showError(){
     // Display an error message
+    document.getElementById("errorText").classList.add("error-visible");
     document.getElementById("errorText").innerText = "Perfavore compila tutti i campi.";
 }

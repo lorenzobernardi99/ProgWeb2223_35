@@ -135,7 +135,7 @@ public class SignInValidationServlet extends HttpServlet {
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("Insertion completed: " + rowsInserted + " rows affected");
-                response.sendRedirect("/RegistrationDone.jsp");
+                response.sendRedirect("/registrationDone.jsp");
             } else {
                 throw new SQLException("Errore di inserimento dati nel database");
             }

@@ -1,0 +1,12 @@
+#registration-box{
+    background-color: white;
+    color: #0077be;
+    font-size: 2vw;
+    text-align: center;
+}
+
+#registration-message{
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}

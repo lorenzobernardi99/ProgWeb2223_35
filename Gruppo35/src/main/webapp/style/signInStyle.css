@@ -4,7 +4,8 @@ body {
 }
 form {
     margin: 20px auto;
-    max-width: 400px;
+    max-width: 500px;
+    color: white;
 }
 label {
     display: flex;
@@ -15,13 +16,14 @@ label {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    color: white;
 }
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="password"],
 input[type="date"],
-select {
+select{
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -41,19 +43,27 @@ input[type="reset"] {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
+    transition-duration: 250ms;
 }
-input[type="submit"]:hover,
+
+#submitButton:hover{
+    color: #005b96;
+    background-color: white;
+}
+
 input[type="reset"]:hover {
-    background-color: #005b96;
+    color: white;
+    background-color: #ff4646;
 }
 
 .password-input {
     position: relative;
 }
 .password-input .toggle-password, .generate-password  {
+    color: #252527;
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 2%;
     transform: translateY(-50%);
     font-size: 16px;
     cursor: pointer;
@@ -74,7 +84,7 @@ input[type="reset"]:hover {
     align-items: center;
 }
 .errorLabel {
-    color: red;
+    color: #ff4646;
     float: right;
     opacity: 0;
 }
@@ -83,7 +93,7 @@ input[type="reset"]:hover {
 }
 .error {
     border: 1px solid red !important;
-    background-color: rgb(255 0 0 / 70%);
+    background-color: #ff4646;
     font-weight: bold;
     color: #fff !important;
 }
@@ -91,19 +101,27 @@ input[type="reset"]:hover {
     color: #000 !important;
 }
 .error-message {
-    color: red;
+    color: #ff4646;
     display: block;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     margin-bottom: 10px;
+    background-color: white;
+    max-width: 500px;
+    border: none;
+    border-radius: 5px;
 }
+
+.error-visible{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .password-instructions {
-    color: #7e7e7e;
     font-size: 14px;
     margin-bottom: 10px;
 }
 .password-instructions li {
-    color: #7e7e7e;
     margin-bottom: 5px;
 }
