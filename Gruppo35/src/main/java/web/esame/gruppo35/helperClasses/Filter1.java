@@ -46,7 +46,7 @@ public class Filter1 implements Filter{
         if(URL.equals("/")){
             URL=URL+"Homepage";
             response.sendRedirect(URL);
-        }else if(cookies==null){
+        }else if(cookies==null || URL.contains("jsession")){
             //Non Utilizzi i cookie
             request.setAttribute("URLRewrite","True");
             URL=URL+";jsessionid="+sessione.getId();
