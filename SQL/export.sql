@@ -1,7 +1,7 @@
 -- ============================
 
 -- Questo file è stato creato con la utility dblook di Derby.
--- Indicatore data/ora: 2023-06-12 23:07:22.349
+-- Indicatore data/ora: 2023-06-13 00:02:21.819
 -- Database di origine: Tum4WorldDB
 -- URL di connessione: jdbc:derby://localhost:1527/Tum4WorldDB;user=APP;
 -- appendLogs: false
@@ -26,8 +26,6 @@ CREATE TABLE "APP"."DONATIONS" ("ID" INTEGER NOT NULL GENERATED ALWAYS AS IDENTI
 ALTER TABLE "APP"."USERS" ADD CONSTRAINT "USERS_id" PRIMARY KEY ("ID");
 
 ALTER TABLE "APP"."USERS" ADD CONSTRAINT "USERS_username" UNIQUE ("USERNAME");
-
-ALTER TABLE "APP"."USERS" ADD CONSTRAINT "USERS_pk" UNIQUE ("NAME");
 
 ALTER TABLE "APP"."SUBSCRIPTIONS" ADD CONSTRAINT "SUBSCRIPTIONS_pk" PRIMARY KEY ("ID");
 

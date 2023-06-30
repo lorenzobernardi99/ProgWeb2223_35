@@ -85,3 +85,17 @@ td{
     cursor: pointer;
     opacity: 0.75;
 }
+
+.donation{
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.don{
+    font-size: 16px;
+    padding: 15px 32px;
+    display: inline-block;
+}

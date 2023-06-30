@@ -24,6 +24,14 @@
     <h2>Elimina account</h2>
     <button class="button" onclick="BannerDelete();">Elimina</button>
   </div>
+  <% UserRole loggedRole = (UserRole) application.getAttribute("role");
+    if(loggedRole == UserRole.ADERENTE){%>
+    <div class="element" style="grid-column: span 2;">
+      <h2>Sostienici con una donazione!</h2>
+      <label><input type="text" class="donation" placeholder="Inserisci l'importo"></label>
+      <button class="button don" >Dona</button>
+    </div>
+  <%}%>
 </div>
 
 

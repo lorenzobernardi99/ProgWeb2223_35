@@ -45,10 +45,10 @@
                                         dashboard = "<a href='Admin" + newHref + "' class='nav-link'>Dashboard</a>";
                                         break;
                                     case ADERENTE:
-                                        dashboard = "<a href='ContactUs" + newHref + "' class='nav-link'>Dashboard</a>";
+                                        dashboard = "<a href='Sympathizer" + newHref + "' class='nav-link'>Dashboard</a>";
                                         break;
                                     case SIMPATIZZANTE:
-                                        dashboard = "<a href='SignIn" + newHref + "' class='nav-link'>Dashboard</a>";
+                                        dashboard = "<a href='Sympathizer" + newHref + "' class='nav-link'>Dashboard</a>";
                                         break;
                                     default:
                                         throw new IllegalArgumentException();
