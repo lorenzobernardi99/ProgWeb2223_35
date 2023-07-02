@@ -94,10 +94,6 @@
         <servlet-class>web.esame.gruppo35.servlets.GetDonationsServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>GetMotivations</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.GetMotivationsServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>SetDonations</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.SetDonationServlet</servlet-class>
     </servlet>
@@ -149,10 +145,6 @@
     <servlet-mapping>
         <servlet-name>GetDonations</servlet-name>
         <url-pattern>/GetDonations</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>GetMotivations</servlet-name>
-        <url-pattern>/GetMotivations</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>SetDonations</servlet-name>

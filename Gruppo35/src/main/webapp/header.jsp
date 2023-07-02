@@ -1,4 +1,4 @@
-<%@ page import="web.esame.gruppo35.helperClasses.UserRole" %>
+<%@page import="web.esame.gruppo35.helperClasses.UserRole" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="it">
@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="style/headStyle.css">
         <link rel="stylesheet" href="style/footStyle.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <script src="${pageContext.request.contextPath}/scripts/header.js"></script>
         <title><%=application.getAttribute("organizationName") %></title>
     </head>
     <body>
@@ -69,3 +68,24 @@
                 </div>
             </nav>
         </header>
+    <script>
+        let motivations = <%= application.getAttribute("motivations")%>;
+        let counter = 1;
+
+        populateMotivations();
+        setInterval(populateMotivations, 20000)
+
+        function populateMotivations() {
+            let element = document.getElementById("phrase");
+            element.style.opacity = 0;
+
+            setTimeout(function () {
+                element.innerText = "\"" + motivations[counter] + "\"";
+                element.style.opacity = 1;
+                counter += 1;
+                if (counter === motivations.length) {
+                    counter = 0;
+                }
+            }, 500);
+        }
+    </script>
