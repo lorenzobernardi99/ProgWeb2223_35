@@ -10,20 +10,14 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-.img{
-    max-width:25%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 header {
     background-color: #0077be;
     color: white;
-    padding: 10px;
     text-align: center;
 }
 
-nav {
+nav, #navbar{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,25 +26,62 @@ nav {
     margin: 0;
 }
 
+#titleImg{
+    max-width:25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #menu{
+    width: 100%;
     display: flex;
+    background-color: white;
+}
+
+.logo-links > a{
+    float: left;
+    padding-left: 20px !important;
+}
+
+#HomePageImg{
+    border: 1px white solid;
+    transition-duration: 250ms;
+}
+
+.logo-links, .nav-links, .user-links{
+    display: flex;
+    float: left;
+}
+
+.logo-links, .user-links{
+    width: 15%;
 }
 
 .nav-links {
-    width: 45vw;
+    width: 70%;
     float: left;
+    justify-content: center;
 }
 
-.user-links {
-    width: 45vw;
-    float: left;
+.user-links{
+    justify-content: right;
+    padding-right: 20px !important;
 }
 
-.nav-links, .nav-link, .user-links, #loggedUser {
-    padding: 0.5vw;
+.logo-links, .nav-links, .user-links, #HomePageImg{
+    padding: 0;
+    height: 45px;
+}
+
+.nav-link, #loggedUser {
+    padding: 7px;
 }
 
 .nav-link{
+    display: flex;
+    align-items: center;
+    float: left;
+    height: 29px;
     background-color: white;
     text-decoration: none;
     color: #0077be;
@@ -58,28 +89,34 @@ nav {
     transition-duration: 250ms;
     cursor: pointer;
 }
-.nav-link:hover{
+.nav-link:hover, #HomePageImg:hover{
     background-color: #0077be;
     text-decoration: none;
     color: white;
 }
 
+#HomePageImg:hover{
+    content: url("/res/img/favicon.png");
+}
+
 #loggedUser{
+    display: flex;
+    align-items: center;
     background-color: #0077be;
     color: white;
-    border: none;
+    border: 1px white solid;
 }
 
 #motivations{
-    min-height: 25px ;
-    margin-top: 20px;
+    min-height: 2.5vh ;
     width: 100%;
     background-color: #00589c;
     color: white;
     font-size: 2vh;
     padding-top: 10px;
     padding-bottom: 10px;
-
+    border-bottom: 1px white solid;
+    border-top: 1px white solid;
 }
 
 #phrase{
