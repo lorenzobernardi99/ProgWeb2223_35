@@ -1,31 +1,24 @@
 package web.esame.gruppo35.servlets;
 
 import web.esame.gruppo35.helperClasses.UserRole;
+import web.esame.gruppo35.helperClasses.ViewsManager;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Map;
 
 public class LoginServlet extends HttpServlet {
 
     protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletContext context = getServletContext();
         HttpSession session = request.getSession();
         UserRole role = (UserRole) session.getAttribute("role");
 
-        // Counter for page views
-        Map<String, Integer> views = (Map<String, Integer>) context.getAttribute("views");
-        int newTotal = views.get("total") + 1;
-        int newLogin = views.get("login") + 1;
-        views.replace("total", newTotal);
-        views.replace("login", newLogin);
-        context.setAttribute("views", views);
+        ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
+        ViewsManager.setLoginViews(ViewsManager.getLoginViews() + 1);
 
         if(role!=null){
             //already logged in

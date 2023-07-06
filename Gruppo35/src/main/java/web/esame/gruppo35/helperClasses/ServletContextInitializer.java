@@ -55,7 +55,13 @@ public class ServletContextInitializer implements ServletContextListener {
     String reason2 = "Informazioni";
     String reason3 = "Altro";
     String[] reasons = {reason1, reason2, reason3};
-    Map<String, Integer> views = new LinkedHashMap<>();
+    int totalViews = 0;
+    int homepageViews = 0;
+    int whoWeAreViews = 0;
+    int activitiesViews = 0;
+    int contactUsViews = 0;
+    int signInViews = 0;
+    int loginViews = 0;
     List<String> motivations = new LinkedList<>();
     String activities_description = "L'Associazione Tum4World è un'organizzazione dedicata alla riduzione della fame nel mondo." +
             "Attraverso una serie di attività, l'associazione si impegna a combattere l'insicurezza alimentare e a garantire che ogni individuo abbia accesso a cibo nutriente e sufficiente." +
@@ -90,13 +96,6 @@ public class ServletContextInitializer implements ServletContextListener {
         activityBeanList.add(activityBeans[1]);
         activityBeanList.add(activityBeans[2]);
         List<String> reasonList = new LinkedList<>(Arrays.asList(reasons));
-        views.put("total", 0);
-        views.put("homepage", 0);
-        views.put("whoWeAre", 0);
-        views.put("activities", 0);
-        views.put("contactUs", 0);
-        views.put("signIn", 0);
-        views.put("login", 0);
         motivations.add("\"Il segreto del successo è nel volerlo abbastanza forte.\"");
         motivations.add("\"Ogni giorno è un'opportunità per essere una versione migliore di te stesso.\"");
         motivations.add("\"Non importa quante volte cadi, ma quante volte ti rialzi.\"");
@@ -115,7 +114,13 @@ public class ServletContextInitializer implements ServletContextListener {
         context.setAttribute("telephone", telephone);
         context.setAttribute("sendingConfirmed", sendingConfirmed);
         context.setAttribute("registrationDone", registrationDone);
-        context.setAttribute("views", views);
+        context.setAttribute("totalViews", totalViews);
+        context.setAttribute("homepageViews", homepageViews);
+        context.setAttribute("whoWeAreViews", whoWeAreViews);
+        context.setAttribute("activitiesViews", activitiesViews);
+        context.setAttribute("contactUsViews", contactUsViews);
+        context.setAttribute("signInViews", signInViews);
+        context.setAttribute("loginViews", loginViews);
         context.setAttribute("activities_description", activities_description);
         context.setAttribute("description", descrption);
         context.setAttribute("foundation", foundation);

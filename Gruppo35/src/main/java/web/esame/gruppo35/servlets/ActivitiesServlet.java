@@ -1,40 +1,31 @@
 package web.esame.gruppo35.servlets;
 
 import web.esame.gruppo35.helperClasses.ActivityBeanList;
+import web.esame.gruppo35.helperClasses.ViewsManager;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Map;
 
-//@WebServlet(name = "activitiesServlet", value = "/activities-servlet")
 public class ActivitiesServlet extends HttpServlet {
     private int numberOfActivities;
     private ActivityBeanList activityBeanList;
-    ServletContext servletContext;
     RequestDispatcher dispatcher;
     int activityID;
 
     public void init() {
-        servletContext = getServletContext();
         activityBeanList = (ActivityBeanList) getServletContext().getAttribute("activityBeanList");
         numberOfActivities = activityBeanList.size();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        // Counter for page views
-        Map<String, Integer> views = (Map<String, Integer>) servletContext.getAttribute("views");
-        int newTotal = views.get("total") + 1;
-        int newActivities = views.get("activities") + 1;
-        views.replace("total", newTotal);
-        views.replace("activities", newActivities);
-        servletContext.setAttribute("views", views);
+
+        ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
+        ViewsManager.setActivitiesViews(ViewsManager.getActivitiesViews() + 1);
+
 
         response.setContentType("text/html");
 

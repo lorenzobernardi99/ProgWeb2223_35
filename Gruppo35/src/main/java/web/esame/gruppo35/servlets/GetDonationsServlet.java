@@ -73,5 +73,6 @@ public class GetDonationsServlet extends HttpServlet {
         } catch (NullPointerException | IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             response.sendRedirect("error.jsp");
-        }    }
+        }
+    }
 }

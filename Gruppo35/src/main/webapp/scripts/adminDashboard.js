@@ -47,6 +47,8 @@ function retrieveUsers(filter){
                               row = table.insertRow();
                               let current_JSON_object  = JSON.parse(my_JSON_array[i]);
                               for (let key in current_JSON_object) {
+                                    if(key === "id")
+                                          continue;
                                     let cell = row.insertCell();
                                     let text = document.createTextNode(current_JSON_object[key]);
                                     cell.appendChild(text);
@@ -129,7 +131,9 @@ function viewsPerPage(){
                             data: data
                       }]
                 });
-                showViewsElements();
+                document.getElementById("total").style.display = 'block';
+                document.getElementById("reset-button").style.display = 'block';
+                document.getElementById("chart").style.display = 'block';
           })
           .catch(error => document.getElementById("total").innerHTML = "Error " + error);
       }
@@ -204,15 +208,7 @@ function donationReceived(){
                               data: data
                         }]
                   });
-                document.getElementById("donationChart").style.display = 'unset';
+                document.getElementById("donationChart").style.display = 'block';
           })
           .catch(error => document.getElementById("total").innerHTML = "Error " + error);
-}
-
-function showViewsElements() {
-      var elements = document.querySelectorAll('.reset');
-      for (var i = 0; i < elements.length; i++) {
-            elements[i].style.display = 'unset';
-      }
-      document.getElementById("chart").style.display = 'unset';
 }
