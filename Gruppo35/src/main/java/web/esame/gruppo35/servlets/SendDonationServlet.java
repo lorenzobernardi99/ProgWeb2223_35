@@ -2,30 +2,41 @@ package web.esame.gruppo35.servlets;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import web.esame.gruppo35.beans.UserBean;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
-import web.esame.gruppo35.helperClasses.UserRole;
 
-import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-public class SetDonationServlet extends HttpServlet {
+public class SendDonationServlet extends HttpServlet {
     // method to retrieve users from DB, based on the request parameter, sending a JSON as a response
     protected void setDonation(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ClassNotFoundException {
-        int loggedUserID = Integer.parseInt(request.getParameter("USER_ID"));
-        int amount = Integer.parseInt(request.getParameter("amount"));
+        // Obtain body's request
+        StringBuilder requestBody = new StringBuilder();
+        BufferedReader reader = request.getReader();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            requestBody.append(line);
+        }
+
+        // JSON parsing
+        Gson gson = new Gson();
+        JsonElement jsonElement = gson.fromJson(requestBody.toString(), JsonElement.class);
+        JsonObject jsonObject = jsonElement.getAsJsonObject();
+
+        int amount = jsonObject.get("donationAmount").getAsInt();
 
         HttpSession session = request.getSession();
         Connection connection;
         String query;
         PreparedStatement stmt;
-        String queryResult;
+        boolean queryResult;
+        int loggedUserID = (int) session.getAttribute("USER_ID");
 
         // retrieve DB connection
         connection = DatabaseSessionManager.getConnection(session);
@@ -38,24 +49,26 @@ public class SetDonationServlet extends HttpServlet {
         stmt.setDate(3, Date.valueOf(LocalDate.now()));
 
         int rowsAffected = stmt.executeUpdate();
-        if (rowsAffected > 0) {
-            queryResult = "true";
-        } else {
-            queryResult = "false";
-        }
+
+        // if query outcome is successful -> true, otherwise false
+        queryResult = rowsAffected > 0;
 
         // Preparing and sending json response
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
 
+        // create donation state response
+        JsonObject responseJson = new JsonObject();
+        responseJson.addProperty("isSuccessful", queryResult);
+
+        // Set response content type and write the JSON response
+        response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
+
         PrintWriter out = response.getWriter();
-        JsonArray array = new JsonArray();
-        Gson gson=new Gson();
-        String result = gson.toJson(queryResult);
-        out.println(result);
+        out.println(responseJson);
         out.flush();
-        out.println(array);
-        out.flush();
+        out.close();
     }
 
     @Override

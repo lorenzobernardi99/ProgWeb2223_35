@@ -65,8 +65,8 @@ public class ValidateLoginServlet extends HttpServlet {
             switch (retrievedUser.getRole()) {
                 // TODO: da modificare con le diverse pagine dei diversi profili
                 case AMMINISTRATORE -> response.sendRedirect("Admin");
-                case ADERENTE -> response.sendRedirect("Sympathizer");
-                case SIMPATIZZANTE -> response.sendRedirect("Sympathizer");
+                case ADERENTE -> response.sendRedirect("Member");
+                case SIMPATIZZANTE -> response.sendRedirect("Member");
             }
         }
     }

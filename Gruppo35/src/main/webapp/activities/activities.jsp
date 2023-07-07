@@ -20,7 +20,7 @@
             </a>
             <br>
             <h2>
-                <a href="Activities<%=linkParam%><%=ab.getId()%>"</a>
+                <a href="Activities<%=linkParam%><%=ab.getId()%>"></a>
             </h2>
         </div>
         <%}%>
