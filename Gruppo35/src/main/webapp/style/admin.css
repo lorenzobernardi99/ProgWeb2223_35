@@ -51,6 +51,7 @@ input[type="button"]{
     cursor: pointer;
     transition-duration: 250ms;
     font-size: 2vh;
+    box-shadow: 0 0 20px #c1c1c1;
 }
 
 #users-button input[type="button"]:hover{

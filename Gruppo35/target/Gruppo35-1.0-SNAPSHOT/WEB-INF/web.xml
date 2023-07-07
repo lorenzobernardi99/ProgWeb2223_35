@@ -24,7 +24,10 @@
         <url-pattern>/ValidateLogin</url-pattern>
         <url-pattern>/Admin</url-pattern>
         <url-pattern>/Sympathizer</url-pattern>
+        <url-pattern>/GetUsers</url-pattern>
         <url-pattern>/GetViews</url-pattern>
+        <url-pattern>/ResetViews</url-pattern>
+        <url-pattern>/GetDonations</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
@@ -36,7 +39,7 @@
     </filter-mapping>
 
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>1</session-timeout>
     </session-config>
 
     <listener>

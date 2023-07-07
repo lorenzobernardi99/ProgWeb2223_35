@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(filterName = "AdminFilter")
 public class AdminFilter implements Filter {
-    public void init(FilterConfig config) throws ServletException {
-    }
+    public void init(FilterConfig config) {}
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
@@ -26,7 +24,7 @@ public class AdminFilter implements Filter {
                 chain.doFilter(request, response);
             } else {
                 System.out.println("non autorizzato");
-                //TODO:servletResponse.sendRedirect("error.html");
+                servletResponse.sendRedirect("error.jsp");
             }
         } else {
             servletResponse.sendRedirect("Login");
