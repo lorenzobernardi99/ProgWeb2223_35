@@ -27,7 +27,7 @@ public class ValidateLoginServlet extends HttpServlet {
 
         PreparedStatement stmt;
         ResultSet result;
-        UserBean retrievedUser = new UserBean();
+        UserBean retrievedUser = null;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -39,18 +39,19 @@ public class ValidateLoginServlet extends HttpServlet {
 
         result = stmt.executeQuery();
         if (result.next()) {
-            retrievedUser.setId(result.getInt("id"));
-            retrievedUser.setName(result.getString("name"));
-            retrievedUser.setSurname(result.getString("surname"));
-            retrievedUser.setBirthDate(result.getDate("birth_date"));
-            retrievedUser.setEmailAddress(result.getString("email_address"));
-            retrievedUser.setTelephoneNumber(result.getString("telephone_number"));
-            retrievedUser.setRole(UserRole.values()[result.getInt("role")]);
-            retrievedUser.setUsername(result.getString("username"));
-            retrievedUser.setPassword(result.getString("password"));
+            retrievedUser = new UserBean(
+                    result.getString(2),
+                    result.getString(3),
+                    result.getDate(4),
+                    result.getString(5),
+                    result.getString(6),
+                    UserRole.values()[result.getInt(7)],
+                    result.getString(8),
+                    result.getString(9)
+            );
         }
 
-        if (retrievedUser.getRole() == null){
+        if ((retrievedUser != null ? retrievedUser.getRole() : null) == null){
             request.setAttribute("message", "35:Username e/o password errati");
             RequestDispatcher rd=request.getRequestDispatcher("Login");
             rd.forward(request, response);

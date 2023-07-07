@@ -1,10 +1,10 @@
 // Extract JSESSIONID from URL
 function getJSessionIdFromUrl() {
-      var referrerUrl = document.referrer;
-      var jsessionId = "";
+      const referrerUrl = document.referrer;
+      let jsessionId = "";
 
-      var regex = /(;)jsessionid=([^&]+)/;
-      var match = regex.exec(referrerUrl);
+      const regex = /(;)jsessionid=([^&]+)/;
+      let match = regex.exec(referrerUrl);
       if (match) {
             jsessionId = match[0];
       }
@@ -13,7 +13,11 @@ function getJSessionIdFromUrl() {
 
 // method to process response status
 function processStatus(response) {
-      var ok = 200;
+      const ok = 200;
+
+      if (response.redirected){
+          window.location.href = response.url;
+      }
       if (response.status === ok) {
             return Promise.resolve(response)
       }
@@ -77,7 +81,10 @@ function retrieveUsers(filter){
                         cell.appendChild(text);
                   }
           })
-          .catch(error => document.getElementById("total").innerHTML = "Error " + error);
+          .catch(error => {
+                document.getElementById("errorText").innerHTML = "Error " + error
+                document.getElementById("errorText").classList.add("error-visible");
+          });
 }
 // method that retrieves data to populate views chart
 function viewsPerPage(){
@@ -148,7 +155,10 @@ function viewsPerPage(){
                 document.getElementById("reset-button").style.display = 'block';
                 document.getElementById("chart").style.display = 'block';
           })
-          .catch(error => document.getElementById("total").innerHTML = "Error " + error);
+          .catch(error => {
+                document.getElementById("errorText").innerHTML = "Error " + error
+                document.getElementById("errorText").classList.add("error-visible");
+          });
       }
 // method that calls reset of view's counter
 function resetViews(fieldToReset) {
@@ -158,7 +168,10 @@ function resetViews(fieldToReset) {
       fetch(url)
           .then(processStatus)
           .then(viewsPerPage)
-          .catch(error => document.getElementById("total").innerHTML = "Error " + error);
+          .catch(error => {
+                document.getElementById("errorText").innerHTML = "Error " + error
+                document.getElementById("errorText").classList.add("error-visible");
+          });
 }
 // method that retrieves data to populate donation chart
 function donationReceived(){
@@ -223,5 +236,8 @@ function donationReceived(){
                   });
                 document.getElementById("donationChart").style.display = 'block';
           })
-          .catch(error => document.getElementById("total").innerHTML = "Error " + error);
+          .catch(error => {
+                document.getElementById("errorText").innerHTML = "Error " + error
+                document.getElementById("errorText").classList.add("error-visible");
+          });
 }

@@ -6,9 +6,7 @@ import web.esame.gruppo35.beans.UserBean;
 import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
 import web.esame.gruppo35.helperClasses.UserRole;
 
-import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -48,16 +46,17 @@ public class GetUsersServlet extends HttpServlet {
 
         // Getting results and saving it in an array of beans
         while (result.next()) {
-            UserBean retrieved_user = new UserBean();
-            retrieved_user.setName(result.getString("name"));
-            retrieved_user.setSurname(result.getString("surname"));
-            retrieved_user.setBirthDate(result.getDate("birth_date"));
-            retrieved_user.setEmailAddress(result.getString("email_address"));
-            retrieved_user.setTelephoneNumber(result.getString("telephone_number"));
-            retrieved_user.setRole(UserRole.values()[result.getInt("role")]);
-            retrieved_user.setUsername(result.getString("username"));
-            retrieved_user.setPassword(result.getString("password"));
-            user_list.add(retrieved_user);
+            UserBean retrievedUser = new UserBean(
+                    result.getString(2),
+                    result.getString(3),
+                    result.getDate(4),
+                    result.getString(5),
+                    result.getString(6),
+                    UserRole.values()[result.getInt(7)],
+                    result.getString(8),
+                    result.getString(9)
+            );
+            user_list.add(retrievedUser);
         }
 
         // Preparing and sending json response

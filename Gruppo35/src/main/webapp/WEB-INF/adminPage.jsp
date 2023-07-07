@@ -3,6 +3,9 @@
 <link rel="stylesheet" href="../style/admin.css">
 <script src="../scripts/adminDashboard.js"></script>
 <script src="../scripts/highcharts.js"></script>
+
+<span id="errorText"></span>
+
 <div id="admin-container">
   <div id="operation-container">
     <div id="users-container" class="containers">

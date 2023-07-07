@@ -18,20 +18,19 @@
     </filter>
     <filter-mapping>
         <filter-name>CookiesFilter</filter-name>
-        <url-pattern>/</url-pattern>
         <url-pattern>/Homepage</url-pattern>
         <url-pattern>/WhoWeAre</url-pattern>
         <url-pattern>/Activities</url-pattern>
         <url-pattern>/ContactUs</url-pattern>
         <url-pattern>/Login</url-pattern>
-        <url-pattern>/SignIn</url-pattern>
         <url-pattern>/ValidateLogin</url-pattern>
+        <url-pattern>/SignIn</url-pattern>
         <url-pattern>/Admin</url-pattern>
-        <url-pattern>/Sympathizer</url-pattern>
         <url-pattern>/GetUsers</url-pattern>
         <url-pattern>/GetViews</url-pattern>
         <url-pattern>/ResetViews</url-pattern>
         <url-pattern>/GetDonations</url-pattern>
+        <url-pattern>/Member</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
@@ -51,7 +50,7 @@
     </filter-mapping>
 
     <session-config>
-        <session-timeout>30</session-timeout>
+        <session-timeout>1</session-timeout>
     </session-config>
 
     <listener>
