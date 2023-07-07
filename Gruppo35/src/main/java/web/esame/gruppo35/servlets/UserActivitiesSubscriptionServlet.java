@@ -140,6 +140,7 @@ public class UserActivitiesSubscriptionServlet extends HttpServlet {
         statement.setInt(2, activityId);
         ResultSet result = statement.executeQuery();
 
+        // if there is no record then the user is not subscribed
         boolean isSubscribed = result.next();
 
 
@@ -164,8 +165,7 @@ public class UserActivitiesSubscriptionServlet extends HttpServlet {
 
         // create subscription state response
         JsonObject responseJson = new JsonObject();
-        responseJson.addProperty("isSubscribed", isSubscribed);
-        // Add other response data if needed
+        responseJson.addProperty("isSubscribed", !isSubscribed);
 
         // Set response content type and write the JSON response
         response.setContentType("application/json");

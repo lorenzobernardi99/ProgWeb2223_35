@@ -64,8 +64,8 @@ public class ValidateLoginServlet extends HttpServlet {
 
             switch (retrievedUser.getRole()) {
                 case AMMINISTRATORE -> response.sendRedirect("Admin" + newHref);
-                case ADERENTE -> response.sendRedirect("Adherent" + newHref);
-                case SIMPATIZZANTE -> response.sendRedirect("Sympathizer" + newHref);
+                case ADERENTE -> response.sendRedirect("Member" + newHref);
+                case SIMPATIZZANTE -> response.sendRedirect("Member" + newHref);
             }
         }
     }

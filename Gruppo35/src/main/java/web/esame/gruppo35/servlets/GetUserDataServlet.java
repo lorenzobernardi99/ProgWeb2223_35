@@ -30,7 +30,7 @@ public class GetUserDataServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Connection connection;
         ResultSet result;
-        UserBean User = new UserBean();
+        UserBean user = null;
         try{
             connection = DatabaseSessionManager.getConnection(session);
             String username= (String) session.getAttribute("username");
@@ -39,14 +39,16 @@ public class GetUserDataServlet extends HttpServlet {
             statement.setString(1, username);
             result = statement.executeQuery();
             while(result.next()){
-                User.setName(result.getString(2));
-                User.setSurname(result.getString(3));
-                User.setBirthDate(result.getDate(4));
-                User.setEmailAddress(result.getString(5));
-                User.setTelephoneNumber(result.getString(6));
-                User.setRole(UserRole.values()[result.getInt(7)]);
-                User.setUsername(result.getString(8));
-                User.setPassword(result.getString(9));
+                user = new UserBean(
+                        result.getString(2),
+                        result.getString(3),
+                        result.getDate(4),
+                        result.getString(5),
+                        result.getString(6),
+                        UserRole.values()[result.getInt(7)],
+                        result.getString(8),
+                        result.getString(9)
+                );
             }
         }catch (ClassNotFoundException | SQLException | NullPointerException ex){
             System.out.println("Errore :" + ex);
@@ -55,7 +57,7 @@ public class GetUserDataServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         try(PrintWriter out = response.getWriter()){
             Gson gson = new Gson();
-            String object = gson.toJson(User);
+            String object = gson.toJson(user);
             out.println(object);
             out.flush();
         }catch(IOException ex){

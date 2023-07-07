@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SympathizerServlet extends HttpServlet {
+public class MemberServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processData(request,response);
@@ -20,7 +20,7 @@ public class SympathizerServlet extends HttpServlet {
 
 
     protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/SympathizerPage.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/memberPage.jsp");
         dispatcher.forward(request, response);
     }
 }
