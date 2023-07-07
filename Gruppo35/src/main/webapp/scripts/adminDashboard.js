@@ -1,3 +1,16 @@
+// Extract JSESSIONID from URL
+function getJSessionIdFromUrl() {
+      var referrerUrl = document.referrer;
+      var jsessionId = "";
+
+      var regex = /(;)jsessionid=([^&]+)/;
+      var match = regex.exec(referrerUrl);
+      if (match) {
+            jsessionId = match[0];
+      }
+      return jsessionId;
+}
+
 // method to process response status
 function processStatus(response) {
       var ok = 200;
@@ -11,7 +24,7 @@ function processStatus(response) {
 // method that retrieves user data
 function retrieveUsers(filter){
       // Preparing request
-      let url = "GetUsers?filter=" + filter;
+      let url = "GetUsers" + getJSessionIdFromUrl() + "?filter=" + filter;
 
       // Making request
       fetch(url)
@@ -80,7 +93,7 @@ function viewsPerPage(){
       let data = [];
 
       // Preparing request
-      let url = "GetViews";
+      let url = "GetViews" + getJSessionIdFromUrl();
 
       // Making request
       fetch(url)
@@ -139,7 +152,7 @@ function viewsPerPage(){
       }
 // method that calls reset of view's counter
 function resetViews(fieldToReset) {
-      let url = "ResetViews?field=" + fieldToReset;
+      let url = "ResetViews" + getJSessionIdFromUrl() + "?field=" + fieldToReset;
 
       // Making request
       fetch(url)
@@ -166,7 +179,7 @@ function donationReceived(){
       let data = [];
 
       // Preparing request
-      let url = "GetDonations";
+      let url = "GetDonations" + getJSessionIdFromUrl();
       // Making request
       fetch(url)
           .then(processStatus)

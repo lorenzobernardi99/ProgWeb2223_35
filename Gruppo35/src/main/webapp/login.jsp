@@ -4,7 +4,7 @@
 <script src="${pageContext.request.contextPath}/scripts/login.js"></script>
 <div id="login-container">
   <h1>Login</h1>
-  <form name="login_data" action="ValidateLogin" id="loginForm" method="POST" onsubmit="return validateData()">
+  <form name="login_data" action="ValidateLogin<%=newHref%>" id="loginForm" method="POST" onsubmit="return validateData()">
       <span id="errorText"><%=request.getAttribute("message")%></span>
 
       <label for="username">Username:</label>

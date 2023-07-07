@@ -26,7 +26,6 @@ public class ActivitiesServlet extends HttpServlet {
         ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
         ViewsManager.setActivitiesViews(ViewsManager.getActivitiesViews() + 1);
 
-
         response.setContentType("text/html");
 
         // check if there is a parameter for activity details

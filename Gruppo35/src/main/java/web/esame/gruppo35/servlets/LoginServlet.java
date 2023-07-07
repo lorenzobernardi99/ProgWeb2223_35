@@ -21,12 +21,14 @@ public class LoginServlet extends HttpServlet {
         ViewsManager.setLoginViews(ViewsManager.getLoginViews() + 1);
 
         if(role!=null){
+            boolean urlRewrite = request.getAttribute("URLRewrite") != null;
+            String newHref = (urlRewrite) ? ";jsessionid=" + session.getId() : "";
+
             //already logged in
             switch (role) {
-                // TODO: da modificare con le diverse pagine dei diversi profili
-                case AMMINISTRATORE -> response.sendRedirect("Admin");
-                case ADERENTE -> response.sendRedirect("ContactUs");
-                case SIMPATIZZANTE -> response.sendRedirect("SignIn");
+                case AMMINISTRATORE -> response.sendRedirect("Admin" + newHref);
+                case ADERENTE -> response.sendRedirect("Adherent" + newHref);
+                case SIMPATIZZANTE -> response.sendRedirect("Sympathizer" + newHref);
             }
         } else {
             if (request.getAttribute("message") == null)

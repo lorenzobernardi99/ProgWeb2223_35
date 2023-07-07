@@ -6,10 +6,7 @@ import web.esame.gruppo35.helperClasses.UserRole;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,7 +19,6 @@ public class ValidateLoginServlet extends HttpServlet {
     HttpSession session = null;
 
     protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
-
         if (session.getAttribute("role")!=null) {
             //già autenticato
             RequestDispatcher rd=request.getRequestDispatcher("Login");
@@ -62,11 +58,14 @@ public class ValidateLoginServlet extends HttpServlet {
             session.setAttribute("username", username);
             session.setAttribute("role", retrievedUser.getRole());
             session.setAttribute("USER_ID", retrievedUser.getId());
+
+            boolean urlRewrite = request.getAttribute("URLRewrite") != null;
+            String newHref = (urlRewrite) ? ";jsessionid=" + session.getId() : "";
+
             switch (retrievedUser.getRole()) {
-                // TODO: da modificare con le diverse pagine dei diversi profili
-                case AMMINISTRATORE -> response.sendRedirect("Admin");
-                case ADERENTE -> response.sendRedirect("Sympathizer");
-                case SIMPATIZZANTE -> response.sendRedirect("Sympathizer");
+                case AMMINISTRATORE -> response.sendRedirect("Admin" + newHref);
+                case ADERENTE -> response.sendRedirect("Adherent" + newHref);
+                case SIMPATIZZANTE -> response.sendRedirect("Sympathizer" + newHref);
             }
         }
     }

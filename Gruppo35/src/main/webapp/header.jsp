@@ -11,9 +11,9 @@
         <title><%=application.getAttribute("organizationName") %></title>
     </head>
     <body>
-        <% HttpSession sessione = request.getSession(false);
+        <% HttpSession requestSession = request.getSession(false);
         boolean urlRewrite = request.getAttribute("URLRewrite") != null;
-        String newHref = (urlRewrite) ? ";jsessionid=" + sessione.getId() : "";
+        String newHref = (urlRewrite) ? ";jsessionid=" + requestSession.getId() : "";
 
         String username = (String) session.getAttribute("username");
         UserRole role = (UserRole) session.getAttribute("role");
@@ -46,13 +46,13 @@
         }%>
         <header>
             <nav>
-                <a href="Homepage" id="navigationTitle">
+                <a href="Homepage<%=newHref%>" id="navigationTitle">
                     <img src="res/img/title-black.png" id="titleImg" alt="Tum4Word_Icon">
                 </a>
                 <div id="navbar">
                     <div id="menu">
                         <div class="logo-links">
-                            <a href="Homepage">
+                            <a href="Homepage<%=newHref%>">
                                 <img src="res/img/blue-logo.png" id="HomePageImg" alt="Tum4Word_Logo">
                             </a>
                         </div>

@@ -15,10 +15,12 @@ public class AdminFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+
         HttpServletRequest servletRequest = (HttpServletRequest) request;
         HttpServletResponse servletResponse = (HttpServletResponse) response;
-        HttpSession session = servletRequest.getSession();
+        HttpSession session = servletRequest.getSession(false);
         UserRole role = (UserRole) session.getAttribute("role");
+
         if(role != null){
             if (role == UserRole.AMMINISTRATORE) {
                 chain.doFilter(request, response);

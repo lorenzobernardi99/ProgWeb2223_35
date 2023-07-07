@@ -11,7 +11,7 @@
     <article>
         <jsp:useBean id="activityBeanList" class="web.esame.gruppo35.helperClasses.ActivityBeanList" scope="application"/>
         <%
-            String linkParam = (urlRewrite) ? ";jsessionid=" + sessione.getId() + "?id=" : "?id=";
+            String linkParam = (urlRewrite) ? ";jsessionid=" + requestSession.getId() + "?id=" : "?id=";
             for (ActivityBean ab : activityBeanList) {
         %>
         <div class="ActivitiesLink">

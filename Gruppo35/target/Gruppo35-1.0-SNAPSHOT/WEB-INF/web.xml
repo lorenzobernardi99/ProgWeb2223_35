@@ -5,13 +5,27 @@
          version="4.0">
 
     <filter>
-        <filter-name>Filter1</filter-name>
-        <filter-class>web.esame.gruppo35.helperClasses.Filter1</filter-class>
+        <filter-name>CookiesFilter</filter-name>
+        <filter-class>web.esame.gruppo35.helperClasses.CookiesFilter</filter-class>
     </filter>
     <filter>
         <filter-name>AdminFilter</filter-name>
         <filter-class>web.esame.gruppo35.helperClasses.AdminFilter</filter-class>
     </filter>
+    <filter-mapping>
+        <filter-name>CookiesFilter</filter-name>
+        <url-pattern>/</url-pattern>
+        <url-pattern>/Homepage</url-pattern>
+        <url-pattern>/WhoWeAre</url-pattern>
+        <url-pattern>/Activities</url-pattern>
+        <url-pattern>/ContactUs</url-pattern>
+        <url-pattern>/Login</url-pattern>
+        <url-pattern>/SignIn</url-pattern>
+        <url-pattern>/ValidateLogin</url-pattern>
+        <url-pattern>/Admin</url-pattern>
+        <url-pattern>/Sympathizer</url-pattern>
+        <url-pattern>/GetViews</url-pattern>
+    </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/Admin</url-pattern>
@@ -19,15 +33,6 @@
         <url-pattern>/GetViews</url-pattern>
         <url-pattern>/ResetViews</url-pattern>
         <url-pattern>/GetDonations</url-pattern>
-    </filter-mapping>
-    <filter-mapping>
-        <filter-name>Filter1</filter-name>
-        <url-pattern>/Homepage</url-pattern>
-        <url-pattern>/WhoWeAre</url-pattern>
-        <url-pattern>/Activities</url-pattern>
-        <url-pattern>/ContactUs</url-pattern>
-        <url-pattern>/Login</url-pattern>
-        <url-pattern>/SignIn</url-pattern>
     </filter-mapping>
 
     <session-config>
