@@ -27,8 +27,7 @@ public class LoginServlet extends HttpServlet {
             //already logged in
             switch (role) {
                 case AMMINISTRATORE -> response.sendRedirect("Admin" + newHref);
-                case ADERENTE -> response.sendRedirect("Adherent" + newHref);
-                case SIMPATIZZANTE -> response.sendRedirect("Sympathizer" + newHref);
+                case ADERENTE, SIMPATIZZANTE -> response.sendRedirect("Member" + newHref);
             }
         } else {
             if (request.getAttribute("message") == null)

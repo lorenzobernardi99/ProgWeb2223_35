@@ -12,6 +12,10 @@
         <filter-name>AdminFilter</filter-name>
         <filter-class>web.esame.gruppo35.helperClasses.AdminFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>MemberFilter</filter-name>
+        <filter-class>web.esame.gruppo35.helperClasses.MemberFilter</filter-class>
+    </filter>
     <filter-mapping>
         <filter-name>CookiesFilter</filter-name>
         <url-pattern>/</url-pattern>
@@ -37,9 +41,17 @@
         <url-pattern>/ResetViews</url-pattern>
         <url-pattern>/GetDonations</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>MemberFilter</filter-name>
+        <url-pattern>/Member</url-pattern>
+        <url-pattern>/GetUserData</url-pattern>
+        <url-pattern>/UserActivitiesSubscription</url-pattern>
+        <url-pattern>/SendDonation</url-pattern>
+        <url-pattern>/DeleteAccount</url-pattern>
+    </filter-mapping>
 
     <session-config>
-        <session-timeout>1</session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 
     <listener>
@@ -101,10 +113,6 @@
         <servlet-name>GetDonations</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.GetDonationsServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>SetDonations</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.SetDonationServlet</servlet-class>
-    </servlet>
 
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
@@ -154,10 +162,6 @@
         <servlet-name>GetDonations</servlet-name>
         <url-pattern>/GetDonations</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SetDonations</servlet-name>
-        <url-pattern>/SetDonations</url-pattern>
-    </servlet-mapping>
 
     <servlet>
         <servlet-name>Activities</servlet-name>
@@ -184,12 +188,12 @@
         <url-pattern>/Homepage</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Sympathizer</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.SympathizerServlet</servlet-class>
+        <servlet-name>Member</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.MemberServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Sympathizer</servlet-name>
-        <url-pattern>/Sympathizer</url-pattern>
+        <servlet-name>Member</servlet-name>
+        <url-pattern>/Member</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -211,11 +215,20 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>deleteAccount</servlet-name>
-        <servlet-class>web.esame.gruppo35.helperClasses.deleteAccount</servlet-class>
+        <servlet-name>SendDonation</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SendDonationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>deleteAccount</servlet-name>
-        <url-pattern>/deleteAccount</url-pattern>
+        <servlet-name>SendDonation</servlet-name>
+        <url-pattern>/SendDonation</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteAccount</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.DeleteAccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAccount</servlet-name>
+        <url-pattern>/DeleteAccount</url-pattern>
     </servlet-mapping>
 </web-app>
