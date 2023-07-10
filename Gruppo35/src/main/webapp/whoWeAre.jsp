@@ -47,7 +47,7 @@
 </div>
 <script>
     function changeText(x){
-        var text;
+        let text;
         switch(x.id){
             case 'description-td': text = "<%=application.getAttribute("description")%>";
                 break;

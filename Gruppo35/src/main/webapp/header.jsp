@@ -27,19 +27,10 @@
             login = "<a href='Login" + newHref + "' class='nav-link'>Login</a>";
         }
         else{
-            switch (role) {
-                case AMMINISTRATORE:
-                    dashboard = "<a href='Admin" + newHref + "' class='nav-link'>Dashboard</a>";
-                    break;
-                case ADERENTE:
-                    dashboard = "<a href='Member" + newHref + "' class='nav-link'>Dashboard</a>";
-                    break;
-                case SIMPATIZZANTE:
-                    dashboard = "<a href='Member" + newHref + "' class='nav-link'>Dashboard</a>";
-                    break;
-                default:
-                    throw new IllegalArgumentException();
-            }
+            dashboard = switch (role) {
+                case AMMINISTRATORE -> "<a href='Admin" + newHref + "' class='nav-link'>Dashboard</a>";
+                case ADERENTE, SIMPATIZZANTE -> "<a href='Member" + newHref + "' class='nav-link'>Dashboard</a>";
+                };
             usernameBox = "<a id='loggedUser'>" + username + "</a>";
             logout = "<a href='Logout" + newHref + "' class='nav-link'>Logout</a>";
 
@@ -84,11 +75,11 @@
 
             function populateMotivations() {
                 let element = document.getElementById("phrase");
-                element.style.opacity = 0;
+                element.style.opacity = '0';
 
                 setTimeout(function () {
                     element.innerText = "\"" + motivations[counter] + "\"";
-                    element.style.opacity = 1;
+                    element.style.opacity = '1';
                     counter += 1;
                     if (counter === motivations.length) {
                         counter = 0;

@@ -1,6 +1,5 @@
 package web.esame.gruppo35.beans;
 
-import web.esame.gruppo35.helperClasses.UserRole;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,7 +8,7 @@ public class DonationBean implements Serializable {
     private Float amount;
     private Date date;
 
-    public DonationBean(){};
+    public DonationBean(){}
 
     public DonationBean(UserBean contributor, Float amount, Date date) {
         this.contributor = contributor;
