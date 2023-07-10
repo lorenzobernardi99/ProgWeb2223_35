@@ -1,4 +1,4 @@
-package web.esame.gruppo35.helperClasses;
+package web.esame.gruppo35.servlets;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

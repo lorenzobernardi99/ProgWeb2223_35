@@ -73,7 +73,7 @@
 
     <servlet>
         <servlet-name>ErrorHandler</servlet-name>
-        <servlet-class>web.esame.gruppo35.helperClasses.ErrorHandlerServlet</servlet-class>
+        <servlet-class>web.esame.gruppo35.servlets.ErrorHandlerServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

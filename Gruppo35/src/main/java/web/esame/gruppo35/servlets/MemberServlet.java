@@ -20,7 +20,7 @@ public class MemberServlet extends HttpServlet {
 
 
     protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/pages/memberPage.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/memberPage.jsp");
         dispatcher.forward(request, response);
     }
 }
