@@ -1,6 +1,5 @@
 package web.esame.gruppo35.helperClasses;
 
-import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,27 +13,17 @@ public class DatabaseSessionManager {
     public static Connection getConnection(HttpSession session) throws SQLException, ClassNotFoundException{
         Connection connection = (Connection) session.getAttribute("dbConnection");
         if (connection == null || connection.isClosed()) {
-            try {
-                Class.forName("org.apache.derby.jdbc.ClientDriver");
-                connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-                session.setAttribute("dbConnection", connection);
-            } catch (SQLException e){
-                throw new SQLException(e);
-            } catch (ClassNotFoundException e){
-                throw new ClassNotFoundException();
-            }
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            session.setAttribute("dbConnection", connection);
         }
         return connection;
     }
 
-    public static void closeConnection(HttpSession session) {
+    public static void closeConnection(HttpSession session) throws SQLException {
         Connection connection = (Connection) session.getAttribute("dbConnection");
         if (connection != null) {
-            try {
-                connection.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            connection.close();
             session.removeAttribute("dbConnection");
         }
     }

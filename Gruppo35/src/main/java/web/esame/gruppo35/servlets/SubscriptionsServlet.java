@@ -19,7 +19,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserActivitiesSubscriptionServlet extends HttpServlet {
+public class SubscriptionsServlet extends HttpServlet {
 
     protected HttpSession session;
 
@@ -28,21 +28,23 @@ public class UserActivitiesSubscriptionServlet extends HttpServlet {
     protected ResultSet result2;
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // retrieve activities
         try {
             getActivities(request, response);
-        } catch (ServletException | NullPointerException | IOException | SQLException | ClassNotFoundException ex){
-            System.out.println(ex.getMessage());
+        } catch (ServletException | NullPointerException | SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // subscribe to an activity
         try {
             subscribeToActivity(request, response);
-        }catch (ServletException | NullPointerException | IOException | SQLException | ClassNotFoundException ex){
-            System.out.println(ex.getMessage());
+        } catch (ServletException | NullPointerException | SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
 
     }
@@ -175,6 +177,5 @@ public class UserActivitiesSubscriptionServlet extends HttpServlet {
         out.println(responseJson);
         out.flush();
         out.close();
-
     }
 }

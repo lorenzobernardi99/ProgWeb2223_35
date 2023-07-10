@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class WhoWeAreServlet extends HttpServlet{
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, NullPointerException, IOException {
         ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
         ViewsManager.setWhoWeAreViews(ViewsManager.getWhoWeAreViews() + 1);
 
-        RequestDispatcher dispatcher= request.getRequestDispatcher("whoWeAre.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/whoWeAre.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -22,9 +22,9 @@ public class WhoWeAreServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException{
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -32,9 +32,9 @@ public class WhoWeAreServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

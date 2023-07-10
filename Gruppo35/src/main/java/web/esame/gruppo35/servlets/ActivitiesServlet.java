@@ -21,12 +21,9 @@ public class ActivitiesServlet extends HttpServlet {
         numberOfActivities = activityBeanList.size();
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws NullPointerException, IOException, ServletException{
         ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
         ViewsManager.setActivitiesViews(ViewsManager.getActivitiesViews() + 1);
-
-        response.setContentType("text/html");
 
         // check if there is a parameter for activity details
         if (request.getParameter("id") == null) {
@@ -38,18 +35,31 @@ public class ActivitiesServlet extends HttpServlet {
         // check if parameter for activity details is valid
         if (activityID <= numberOfActivities && activityID >= 0) {
             request.setAttribute("activityBean", activityBeanList.get(activityID-1));
-            dispatcher = request.getRequestDispatcher("/activities/activityDetail.jsp");
+            dispatcher = request.getRequestDispatcher("/activityDetail.jsp");
         } else { //either null or activityID > numberOfActivities
-            dispatcher = request.getRequestDispatcher("/activities/activities.jsp");
+            dispatcher = request.getRequestDispatcher("/activities.jsp");
         }
         dispatcher.forward(request, response);
     }
 
-    public void destroy() {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
+
+    public void destroy() {}
 }

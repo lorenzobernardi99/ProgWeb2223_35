@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
+<%@ include file="header.jsp"%>
 <%@ page import="web.esame.gruppo35.beans.ActivityBean" %>
-<link rel="stylesheet" type="text/css" href="../style/activities.css">
+<link rel="stylesheet" type="text/css" href="style/activities.css">
 <div id="activities-description">
     <p>
         <%=application.getAttribute("activities_description")%>
@@ -36,4 +36,4 @@
         <a href="https://unsplash.com/it/foto/3k3l2brxmwQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
     </figcaption>
 </div>
-<%@ include file="../footer.jsp"%>
+<%@ include file="footer.jsp"%>

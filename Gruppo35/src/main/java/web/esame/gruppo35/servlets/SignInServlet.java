@@ -10,21 +10,21 @@ import java.io.IOException;
 
 public class SignInServlet extends HttpServlet {
 
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, NullPointerException, IOException {
         ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
         ViewsManager.setSignInViews(ViewsManager.getSignInViews() + 1);
 
         // simply provide the jsp page
-        request.getRequestDispatcher("signIn.jsp").forward(request, response);
+        request.getRequestDispatcher("/signIn.jsp").forward(request, response);
     }
 
     @Override
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -32,9 +32,9 @@ public class SignInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

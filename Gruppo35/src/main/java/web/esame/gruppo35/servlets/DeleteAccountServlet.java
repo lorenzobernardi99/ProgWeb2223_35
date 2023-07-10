@@ -8,37 +8,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DeleteAccountServlet extends HttpServlet {
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet result = null;
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        processRequest(req,resp);
+
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ClassNotFoundException, SQLException, NullPointerException{
+        HttpSession session = request.getSession();
+        Connection connection = DatabaseSessionManager.getConnection(session);
+        String username = (String) session.getAttribute("username");
+
+        String query = "DELETE FROM USERS WHERE USERNAME=?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1,username);
+
+        statement.executeUpdate();
+
+        request.getRequestDispatcher("/Logout").forward(request,response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        processRequest(req,resp);
-    }
-
-    protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        HttpSession session = req.getSession();
-        try{
-            connection = DatabaseSessionManager.getConnection(session);
-            String username= (String) session.getAttribute("username");
-            String Query="DELETE  FROM USERS WHERE USERNAME='"+username+"'";
-            statement = connection.createStatement();
-            int v=statement.executeUpdate(Query);
-        }catch (ClassNotFoundException | SQLException | NullPointerException ex){
-            System.out.println("Errore :"+ex);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
-        req.getRequestDispatcher("Logout").forward(req,resp);
+    }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
 }

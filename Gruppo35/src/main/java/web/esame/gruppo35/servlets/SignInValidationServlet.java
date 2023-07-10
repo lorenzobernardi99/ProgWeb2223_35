@@ -21,6 +21,7 @@ import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
 import web.esame.gruppo35.helperClasses.UserRole;
 
 public class SignInValidationServlet extends HttpServlet {
+    HttpSession session = null;
     Connection connection = null;
 
     protected boolean checkUsername(String username) throws SQLException {
@@ -57,7 +58,7 @@ public class SignInValidationServlet extends HttpServlet {
         out.flush();
     }
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ServletException, IllegalArgumentException{
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ServletException, IllegalArgumentException, NullPointerException{
         String name = request.getParameter("name");
         String surname = request.getParameter("surname");
         String birth = request.getParameter("birth");
@@ -135,7 +136,10 @@ public class SignInValidationServlet extends HttpServlet {
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
                 System.out.println("Insertion completed: " + rowsInserted + " rows affected");
-                response.sendRedirect("/registrationDone.jsp");
+                boolean urlRewrite = request.getAttribute("URLRewrite") != null;
+                String newHref = (urlRewrite) ? ";jsessionid=" + session.getId() : "";
+
+                response.sendRedirect("/registrationDone.jsp" + newHref);
             } else {
                 throw new SQLException("Errore di inserimento dati nel database");
             }
@@ -151,18 +155,12 @@ public class SignInValidationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            // redirect to SignIn
-            response.sendRedirect("SignIn");
-        } catch (NullPointerException | IOException e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");
-        }
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        HttpSession session = request.getSession();
+        session = request.getSession(false);
         String requestType = request.getHeader("X-Request-Type");
 
         try {
@@ -172,11 +170,14 @@ public class SignInValidationServlet extends HttpServlet {
                 validateUsername(request, response);
             } else {
                 // handle sign in submitted form through validation, registration and redirect
-                processRequest(request, response);
+                processData(request, response);
             }
-        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException | IOException | IllegalArgumentException e) {
+        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
 }

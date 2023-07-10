@@ -1,11 +1,11 @@
 package web.esame.gruppo35.servlets;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 
 public class SendDonationServlet extends HttpServlet {
     // method to retrieve users from DB, based on the request parameter, sending a JSON as a response
-    protected void setDonation(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ClassNotFoundException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, SQLException, ClassNotFoundException {
         // Obtain body's request
         StringBuilder requestBody = new StringBuilder();
         BufferedReader reader = request.getReader();
@@ -53,10 +53,6 @@ public class SendDonationServlet extends HttpServlet {
         // if query outcome is successful -> true, otherwise false
         queryResult = rowsAffected > 0;
 
-        // Preparing and sending json response
-        response.setContentType("application/json");
-        response.setCharacterEncoding("utf-8");
-
         // create donation state response
         JsonObject responseJson = new JsonObject();
         responseJson.addProperty("isSuccessful", queryResult);
@@ -74,20 +70,20 @@ public class SendDonationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            setDonation(request,response);
-        } catch (NullPointerException | IOException | SQLException | ClassNotFoundException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException | IllegalStateException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            setDonation(request,response);
-        } catch (NullPointerException | IOException | SQLException | ClassNotFoundException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException | IllegalStateException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

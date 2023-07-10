@@ -6,9 +6,11 @@ import web.esame.gruppo35.beans.UserBean;
 import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
 import web.esame.gruppo35.helperClasses.UserRole;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -19,7 +21,8 @@ import java.util.ArrayList;
 
 public class GetUsersServlet extends HttpServlet {
     // method to retrieve users from DB, based on the request parameter, sending a JSON as a response
-    protected void retrieveUsers(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ClassNotFoundException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException, ClassNotFoundException, NullPointerException, ServletException, IllegalArgumentException {
+
         String filter = request.getParameter("filter");
         ArrayList<UserBean> user_list = new ArrayList<>();
 
@@ -48,16 +51,17 @@ public class GetUsersServlet extends HttpServlet {
 
         // Getting results and saving it in an array of beans
         while (result.next()) {
-            UserBean retrieved_user = new UserBean();
-            retrieved_user.setName(result.getString("name"));
-            retrieved_user.setSurname(result.getString("surname"));
-            retrieved_user.setBirthDate(result.getDate("birth_date"));
-            retrieved_user.setEmailAddress(result.getString("email_address"));
-            retrieved_user.setTelephoneNumber(result.getString("telephone_number"));
-            retrieved_user.setRole(UserRole.values()[result.getInt("role")]);
-            retrieved_user.setUsername(result.getString("username"));
-            retrieved_user.setPassword(result.getString("password"));
-            user_list.add(retrieved_user);
+            UserBean user = new UserBean(
+                result.getString("name"),
+                result.getString("surname"),
+                result.getDate("birth_date"),
+                result.getString("email_address"),
+                result.getString("telephone_number"),
+                UserRole.values()[result.getInt("role")],
+                result.getString("username"),
+                result.getString("password")
+            );
+            user_list.add(user);
         }
 
         // Preparing and sending json response
@@ -77,20 +81,26 @@ public class GetUsersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            retrieveUsers(request,response);
-        } catch (NullPointerException | IOException | SQLException | ClassNotFoundException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            retrieveUsers(request,response);
-        } catch (NullPointerException | IOException | SQLException | ClassNotFoundException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
         }
     }
 }

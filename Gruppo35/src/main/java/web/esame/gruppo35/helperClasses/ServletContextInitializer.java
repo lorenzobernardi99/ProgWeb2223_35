@@ -186,9 +186,7 @@ public class ServletContextInitializer implements ServletContextListener {
             }
             connection.close();
         } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-
-
     }
 }

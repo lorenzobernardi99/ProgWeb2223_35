@@ -18,16 +18,16 @@ public class ValidateLoginServlet extends HttpServlet {
     Connection connection = null;
     HttpSession session = null;
 
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException, NullPointerException {
         if (session.getAttribute("role")!=null) {
             //già autenticato
-            RequestDispatcher rd=request.getRequestDispatcher("Login");
+            RequestDispatcher rd=request.getRequestDispatcher("/Login");
             rd.forward(request, response);
         }
 
         PreparedStatement stmt;
         ResultSet result;
-        UserBean retrievedUser = new UserBean();
+        UserBean retrievedUser = null;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
@@ -39,20 +39,22 @@ public class ValidateLoginServlet extends HttpServlet {
 
         result = stmt.executeQuery();
         if (result.next()) {
+            retrievedUser = new UserBean(
+                    result.getString("name"),
+                    result.getString("surname"),
+                    result.getDate("birth_date"),
+                    result.getString("email_address"),
+                    result.getString("telephone_number"),
+                    UserRole.values()[result.getInt("role")],
+                    result.getString("username"),
+                    result.getString("password")
+            );
             retrievedUser.setId(result.getInt("id"));
-            retrievedUser.setName(result.getString("name"));
-            retrievedUser.setSurname(result.getString("surname"));
-            retrievedUser.setBirthDate(result.getDate("birth_date"));
-            retrievedUser.setEmailAddress(result.getString("email_address"));
-            retrievedUser.setTelephoneNumber(result.getString("telephone_number"));
-            retrievedUser.setRole(UserRole.values()[result.getInt("role")]);
-            retrievedUser.setUsername(result.getString("username"));
-            retrievedUser.setPassword(result.getString("password"));
         }
 
         if (retrievedUser.getRole() == null){
             request.setAttribute("message", "35:Username e/o password errati");
-            RequestDispatcher rd=request.getRequestDispatcher("Login");
+            RequestDispatcher rd=request.getRequestDispatcher("/Login");
             rd.forward(request, response);
         } else {
             session.setAttribute("username", username);
@@ -71,13 +73,7 @@ public class ValidateLoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            // redirect to Login
-            response.sendRedirect("Login");
-        } catch (NullPointerException | IOException e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");
-        }
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }
 
     @Override
@@ -86,9 +82,9 @@ public class ValidateLoginServlet extends HttpServlet {
             session = request.getSession();
             connection = DatabaseSessionManager.getConnection(session);
             processData(request,response);
-        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException | IOException e) {
+        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

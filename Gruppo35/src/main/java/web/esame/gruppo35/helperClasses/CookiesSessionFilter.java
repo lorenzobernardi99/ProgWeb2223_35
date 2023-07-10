@@ -6,12 +6,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class CookiesFilter implements Filter{
+public class CookiesSessionFilter implements Filter{
     @Override
     public void init(FilterConfig filterConfig) {}
 
     @Override
-    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException {
+
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession session = request.getSession(false);
@@ -55,7 +56,12 @@ public class CookiesFilter implements Filter{
                     response.addCookie(c);
                 }
             }
-            request.getRequestDispatcher(URL).forward(request,response);
+            try {
+                request.getRequestDispatcher(URL).forward(request,response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
         }else{
             if(CookieUser.equals("false")) {
                 if (FormAccept != null) {
@@ -80,7 +86,11 @@ public class CookiesFilter implements Filter{
                     request.setAttribute("showBanner", true);
                 }
             }
-            chain.doFilter(req,resp);
+            try {
+                chain.doFilter(req,resp);
+            } catch (ServletException e) {
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            }
         }
     }
 

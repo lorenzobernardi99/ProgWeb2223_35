@@ -162,20 +162,6 @@ function resetViews(fieldToReset) {
 }
 // method that retrieves data to populate donation chart
 function donationReceived(){
-      const Months = {
-            1: 'gennaio',
-            2: 'febbraio',
-            3: 'marzo',
-            4: 'aprile',
-            5: 'maggio',
-            6: 'giugno',
-            7: 'luglio',
-            8: 'agosto',
-            9: 'settembre',
-            10: 'ottobre',
-            11: 'novembre',
-            12: 'dicembre'
-      };
       let data = [];
 
       // Preparing request
@@ -191,7 +177,7 @@ function donationReceived(){
                   for (let i = 0; i < my_JSON_array.length; i++) {
                         let current_JSON_object  = JSON.parse(my_JSON_array[i]);
                         for (let key in current_JSON_object) {
-                              data.push([Months[key], current_JSON_object[key]]);
+                              data.push([key, current_JSON_object[key]]);
                         }
                   }
 
