@@ -44,7 +44,9 @@ function sendDonation(){
         donationLabel.removeChild(errorMessage);
     }
 
-    fetch("SendDonation", {
+    let url = "SendDonation" + getJSessionIdFromUrl();
+
+    fetch(url, {
         method : "POST",
         body: JSON.stringify({ donationAmount }),
         headers: {

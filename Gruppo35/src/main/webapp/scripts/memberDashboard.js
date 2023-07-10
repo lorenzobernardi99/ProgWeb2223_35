@@ -1,3 +1,16 @@
+
+function getJSessionIdFromUrl() {
+    var referrerUrl = document.referrer;
+    var jsessionId = "";
+
+    var regex = /(;)jsessionid=([^&]+)/;
+    var match = regex.exec(referrerUrl);
+    if (match) {
+        jsessionId = match[0];
+    }
+    return jsessionId;
+}
+
 function getUserData(){
     let table=document.getElementById("tabella");
     if(table.childNodes.length>0){
@@ -11,7 +24,9 @@ function getUserData(){
 }
 async function getUserJSON() {
     try {
-        const response = await fetch("GetUserData", {
+        let url = "GetUserData" + getJSessionIdFromUrl();
+
+        const response = await fetch(url, {
             method: "POST",
         });
 
@@ -86,9 +101,10 @@ function getActivities(){
     }
 }
 function getActivitiesJSON() {
-    let URL = "UserActivitiesSubscription";
 
-    fetch(URL)
+    let url = "UserActivitiesSubscription" + getJSessionIdFromUrl();
+
+    fetch(url)
         .then(processStatus)
         .then(response => response.json())
         .then(data => {
@@ -166,17 +182,26 @@ function getActivitiesJSON() {
         });
 }
 
+// method to process response status
 function processStatus(response) {
-    let ok = 200;
+    const ok = 200;
+
+    if (response.redirected){
+        window.location.href = response.url;
+    }
     if (response.status === ok) {
-        return Promise.resolve(response);
-    } else {
-        return Promise.reject(response.status);
+        return Promise.resolve(response)
+    }
+    else {
+        return Promise.reject(response.status)
     }
 }
 
 function subscribe(targetActivityId){
-    fetch("UserActivitiesSubscription", {
+
+    let url = "UserActivitiesSubscription" + getJSessionIdFromUrl();
+
+    fetch(url, {
         method: "POST",
         body: JSON.stringify({ targetActivityId }),
         headers: {
