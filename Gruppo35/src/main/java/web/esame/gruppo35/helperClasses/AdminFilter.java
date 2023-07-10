@@ -10,7 +10,7 @@ public class AdminFilter implements Filter {
     public void init(FilterConfig config) {}
 
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException {
 
         HttpServletRequest servletRequest = (HttpServletRequest) request;
         HttpServletResponse servletResponse = (HttpServletResponse) response;
@@ -19,7 +19,12 @@ public class AdminFilter implements Filter {
 
         if(role != null){
             if (role == UserRole.AMMINISTRATORE) {
-                chain.doFilter(request, response);
+                try {
+                    chain.doFilter(request, response);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                    servletResponse.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                }
             } else {
                 servletResponse.sendError(HttpServletResponse.SC_FORBIDDEN);
             }

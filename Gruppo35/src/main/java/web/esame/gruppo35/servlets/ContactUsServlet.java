@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ContactUsServlet extends HttpServlet {
 
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws NullPointerException, IOException, ServletException{
         ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
         ViewsManager.setContactUsViews(ViewsManager.getContactUsViews() + 1);
 
@@ -20,7 +20,7 @@ public class ContactUsServlet extends HttpServlet {
             request.setAttribute("message", "");
         }
 
-        RequestDispatcher rd=request.getRequestDispatcher("contactUs.jsp");
+        RequestDispatcher rd=request.getRequestDispatcher("/contactUs.jsp");
         rd.forward(request, response);
     }
 
@@ -29,9 +29,9 @@ public class ContactUsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -39,9 +39,9 @@ public class ContactUsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

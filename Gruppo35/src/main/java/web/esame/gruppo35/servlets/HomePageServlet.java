@@ -11,11 +11,12 @@ import java.io.IOException;
 
 public class HomePageServlet extends HttpServlet {
 
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, NullPointerException, IOException {
+
         ViewsManager.setTotalViews(ViewsManager.getTotalViews() + 1);
         ViewsManager.setHomepageViews(ViewsManager.getHomepageViews() + 1);
 
-        RequestDispatcher dispatcher= request.getRequestDispatcher("homepage.jsp");
+        RequestDispatcher dispatcher= request.getRequestDispatcher("/homepage.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -23,9 +24,9 @@ public class HomePageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -33,9 +34,9 @@ public class HomePageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (ServletException | NullPointerException | IOException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 

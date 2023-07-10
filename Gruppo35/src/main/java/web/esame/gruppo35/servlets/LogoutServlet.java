@@ -9,22 +9,22 @@ import java.io.IOException;
 
 public class LogoutServlet extends HttpServlet {
 
-    HttpSession session = null;
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, NullPointerException, ServletException {
 
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // log out through session invalidating
-        session = request.getSession();
+        HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("Homepage");
+
+        response.sendRedirect("/");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (NullPointerException | IOException | ServletException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -32,9 +32,9 @@ public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             processData(request,response);
-        } catch (NullPointerException | IOException | ServletException e) {
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

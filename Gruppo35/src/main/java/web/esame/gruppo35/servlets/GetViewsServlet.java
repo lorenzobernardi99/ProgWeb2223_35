@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import web.esame.gruppo35.helperClasses.ViewsManager;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class GetViewsServlet extends HttpServlet {
     // method to retrieve application's view counters and send it as JSON in the response
-    protected void retrieveViews(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, NullPointerException, ServletException {
         // retrieve application view's counter
         Map<String, Integer> views = new LinkedHashMap<>();
         views.put("total", ViewsManager.getTotalViews());
@@ -40,20 +41,20 @@ public class GetViewsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            retrieveViews(request,response);
-        } catch (NullPointerException | IOException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            retrieveViews(request,response);
-        } catch (NullPointerException | IOException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

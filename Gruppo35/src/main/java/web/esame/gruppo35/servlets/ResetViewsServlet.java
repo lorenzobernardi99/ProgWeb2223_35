@@ -3,17 +3,15 @@ package web.esame.gruppo35.servlets;
 import web.esame.gruppo35.helperClasses.ViewsManager;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "ResetViewsServlet", value = "/ResetViewsServlet")
 public class ResetViewsServlet extends HttpServlet {
     // method to reset a specific or all application's view counters
-    protected void resetViews(HttpServletRequest request, HttpServletResponse response) throws NullPointerException, ClassCastException, UnsupportedOperationException, IOException{
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws NullPointerException, IOException, ServletException{
         String field = request.getParameter("field");
 
         switch (field) {
@@ -52,26 +50,29 @@ public class ResetViewsServlet extends HttpServlet {
             }
         }
 
+        response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
+
         PrintWriter out = response.getWriter();
         out.write(field + "reset successfully");
     }
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            resetViews(request, response);
-        } catch (NullPointerException | IOException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            resetViews(request, response);
-        } catch (NullPointerException | IOException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

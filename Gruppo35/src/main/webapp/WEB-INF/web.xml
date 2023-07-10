@@ -23,14 +23,14 @@
         <url-pattern>/Activities</url-pattern>
         <url-pattern>/ContactUs</url-pattern>
         <url-pattern>/Login</url-pattern>
-        <url-pattern>/ValidateLogin</url-pattern>
         <url-pattern>/SignIn</url-pattern>
+        <url-pattern>/ValidateLogin</url-pattern>
         <url-pattern>/Admin</url-pattern>
+        <url-pattern>/Member</url-pattern>
         <url-pattern>/GetUsers</url-pattern>
         <url-pattern>/GetViews</url-pattern>
         <url-pattern>/ResetViews</url-pattern>
         <url-pattern>/GetDonations</url-pattern>
-        <url-pattern>/Member</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>AdminFilter</filter-name>
@@ -45,7 +45,7 @@
         <filter-name>MemberFilter</filter-name>
         <url-pattern>/Member</url-pattern>
         <url-pattern>/GetUserData</url-pattern>
-        <url-pattern>/UserActivitiesSubscription</url-pattern>
+        <url-pattern>/Subscriptions</url-pattern>
         <url-pattern>/DeleteAccount</url-pattern>
         <url-pattern>/scripts/memberDashboard.js</url-pattern>
     </filter-mapping>
@@ -56,7 +56,7 @@
 
 
     <session-config>
-        <session-timeout>1</session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 
     <listener>
@@ -85,6 +85,10 @@
         <location>/ErrorHandler</location>
     </error-page>
 
+    <error-page>
+        <exception-type>java.io.IOException</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
 
     <servlet>
         <servlet-name>ContactUs</servlet-name>
@@ -227,12 +231,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>UserActivitiesSubscription</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.UserActivitiesSubscriptionServlet</servlet-class>
+        <servlet-name>Subscriptions</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SubscriptionsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UserActivitiesSubscription</servlet-name>
-        <url-pattern>/UserActivitiesSubscription</url-pattern>
+        <servlet-name>Subscriptions</servlet-name>
+        <url-pattern>/Subscriptions</url-pattern>
     </servlet-mapping>
 
     <servlet>

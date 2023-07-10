@@ -6,7 +6,6 @@ import web.esame.gruppo35.helperClasses.DatabaseSessionManager;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,15 +15,23 @@ import java.sql.Statement;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@WebServlet(name = "GetDonationsServlet", value = "/GetDonationsServlet")
 public class GetDonationsServlet extends HttpServlet {
     // method to retrieve the total of donations grouped by month and send it as JSON in the response
-    protected void retrieveDonations(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, IOException {
-        Map<Integer, Float> donation_list = new LinkedHashMap<>();
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws NullPointerException, ServletException, SQLException, ClassNotFoundException, IOException, IllegalStateException {
+        Map<String, Integer> donation_list = new LinkedHashMap<>();
         // initialize donation_list
-        for (int i = 1; i <= 12; i++) {
-            donation_list.put(i, 0F);
-        }
+        donation_list.put("gennaio", 0);
+        donation_list.put("febbraio", 0);
+        donation_list.put("marzo", 0);
+        donation_list.put("aprile", 0);
+        donation_list.put("maggio", 0);
+        donation_list.put("giugno", 0);
+        donation_list.put("luglio", 0);
+        donation_list.put("agosto", 0);
+        donation_list.put("settembre", 0);
+        donation_list.put("ottobre", 0);
+        donation_list.put("novembre", 0);
+        donation_list.put("dicembre", 0);
 
         HttpSession session = request.getSession();
         Connection connection;
@@ -40,8 +47,22 @@ public class GetDonationsServlet extends HttpServlet {
 
         // Getting results and saving it in an array of beans
         while (result.next()) {
-            int month = result.getInt("month");
-            Float total_donations =result.getFloat("total_donations");
+            String month = switch (result.getInt("month")){
+                case 1 -> "gennaio";
+                case 2 -> "febbraio";
+                case 3 -> "marzo";
+                case 4 -> "aprile";
+                case 5 -> "maggio";
+                case 6 -> "giugno";
+                case 7 -> "luglio";
+                case 8 -> "agosto";
+                case 9 -> "settembre";
+                case 10 -> "ottobre";
+                case 11 -> "novembre";
+                case 12 -> "dicembre";
+                default -> throw new IllegalStateException("Unexpected value: " + result.getInt("month"));
+            };
+            Integer total_donations = result.getInt("total_donations");
             donation_list.put(month, total_donations);
         }
 
@@ -57,22 +78,22 @@ public class GetDonationsServlet extends HttpServlet {
         out.flush();
     }
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            retrieveDonations(request, response);
-        } catch (NullPointerException | IOException | SQLException | ClassNotFoundException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException | IllegalStateException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
-            retrieveDonations(request, response);
-        } catch (NullPointerException | IOException | SQLException | ClassNotFoundException e) {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException | IllegalStateException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

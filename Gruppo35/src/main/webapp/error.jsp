@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="style/error.css">
 <div id="error-container">
     <p id="error-box">
-        <b> <%= request.getAttribute("errorMessage") %> </b>
+        <b>
+            <%= (request.getAttribute("errorMessage") != null ) ? request.getAttribute("errorMessage") : "Ops, qualcosa è andato storto!" %>
+        </b>
         <i class="fa-regular fa-face-sad-tear fa-bounce"></i>
     </p>
 </div>

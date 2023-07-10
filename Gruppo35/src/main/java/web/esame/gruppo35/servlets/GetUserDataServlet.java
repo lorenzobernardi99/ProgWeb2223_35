@@ -16,53 +16,59 @@ import java.sql.*;
 
 
 public class GetUserDataServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
-    }
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException, ClassNotFoundException, SQLException, NullPointerException{
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         Connection connection;
         ResultSet result;
         UserBean user = null;
-        try{
-            connection = DatabaseSessionManager.getConnection(session);
-            String username= (String) session.getAttribute("username");
-            String query="SELECT * FROM USERS WHERE USERNAME = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, username);
-            result = statement.executeQuery();
-            while(result.next()){
-                user = new UserBean(
-                        result.getString(2),
-                        result.getString(3),
-                        result.getDate(4),
-                        result.getString(5),
-                        result.getString(6),
-                        UserRole.values()[result.getInt(7)],
-                        result.getString(8),
-                        result.getString(9)
-                );
-            }
-        }catch (ClassNotFoundException | SQLException | NullPointerException ex){
-            System.out.println("Errore :" + ex);
-        }
-        response.setContentType("application/json");
-        response.setCharacterEncoding("utf-8");
-        try(PrintWriter out = response.getWriter()){
-            Gson gson = new Gson();
-            String object = gson.toJson(user);
-            out.println(object);
-            out.flush();
-        }catch(IOException ex){
-            System.out.println("Errore :" + ex);
+
+        connection = DatabaseSessionManager.getConnection(session);
+        String username= (String) session.getAttribute("username");
+        String query="SELECT * FROM USERS WHERE USERNAME = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, username);
+        result = statement.executeQuery();
+        while(result.next()){
+            user = new UserBean(
+                    result.getString("name"),
+                    result.getString("surname"),
+                    result.getDate("birth_date"),
+                    result.getString("email_address"),
+                    result.getString("telephone_number"),
+                    UserRole.values()[result.getInt("role")],
+                    result.getString("username"),
+                    result.getString("password")
+            );
         }
 
+        response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
+
+        PrintWriter out = response.getWriter();
+        Gson gson = new Gson();
+        String object = gson.toJson(user);
+        out.println(object);
+        out.flush();
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException | ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        }
     }
 }

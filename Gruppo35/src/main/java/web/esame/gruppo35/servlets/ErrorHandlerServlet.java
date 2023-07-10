@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class ErrorHandlerServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Logica di gestione degli errori
         int statusCode = response.getStatus();
 
@@ -21,6 +21,11 @@ public class ErrorHandlerServlet extends HttpServlet {
 
         request.setAttribute("errorMessage", errorMessage);
 
-        request.getRequestDispatcher("/error.jsp").forward(request, response);
+        try {
+            request.getRequestDispatcher("/error.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+            response.sendRedirect("/error.jsp");
+        }
     }
 }

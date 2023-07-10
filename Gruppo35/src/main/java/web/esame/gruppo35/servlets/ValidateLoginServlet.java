@@ -18,10 +18,10 @@ public class ValidateLoginServlet extends HttpServlet {
     Connection connection = null;
     HttpSession session = null;
 
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ClassNotFoundException, NullPointerException {
         if (session.getAttribute("role")!=null) {
             //già autenticato
-            RequestDispatcher rd=request.getRequestDispatcher("Login");
+            RequestDispatcher rd=request.getRequestDispatcher("/Login");
             rd.forward(request, response);
         }
 
@@ -40,20 +40,21 @@ public class ValidateLoginServlet extends HttpServlet {
         result = stmt.executeQuery();
         if (result.next()) {
             retrievedUser = new UserBean(
-                    result.getString(2),
-                    result.getString(3),
-                    result.getDate(4),
-                    result.getString(5),
-                    result.getString(6),
-                    UserRole.values()[result.getInt(7)],
-                    result.getString(8),
-                    result.getString(9)
+                    result.getString("name"),
+                    result.getString("surname"),
+                    result.getDate("birth_date"),
+                    result.getString("email_address"),
+                    result.getString("telephone_number"),
+                    UserRole.values()[result.getInt("role")],
+                    result.getString("username"),
+                    result.getString("password")
             );
+            retrievedUser.setId(result.getInt("id"));
         }
 
         if ((retrievedUser != null ? retrievedUser.getRole() : null) == null){
             request.setAttribute("message", "35:Username e/o password errati");
-            RequestDispatcher rd=request.getRequestDispatcher("Login");
+            RequestDispatcher rd=request.getRequestDispatcher("/Login");
             rd.forward(request, response);
         } else {
             session.setAttribute("username", username);
@@ -72,13 +73,7 @@ public class ValidateLoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            // redirect to Login
-            response.sendRedirect("Login");
-        } catch (NullPointerException | IOException e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");
-        }
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }
 
     @Override
@@ -87,9 +82,9 @@ public class ValidateLoginServlet extends HttpServlet {
             session = request.getSession();
             connection = DatabaseSessionManager.getConnection(session);
             processData(request,response);
-        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException | IOException e) {
+        } catch (ServletException | ClassNotFoundException | NullPointerException | SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("error.jsp");
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
     }
 }

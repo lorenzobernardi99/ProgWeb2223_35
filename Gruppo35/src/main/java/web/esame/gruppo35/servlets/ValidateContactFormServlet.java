@@ -3,21 +3,17 @@ package web.esame.gruppo35.servlets;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
 
 public class ValidateContactFormServlet extends HttpServlet {
 
-    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processData(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, NullPointerException, MessagingException {
         // retrieve form parameter
         String name_surname = request.getParameter("name-surname");
         String sender = request.getParameter("email");
@@ -38,22 +34,17 @@ public class ValidateContactFormServlet extends HttpServlet {
             // mock session
             Session session = Session.getInstance(properties);
 
-            try {
-                // mock email
-                Message emailMessage = new MimeMessage(session);
-                emailMessage.setFrom(new InternetAddress(sender));
-                emailMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse("tum4world@nessunonoluogonoesiste.com"));
-                emailMessage.setSubject(subject);
-                emailMessage.setText(messageText);
+            // mock email
+            Message emailMessage = new MimeMessage(session);
+            emailMessage.setFrom(new InternetAddress(sender));
+            emailMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse("tum4world@nessunonoluogonoesiste.com"));
+            emailMessage.setSubject(subject);
+            emailMessage.setText(messageText);
 
-                // simulation of message sending
-                response.getWriter().println(emailMessage);
-                
-                response.sendRedirect("emailSent.jsp");
+            // simulation of message sending
+            response.getWriter().println(emailMessage);
 
-            } catch (MessagingException e) {
-                response.sendRedirect("error.jsp");
-            }
+            response.sendRedirect("emailSent.jsp");
         }
         else {
             request.setAttribute("message", "Indirzzo e-mail non valido");
@@ -80,12 +71,19 @@ public class ValidateContactFormServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // redirect to ContactUs
-        response.sendRedirect("ContactUs");
+        response.sendError(HttpServletResponse.SC_BAD_REQUEST);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processData(request,response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            processData(request,response);
+        } catch (ServletException | NullPointerException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        } catch (MessagingException e){
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
+        }
     }
 }

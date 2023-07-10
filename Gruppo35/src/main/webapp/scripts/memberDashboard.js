@@ -102,7 +102,7 @@ function getActivities(){
 }
 function getActivitiesJSON() {
 
-    let url = "UserActivitiesSubscription" + getJSessionIdFromUrl();
+    let url = "Subscriptions" + getJSessionIdFromUrl();
 
     fetch(url)
         .then(processStatus)
@@ -199,7 +199,7 @@ function processStatus(response) {
 
 function subscribe(targetActivityId){
 
-    let url = "UserActivitiesSubscription" + getJSessionIdFromUrl();
+    let url = "Subscriptions" + getJSessionIdFromUrl();
 
     fetch(url, {
         method: "POST",
