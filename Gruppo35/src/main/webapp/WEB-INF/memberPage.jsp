@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<script src="../scripts/memberDashboard.js"></script>
-
 <% UserRole loggedRole = (UserRole) session.getAttribute("role");
   boolean isAdherent = loggedRole == UserRole.ADERENTE;
   if(isAdherent){ %>
@@ -12,6 +10,7 @@
 <%}%>
 
 <%@ include file="../header.jsp"%>
+<script src="../scripts/memberDashboard.js<%=newHref%>"></script>
 
 <jsp:useBean id="activityBeanList" class="web.esame.gruppo35.helperClasses.ActivityBeanList" scope="application"/>
 
