@@ -140,12 +140,18 @@ function checkRole(input) {
 
 // to be replaced with AJAX/AJAJ validation
 
+// method to process response status
 function processStatus(response) {
-    let ok = 200;
+    const ok = 200;
+
+    if (response.redirected){
+        window.location.href = response.url;
+    }
     if (response.status === ok) {
-        return Promise.resolve(response);
-    } else {
-        return Promise.reject(response.status);
+        return Promise.resolve(response)
+    }
+    else {
+        return Promise.reject(response.status)
     }
 }
 
