@@ -4,6 +4,21 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <listener>
+        <listener-class>web.esame.gruppo35.helperClasses.ServletContextInitializer</listener-class>
+    </listener>
+    <listener>
+        <listener-class>web.esame.gruppo35.helperClasses.SessionListener</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>Homepage</welcome-file>
+    </welcome-file-list>
+
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
     <filter>
         <filter-name>CookiesFilter</filter-name>
         <filter-class>web.esame.gruppo35.helperClasses.CookiesSessionFilter</filter-class>
@@ -15,6 +30,10 @@
     <filter>
         <filter-name>MemberFilter</filter-name>
         <filter-class>web.esame.gruppo35.helperClasses.MemberFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>DonationFilter</filter-name>
+        <filter-class>web.esame.gruppo35.helperClasses.DonationFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>CookiesFilter</filter-name>
@@ -54,37 +73,9 @@
         <url-pattern>/SendDonation</url-pattern>
     </filter-mapping>
 
-
-    <session-config>
-        <session-timeout>30</session-timeout>
-    </session-config>
-
-    <listener>
-        <listener-class>web.esame.gruppo35.helperClasses.ServletContextInitializer</listener-class>
-    </listener>
-
-    <listener>
-        <listener-class>web.esame.gruppo35.helperClasses.SessionListener</listener-class>
-    </listener>
-
-    <welcome-file-list>
-        <welcome-file>Homepage</welcome-file>
-    </welcome-file-list>
-
-    <servlet>
-        <servlet-name>ErrorHandler</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.ErrorHandlerServlet</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>ErrorHandler</servlet-name>
-        <url-pattern>/ErrorHandler</url-pattern>
-    </servlet-mapping>
-
     <error-page>
         <location>/ErrorHandler</location>
     </error-page>
-
     <error-page>
         <exception-type>java.io.IOException</exception-type>
         <location>/error.jsp</location>
@@ -138,6 +129,42 @@
         <servlet-name>GetDonations</servlet-name>
         <servlet-class>web.esame.gruppo35.servlets.GetDonationsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ErrorHandler</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.ErrorHandlerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Activities</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.ActivitiesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WhoWeAre</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.WhoWeAreServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomePage</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.HomePageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Member</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.MemberServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetUserData</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.GetUserDataServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Subscriptions</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SubscriptionsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendDonation</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.SendDonationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAccount</servlet-name>
+        <servlet-class>web.esame.gruppo35.servlets.DeleteAccountServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>ContactUs</servlet-name>
@@ -187,73 +214,41 @@
         <servlet-name>GetDonations</servlet-name>
         <url-pattern>/GetDonations</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Activities</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.ActivitiesServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Activities</servlet-name>
         <url-pattern>/Activities</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>WhoWeAre</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.WhoWeAreServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>WhoWeAre</servlet-name>
         <url-pattern>/WhoWeAre</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>HomePage</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.HomePageServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>HomePage</servlet-name>
         <url-pattern>/Homepage</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Member</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.MemberServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Member</servlet-name>
         <url-pattern>/Member</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>GetUserData</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.GetUserDataServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>GetUserData</servlet-name>
         <url-pattern>/GetUserData</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Subscriptions</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.SubscriptionsServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Subscriptions</servlet-name>
         <url-pattern>/Subscriptions</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>SendDonation</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.SendDonationServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>SendDonation</servlet-name>
         <url-pattern>/SendDonation</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>DeleteAccount</servlet-name>
-        <servlet-class>web.esame.gruppo35.servlets.DeleteAccountServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>DeleteAccount</servlet-name>
         <url-pattern>/DeleteAccount</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ErrorHandler</servlet-name>
+        <url-pattern>/ErrorHandler</url-pattern>
+    </servlet-mapping>
+
 </web-app>
