@@ -1,8 +1,6 @@
 package web.esame.gruppo35.helperClasses;
 
 import javax.servlet.*;
-import javax.servlet.annotation.*;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,7 +25,7 @@ public class AdminFilter implements Filter {
                 servletResponse.sendRedirect("error.jsp");
             }
         } else {
-            servletResponse.sendRedirect("Login");
+            servletResponse.sendRedirect("/Login");
         }
     }
 

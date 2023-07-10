@@ -23,7 +23,7 @@
                 }
                 <%= showBanner ? "disableLinkHrefs();" : "" %>
             </script>
-            <% if(showBanner) request.getRequestDispatcher("/CookiesPolicy.jsp").include(request,response);%>
+            <% if(showBanner) request.getRequestDispatcher("/cookiesPolicy.jsp").include(request,response);%>
             <div class="footer-content">
                 <p class="address">
                     <%=application.getAttribute("organizationName") %><br>

@@ -53,6 +53,11 @@ article{
     color: inherit;
 }
 
+h2 {
+    width: 28vw;
+    margin: 0 auto 2vw;
+}
+
 #caption{
     font-size: 1vw;
     padding: 1vw;

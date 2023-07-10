@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 <link rel="stylesheet" href="../style/admin.css">
-<script src="../scripts/adminDashboard.js"></script>
+<script src="../scripts/adminDashboard.js<%=newHref%>"></script>
 <script src="../scripts/highcharts.js"></script>
 
 <span id="errorText"></span>

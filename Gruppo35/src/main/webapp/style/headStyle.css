@@ -126,3 +126,7 @@ nav, #navbar{
     margin-right: auto;
     transition: opacity 0.5s ease-in-out;
 }
+
+figure{
+    margin:0;
+}

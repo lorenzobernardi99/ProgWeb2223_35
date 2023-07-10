@@ -1,17 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<script src="../../scripts/memberDashboard.js"></script>
+<script src="../scripts/memberDashboard.js"></script>
 
 <% UserRole loggedRole = (UserRole) session.getAttribute("role");
   boolean isAdherent = loggedRole == UserRole.ADERENTE;
   if(isAdherent){ %>
-    <link rel="stylesheet" href="../../style/adherentStyle.css">
-    <script src="../../scripts/donationScript.js"></script>
+    <link rel="stylesheet" href="../style/adherentStyle.css">
+    <script src="../scripts/donationScript.js"></script>
 <%}else{%>
-   <link rel="stylesheet" href="../../style/sympathizerStyle.css">
+   <link rel="stylesheet" href="../style/sympathizerStyle.css">
 <%}%>
 
-<%@ include file="../../header.jsp"%>
+<%@ include file="../header.jsp"%>
 
 <jsp:useBean id="activityBeanList" class="web.esame.gruppo35.helperClasses.ActivityBeanList" scope="application"/>
 
@@ -73,4 +73,4 @@
 
 
 
-<%@ include file="../../footer.jsp"%>
+<%@ include file="../footer.jsp"%>

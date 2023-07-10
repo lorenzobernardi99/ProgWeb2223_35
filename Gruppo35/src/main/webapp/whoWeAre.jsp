@@ -31,17 +31,19 @@
     </div>
 </div>
 <div id="credits">
-    <figcaption id="caption">
-        Foto di
-        <a href="https://unsplash.com/@earl_plannerzone?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Earl Wilcox</a>,
-        <a href="https://unsplash.com/@wegenerb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">bill wegener</a>,
-        <a href="https://unsplash.com/@zeak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmitrij Paskevic</a>,
-        <a href="https://unsplash.com/@yibeigeng?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yibei Geng</a>,
-        <a href="https://unsplash.com/@tylagalo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Lagalo</a>,
-        <a href="https://unsplash.com/@clarke_designs_photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sam Clarke</a>,
-        su
-        <a href="https://unsplash.com/it/foto/3k3l2brxmwQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-    </figcaption>
+    <figure>
+        <figcaption id="caption">
+            Foto di
+            <a href="https://unsplash.com/@earl_plannerzone?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Earl Wilcox</a>,
+            <a href="https://unsplash.com/@wegenerb?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">bill wegener</a>,
+            <a href="https://unsplash.com/@zeak?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dmitrij Paskevic</a>,
+            <a href="https://unsplash.com/@yibeigeng?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Yibei Geng</a>,
+            <a href="https://unsplash.com/@tylagalo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Lagalo</a>,
+            <a href="https://unsplash.com/@clarke_designs_photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sam Clarke</a>,
+            su
+            <a href="https://unsplash.com/it/foto/3k3l2brxmwQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+        </figcaption>
+    </figure>
 </div>
 <script>
     function changeText(x){

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class CookiesFilter implements Filter{
+public class CookiesSessionFilter implements Filter{
     @Override
     public void init(FilterConfig filterConfig) {}
 
