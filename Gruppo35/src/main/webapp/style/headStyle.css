@@ -88,6 +88,7 @@ nav, #navbar{
     border: 1px white solid;
     transition-duration: 250ms;
     cursor: pointer;
+    font-size: 2vh;
 }
 .nav-link:hover, #HomePageImg:hover{
     background-color: #0077be;
