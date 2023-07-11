@@ -8,7 +8,6 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
-import java.net.ConnectException;
 import java.sql.*;
 
 public class ValidateLoginServlet extends HttpServlet {
