@@ -59,8 +59,8 @@
       <button class="button" onclick="showDeleteBanner();">Elimina</button>
       <div id="deleteBanner">
         <p>Sei sicuro di voler cancellare il tuo account?</p>
-        <form>
-          <button id="deleteAccountButton" type="submit" formaction="deleteAccount" class="button">Cancella Account</button>
+        <form action="DeleteAccount<%=newHref%>">
+          <button id="deleteAccountButton" type="submit" class="button">Cancella Account</button>
           <button id="deleteBannerDismissButton" class="button">Annulla operazione</button>
         </form>
       </div>

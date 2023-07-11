@@ -4,16 +4,16 @@
 }
 
 h1 {
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
+    font-size: 4vh;
+    background-color: rgba(255,255,255,0.3);
+    margin: auto;
+    padding: 1.5vh;
     color: white;
 }
 
 section {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -21,8 +21,8 @@ section {
 }
 
 section img {
-    width: 50vw;
-    height: 50vw;
+    width: 40vw;
+    height: 40vw;
     display: block;
     margin: 0 auto;
     max-width: 100%;
@@ -33,9 +33,10 @@ section img {
 section p {
     margin: 20px;
     max-width: 50vw;
-    text-align: justify;
+    text-align: start;
     color: white;
-    font-size: 2vh;
+    letter-spacing: 2px;
+    font-size: 3vh;
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
 }

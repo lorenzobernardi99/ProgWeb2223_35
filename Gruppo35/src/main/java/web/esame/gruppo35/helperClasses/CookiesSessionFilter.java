@@ -88,7 +88,7 @@ public class CookiesSessionFilter implements Filter{
             }
             try {
                 chain.doFilter(req,resp);
-            } catch (ServletException e) {
+            } catch (Exception e) {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         }

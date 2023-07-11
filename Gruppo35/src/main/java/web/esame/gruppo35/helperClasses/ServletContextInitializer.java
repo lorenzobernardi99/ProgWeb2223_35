@@ -13,29 +13,29 @@ import java.util.*;
 public class ServletContextInitializer implements ServletContextListener {
     String[] activity1 = {
             "Raccolta fondi per la lotta alla povertà infantile",
-            "In questa attività l'associazione si impegna nella raccolta di fondi per la lotta alla povertà infantile," +
-                    "supportando progetti di aiuto a bambini e famiglie in difficoltà economica." +
-                    "Attraverso iniziative come eventi di beneficenza, campagne di crowdfunding e partnership con altre organizzazioni," +
+            "In questa attività l'associazione si impegna nella raccolta di fondi per la lotta alla povertà infantile, " +
+                    "supportando progetti di aiuto a bambini e famiglie in difficoltà economica. " +
+                    "Attraverso iniziative come eventi di beneficenza, campagne di crowdfunding e partnership con altre organizzazioni, " +
                     "l'associazione lavora per garantire a ogni bambino la possibilità di crescere in modo sano e sereno.",
             "child.jpg"
     };
     String[] activity2 = {
             "Assistenza agli anziani soli",
-            "In questa attività l'associazione si dedica all'assistenza degli anziani soli e in difficoltà." +
-                    "Attraverso visite domiciliari, chiamate telefoniche, attività di supporto psicologico e sociale," +
+            "In questa attività l'associazione si dedica all'assistenza degli anziani soli e in difficoltà. " +
+                    "Attraverso visite domiciliari, chiamate telefoniche, attività di supporto psicologico e sociale, " +
                     "l'associazione cerca di offrire un aiuto concreto e un sostegno emotivo a coloro" +
-                    "che si trovano in situazioni di isolamento o di difficoltà." +
-                    "L'obiettivo è quello di garantire una maggiore qualità di vita agli anziani" +
+                    "che si trovano in situazioni di isolamento o di difficoltà. " +
+                    "L'obiettivo è quello di garantire una maggiore qualità di vita agli anziani " +
                     "e di promuovere una società più solidale e inclusiva.",
             "old.jpg"
     };
     String[] activity3 = {
             "Protezione dell'ambiente e del territorio",
-                    "In questa attività l'associazione si occupa della tutela dell'ambiente e del territorio," +
-                    "svolgendo attività di sensibilizzazione, monitoraggio e difesa dei beni naturali e culturali." +
-                    "Attraverso iniziative come pulizia delle spiagge, raccolta differenziata," +
-                    "progetti di educazione ambientale e supporto a comunità locali," +
-                    "l'associazione lavora per promuovere uno sviluppo sostenibile" +
+                    "In questa attività l'associazione si occupa della tutela dell'ambiente e del territorio, " +
+                    "svolgendo attività di sensibilizzazione, monitoraggio e difesa dei beni naturali e culturali. " +
+                    "Attraverso iniziative come pulizia delle spiagge, raccolta differenziata, " +
+                    "progetti di educazione ambientale e supporto a comunità locali, " +
+                    "l'associazione lavora per promuovere uno sviluppo sostenibile " +
                     "e un uso consapevole delle risorse del nostro pianeta.",
             "environment.jpg"
     };
