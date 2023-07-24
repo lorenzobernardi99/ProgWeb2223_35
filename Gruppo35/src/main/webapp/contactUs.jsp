@@ -11,7 +11,7 @@
         <p id="error-message">
             <%=request.getAttribute("message")%>
         </p>
-        <form action="ValidateContactForm" method="post" onsubmit="return validateForm()">
+        <form action="ValidateContactForm<%=newHref%>" method="post" onsubmit="return validateForm()">
             <label for="name-surname">Nome e Cognome:</label>
             <input type="text" id="name-surname" name="name-surname" placeholder="Mario Rossi">
 

@@ -7,7 +7,7 @@
   <i id="errorText" class="error-message">
     <%= (request.getAttribute("errorMessage") == null) ? "" : request.getAttribute("errorMessage") %>
   </i>
-  <form id="signInForm" action="SignInValidation" method="post" onsubmit="return validateData()">
+  <form id="signInForm" action="SignInValidation<%=newHref%>" method="post" onsubmit="return validateData()">
     <label for="name">Nome:</label>
     <input type="text" id="name" name="name" placeholder="Mario">
 

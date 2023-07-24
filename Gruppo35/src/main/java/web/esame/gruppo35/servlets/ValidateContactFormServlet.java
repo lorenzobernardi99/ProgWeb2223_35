@@ -44,7 +44,10 @@ public class ValidateContactFormServlet extends HttpServlet {
             // simulation of message sending
             response.getWriter().println(emailMessage);
 
-            response.sendRedirect("emailSent.jsp");
+            boolean urlRewrite = request.getAttribute("URLRewrite") != null;
+            String newHref = (urlRewrite) ? ";jsessionid=" + request.getSession(false).getId() : "";
+
+            response.sendRedirect("emailSent.jsp" + newHref);
         }
         else {
             request.setAttribute("message", "Indirzzo e-mail non valido");

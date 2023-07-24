@@ -41,8 +41,12 @@
         <url-pattern>/WhoWeAre</url-pattern>
         <url-pattern>/Activities</url-pattern>
         <url-pattern>/ContactUs</url-pattern>
+        <url-pattern>/ValidateContactForm</url-pattern>
+        <url-pattern>/emailSent.jsp</url-pattern>
+        <url-pattern>/registrationDone.jsp</url-pattern>
         <url-pattern>/Login</url-pattern>
         <url-pattern>/SignIn</url-pattern>
+        <url-pattern>/SignInValidation</url-pattern>
         <url-pattern>/ValidateLogin</url-pattern>
         <url-pattern>/Admin</url-pattern>
         <url-pattern>/Member</url-pattern>

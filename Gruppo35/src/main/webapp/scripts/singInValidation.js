@@ -1,5 +1,17 @@
 let error = false;
 
+function getJSessionIdFromUrl() {
+    var referrerUrl = document.referrer;
+    var jsessionId = "";
+
+    var regex = /(;)jsessionid=([^&]+)/;
+    var match = regex.exec(referrerUrl);
+    if (match) {
+        jsessionId = match[0];
+    }
+    return jsessionId;
+}
+
 function formatPrefix(prefix) {
     let cleanedValue = prefix.value.replace(/\D/g, ""); // Remove any non-digit characters except "+"
     prefix.value = "+" + cleanedValue.slice(0, 2); // Add "+" and keep only the first two digits
@@ -158,9 +170,11 @@ function processStatus(response) {
 async function checkUsername(input) {
     const username = input.value;
 
+    let url = "SignInValidation" + getJSessionIdFromUrl();
+
     if (isInputNotEmpty(input)) {
         try {
-            const response = await fetch("SignInValidation", {
+            const response = await fetch(url, {
                 method: "POST",
                 body: JSON.stringify({ username }),
                 headers: {
